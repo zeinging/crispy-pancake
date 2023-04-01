@@ -24,7 +24,6 @@ public class PlayerPlane : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInput = GetComponent<PlayerInput>();
         playerInputActions.Player.Enable();
-        //playerInputActions.Player.Movement.performed += Movement;
     }
 
 
@@ -34,26 +33,31 @@ public class PlayerPlane : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward, speed * Time.deltaTime);//constant forward movement
 
 
-        Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
+        Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
 
         var step = turnSpeed * Time.deltaTime;
 
-        Quaternion ShipRot = transform.rotation;
-        Quaternion target = ShipRot;
-        Quaternion ShipX = Quaternion.Euler(60 * inputVector.y, 90 * inputVector.x, transform.localEulerAngles.z);
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, ShipX, step);
+        float Xtemp = transform.localEulerAngles.y + inputVector.x * speed;
+        Quaternion XAngle = Quaternion.AngleAxis(inputVector.y * 45, Vector3.right);//clamp plane up and down rotation
+        XAngle = Quaternion.Euler(XAngle.eulerAngles.x, Xtemp, XAngle.eulerAngles.z);//add in Right and left rotation
+        Quaternion XLevel = Quaternion.Euler(0, Xtemp, transform.localEulerAngles.z);//level plane rotation
 
-    }
 
-    void Movement(InputAction.CallbackContext context){
+        if(inputVector.magnitude != 0){
 
-        Debug.Log(context);
-        Vector2 inputVector = context.ReadValue<Vector2>();
-        Quaternion ShipRot = transform.rotation;
-        //Quaternion ShipX = Quaternion.Euler(transform.rotation.eulerAngles.x + 45, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        Quaternion target = ShipRot;
-        Quaternion ShipX = Quaternion.Euler(45,transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, ShipX, 1000);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XAngle, step);//rotate plane from inputs
+            
+
+        }else{
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XLevel, step);//level plane when inpus equal 0
+        }
+
+        // if(inputVector.y != 0){
+        //     //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, temptest, step);
+        //     transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XAngle, step);
+        // }else{
+        //     //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XLevel, step);
+        // }
 
     }
 
