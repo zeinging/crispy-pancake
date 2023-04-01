@@ -43,7 +43,7 @@ public class PlayerPlane : MonoBehaviour
         Quaternion XLevel = Quaternion.Euler(0, Xtemp, transform.localEulerAngles.z);//level plane rotation
 
 
-        if(inputVector.magnitude != 0){
+        if(inputVector.magnitude != 0.2){
 
             transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XAngle, step);//rotate plane from inputs
             
