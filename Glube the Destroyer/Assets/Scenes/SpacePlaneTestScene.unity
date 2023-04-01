@@ -338,6 +338,7 @@ MonoBehaviour:
   speed: 20
   turnSpeed: 130
   laserSpeed: 20
+  Plane: {fileID: 205068534}
 --- !u!4 &205068538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f123846119282cd4581de40cbae61de4, type: 3}

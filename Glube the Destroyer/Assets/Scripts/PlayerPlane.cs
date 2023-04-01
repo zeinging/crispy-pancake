@@ -15,7 +15,9 @@ public class PlayerPlane : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
-    
+    private Vector2 inputVector;
+
+    public GameObject Plane;
 
     // Start is called before the first frame update
     void Awake()
@@ -24,11 +26,48 @@ public class PlayerPlane : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInput = GetComponent<PlayerInput>();
         playerInputActions.Player.Enable();
+
+
+
+        //inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
+
+        //Vector3 tempROt = new Vector3(inputVector.y * 45f, inputVector.x * 3, inputVector.x * -30);
+
+        //LeanTween.rotateLocal(this.gameObject, tempROt, turnSpeed);
+
     }
 
 
 
     void Update(){
+
+
+
+        QuaternionRotationMethod();
+
+        //LeanTweenMethod();
+
+
+    }
+
+
+    private void LeanTweenMethod(){
+
+        LeanTween.move(Plane, transform.position + transform.forward, speed * Time.deltaTime);//constant forward movement
+
+        Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
+
+        float tempX = inputVector.x + transform.localEulerAngles.y;
+
+        Vector3 tempROt = new Vector3(inputVector.y * 45f, tempX * 2f, 0);
+
+        LeanTween.rotateX(Plane, inputVector.y * 45, 0.2f);
+        LeanTween.rotateY(Plane, inputVector.x + Time.deltaTime, 0.2f);
+
+    }
+
+
+    private void QuaternionRotationMethod(){
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward, speed * Time.deltaTime);//constant forward movement
 
@@ -36,14 +75,8 @@ public class PlayerPlane : MonoBehaviour
 
         var UDStep = turnSpeed * Time.deltaTime;
         
-
-        float XMov = Mathf.MoveTowards(transform.localEulerAngles.y, transform.localEulerAngles.y + turnSpeed, inputVector.x);
         float Xtemp = transform.localEulerAngles.y + inputVector.x * 0.5f;
         
-        //Debug.Log(inputVector.x);
-
-        //Quaternion XAngle = Quaternion.AngleAxis(inputVector.y * 45, Vector3.right);//clamp plane up and down rotation
-        //Quaternion ZAngle = Quaternion.AngleAxis(inputVector.x * 10, Vector3.up);
         Quaternion XAngle = Quaternion.Euler(45 * inputVector.y, Xtemp, -30 * inputVector.x);//add in Right and left rotation
         
         Quaternion XLevel = Quaternion.Euler(0, Xtemp, 0);//level plane rotation
@@ -57,13 +90,6 @@ public class PlayerPlane : MonoBehaviour
         }else{
             transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XLevel, UDStep);//level plane when inpus equal 0
         }
-
-        // if(inputVector.y != 0){
-        //     //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, temptest, step);
-        //     transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XAngle, step);
-        // }else{
-        //     //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XLevel, step);
-        // }
 
     }
 
