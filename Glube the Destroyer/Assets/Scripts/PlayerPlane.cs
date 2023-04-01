@@ -32,7 +32,6 @@ public class PlayerPlane : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward, speed * Time.deltaTime);//constant forward movement
 
-
         Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
 
         var UDStep = turnSpeed * Time.deltaTime;
