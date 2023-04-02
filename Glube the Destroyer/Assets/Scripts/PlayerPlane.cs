@@ -34,9 +34,13 @@ public class PlayerPlane : MonoBehaviour
 
     private void Update()
     {
-        QuaternionRotationMethod();
+        //QuaternionRotationMethod();
 
-        //LeanTweenMethod();
+        
+    }
+
+    private void FixedUpdate(){
+        MyBodyQuaternionRotationMethod();
     }
 
     private void LeanTweenMethod()
@@ -61,20 +65,45 @@ public class PlayerPlane : MonoBehaviour
 
         var UDStep = turnSpeed * Time.deltaTime;
 
-        float Xtemp = transform.localEulerAngles.y + inputVector.x * 0.5f;
+        float Xtemp = transform.localEulerAngles.y + inputVector.x * 10;
 
-        Quaternion XAngle = Quaternion.Euler(45 * inputVector.y, Xtemp, -75 * inputVector.x);//add in Right and left rotation
+        Quaternion XAngle = Quaternion.Euler(45 * inputVector.y, Xtemp, -45 * inputVector.x);//add in Right and left rotation
 
         Quaternion XLevel = Quaternion.Euler(0, Xtemp, 0);//level plane rotation
 
         if (inputVector.magnitude != 0.2)
         {
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XAngle, UDStep);//rotate plane from inputs
+            //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XAngle, UDStep);//rotate plane from inputs
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, XAngle, UDStep);//rotate plane from inputs
         }
         //else
         //{
             //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XLevel, UDStep);//level plane when inpus equal 0
         //}
+    }
+
+    private void MyBodyQuaternionRotationMethod(){
+
+
+        //myBody.transform.position = Vector3.MoveTowards(myBody.transform.position, myBody.transform.position + myBody.transform.forward, speed * Time.deltaTime);//constant forward movement
+        myBody.velocity = myBody.transform.forward * speed * Time.fixedDeltaTime * 100;
+
+        Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
+
+        var UDStep = turnSpeed * Time.fixedDeltaTime;
+
+        float Xtemp = myBody.transform.localEulerAngles.y + inputVector.x * 10;
+
+        Quaternion XAngle = Quaternion.Euler(45 * inputVector.y, Xtemp, -45 * inputVector.x);//add in Right and left rotation
+
+        Quaternion XLevel = Quaternion.Euler(0, Xtemp, 0);//level plane rotation
+
+        if (inputVector.magnitude != 0.2)
+        {
+            //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XAngle, UDStep);//rotate plane from inputs
+            myBody.transform.localRotation = Quaternion.Lerp(myBody.transform.localRotation, XAngle, UDStep);//rotate plane from inputs
+        }
+
     }
 
     // Update is called once per frame
