@@ -8,7 +8,7 @@ public class BuildingHandleDestroyProcess : MonoBehaviour
 {
     public DestoryNearestBuildingDirector buildingDestoryingDirector;
     public float health = 10.0f;
-    public GameObject actualBuildilng;
+    public GameObject buildingWrapper;
 
     private bool IsBeingDestroyed = false;
     private bool destroyed = false;
@@ -32,7 +32,7 @@ public class BuildingHandleDestroyProcess : MonoBehaviour
         buildingDestoryingDirector.HandleCompletedBulidingDestruction();
 
         Debug.Log("Deleting");
-        Destroy(actualBuildilng.gameObject);
+        Destroy(buildingWrapper.gameObject);
     }
 
     private void HandleDestructionCountdownTimer()
