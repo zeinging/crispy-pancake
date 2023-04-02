@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.UIElements;
 
 public class DestoryNearestBuildingDirector : MonoBehaviour
 {
     public Transform[] buildings;
 
+    public GameObject sphere;
+
     private bool needsToFindNextBuilding = true;
+
+    private bool start = false;
 
     private Transform? FindClosestBuilding()
     {
@@ -31,6 +37,16 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            start = true;
+        }
+
+        if (start != true)
+        {
+            return;
+        }
+
         if (!needsToFindNextBuilding)
         {
             // If we don't need to find the next building, simply return.
@@ -49,8 +65,11 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         else
         {
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
-            agent.destination = ((Transform)closestVector).position;
+            Vector3 target = ((Transform)closestVector).position;
+            agent.destination = target;
             needsToFindNextBuilding = false;
+
+            sphere.transform.position = target;
         }
     }
 }
