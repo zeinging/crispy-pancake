@@ -5,6 +5,13 @@ namespace Assets.Team_Members_Folders.CloakingPotion
 {
     public class GlubeAnimationController : MonoBehaviour
     {
-        // Use this for initialization
+        public void StartWalkingAnimationdDirectedTowards()
+
+        {
+        }
+
+        public void StartAttackingAnimationDirectedAt()
+        {
+        }
     }
 }
