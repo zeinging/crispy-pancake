@@ -10,16 +10,18 @@ using UnityEngine.InputSystem.Controls;
 
 public class DestoryNearestBuildingDirector : MonoBehaviour
 {
-    public Transform[] buildings;
+    public Transform?[] buildings;
 
     private bool needsToFindNextBuilding = true;
 
-    private Transform FindClosestBuilding()
+    private Transform? FindClosestBuilding()
     {
         float? smallestDistance = null;
-        Transform closestVector3 = null;
-        foreach (Transform building in buildings)
+        Transform? closestVector3 = null;
+        foreach (Transform? building in buildings)
         {
+            if (building == null) continue;
+
             float distance = Vector3.Distance(building.position, this.transform.position);
 
             if (distance < smallestDistance || closestVector3 == null)
@@ -45,7 +47,7 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
             return;
         }
 
-        Transform closestVector = FindClosestBuilding();
+        Transform? closestVector = FindClosestBuilding();
 
         if (closestVector == null)
         {
