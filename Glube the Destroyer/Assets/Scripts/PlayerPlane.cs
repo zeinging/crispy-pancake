@@ -106,6 +106,12 @@ public class PlayerPlane : MonoBehaviour
 
     }
 
+
+    void OnCollisionEnter(Collision other){
+        Destroy(gameObject);
+        Debug.Log("Crashed");
+    }
+
     // Update is called once per frame
     //void FixedUpdate()
     //{
