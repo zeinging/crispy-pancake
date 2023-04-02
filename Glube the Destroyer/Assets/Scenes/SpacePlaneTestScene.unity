@@ -403,6 +403,8 @@ MonoBehaviour:
   turnSpeed: 10
   laserSpeed: 20
   Plane: {fileID: 205068534}
+  LaserShot: {fileID: 5128690108637038337, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+  LaserPistle: {fileID: 1703359594}
 --- !u!65 &205068536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2568,6 +2570,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5702670964523955175, guid: 680a237fb759b9642a26105548306c02, type: 3}
   m_PrefabInstance: {fileID: 2146272546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1703359594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1703359595}
+  m_Layer: 0
+  m_Name: Laser Pistle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1703359595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703359594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 205068538}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1711177072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8993125868976475979, guid: 680a237fb759b9642a26105548306c02, type: 3}
@@ -3304,3 +3336,64 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 752067b512998f940b01402f29726cf6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 680a237fb759b9642a26105548306c02, type: 3}
+--- !u!1001 &4865213535250272027
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 205068538}
+    m_Modifications:
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508922790178955981, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128690108637038337, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_Name
+      value: Laser Shot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5128690108637038337, guid: 715820a3a49887d4ebdd604def720003, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 715820a3a49887d4ebdd604def720003, type: 3}

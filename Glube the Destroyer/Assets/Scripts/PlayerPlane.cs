@@ -17,6 +17,8 @@ public class PlayerPlane : MonoBehaviour
 
     public GameObject Plane;
 
+    public GameObject LaserShot, LaserPistle;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -24,6 +26,8 @@ public class PlayerPlane : MonoBehaviour
         playerInputActions = new PlayerInputActions();
         playerInput = GetComponent<PlayerInput>();
         playerInputActions.Player.Enable();
+
+        playerInputActions.Player.Shoot.performed += ShootLaser;
 
         //inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
 
@@ -35,12 +39,18 @@ public class PlayerPlane : MonoBehaviour
     private void Update()
     {
         //QuaternionRotationMethod();
-
+        
         
     }
 
     private void FixedUpdate(){
         MyBodyQuaternionRotationMethod();
+    }
+
+    private void ShootLaser(InputAction.CallbackContext context){
+        if(context.performed){
+            Instantiate(LaserShot, LaserPistle.transform.position, LaserPistle.transform.rotation);
+        }
     }
 
     private void LeanTweenMethod()
@@ -108,6 +118,8 @@ public class PlayerPlane : MonoBehaviour
 
 
     void OnCollisionEnter(Collision other){
+
+        if(!other.gameObject.GetComponent<LaserScript>())//don't destroy if collided with own laser
         Destroy(gameObject);
         Debug.Log("Crashed");
     }
