@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class BuildingHandleDestroyProcess : MonoBehaviour
 {
-    public GameObject taco;
+    public DestoryNearestBuildingDirector buildingDestoryingDirector;
+
+    private void HandleStartDestroyBuildingProcess()
+    {
+        // This should make the agent stop and also animate glube to be attacking the building
+        buildingDestoryingDirector.handleStopAgentAndAnimateAttacking();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Test");
+        HandleStartDestroyBuildingProcess();
         // Code to execute when the trigger is entered
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Test");
-        //Hello
     }
 }
