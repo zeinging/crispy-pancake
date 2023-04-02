@@ -642,8 +642,6 @@ MonoBehaviour:
   - {fileID: 1614684648}
   - {fileID: 1758761809}
   - {fileID: 474970042}
-  - {fileID: 0}
-  sphere: {fileID: 0}
 --- !u!1 &1454650680
 GameObject:
   m_ObjectHideFlags: 0
