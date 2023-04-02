@@ -63,7 +63,7 @@ public class PlayerPlane : MonoBehaviour
 
         float Xtemp = transform.localEulerAngles.y + inputVector.x * 0.5f;
 
-        Quaternion XAngle = Quaternion.Euler(45 * inputVector.y, Xtemp, -30 * inputVector.x);//add in Right and left rotation
+        Quaternion XAngle = Quaternion.Euler(45 * inputVector.y, Xtemp, -75 * inputVector.x);//add in Right and left rotation
 
         Quaternion XLevel = Quaternion.Euler(0, Xtemp, 0);//level plane rotation
 
@@ -71,10 +71,10 @@ public class PlayerPlane : MonoBehaviour
         {
             transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XAngle, UDStep);//rotate plane from inputs
         }
-        else
-        {
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XLevel, UDStep);//level plane when inpus equal 0
-        }
+        //else
+        //{
+            //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XLevel, UDStep);//level plane when inpus equal 0
+        //}
     }
 
     // Update is called once per frame
