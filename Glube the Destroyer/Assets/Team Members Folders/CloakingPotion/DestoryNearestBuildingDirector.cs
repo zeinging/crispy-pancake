@@ -66,7 +66,16 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         }
     }
 
-    public void handleStopAgentAndAnimateAttacking()
+    public void HandleCompletedBulidingDestruction()
     {
+        needsToFindNextBuilding = true;
+    }
+
+    public void HandleStopAgentAndAnimateAttacking()
+
+    {
+        // Stops the agent
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.isStopped = true;
     }
 }
