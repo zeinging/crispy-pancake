@@ -1,3 +1,6 @@
+#nullable enable
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +14,10 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
 
     private bool needsToFindNextBuilding = true;
 
-    private Transform? FindClosestBuilding()
+    private Transform FindClosestBuilding()
     {
         float? smallestDistance = null;
-        Transform? closestVector3 = null;
+        Transform closestVector3 = null;
         foreach (Transform building in buildings)
         {
             float distance = Vector3.Distance(building.position, this.transform.position);
@@ -42,7 +45,7 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
             return;
         }
 
-        Transform? closestVector = FindClosestBuilding();
+        Transform closestVector = FindClosestBuilding();
 
         if (closestVector == null)
         {
