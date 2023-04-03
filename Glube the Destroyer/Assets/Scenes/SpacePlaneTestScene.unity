@@ -1230,6 +1230,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2907127041860445635, guid: 680a237fb759b9642a26105548306c02, type: 3}
   m_PrefabInstance: {fileID: 2146272546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &665114666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5536922371222176001, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+  m_PrefabInstance: {fileID: 881026722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &681878677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,6 +1621,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4147759782688038233, guid: 680a237fb759b9642a26105548306c02, type: 3}
   m_PrefabInstance: {fileID: 2146272546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &881026722
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1423534210382285518, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_Name
+      value: Glube_Rig_With_Animator
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1768428658990747764, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786530024604878, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 91a91fa53b44dca43a90adaca533ad67, type: 2}
+    - target: {fileID: 2233786530169344832, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786530169344833, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786530752743449, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786530752743454, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786530995109462, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786530995109463, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786531233252945, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_Name
+      value: Eye Sphere Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786531233252946, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786531233252947, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786531459796074, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786531459796075, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786531491663914, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2233786531491663915, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377971152344253956, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
 --- !u!1 &901680963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 254176710394709413, guid: 680a237fb759b9642a26105548306c02, type: 3}
@@ -2570,6 +2704,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5702670964523955175, guid: 680a237fb759b9642a26105548306c02, type: 3}
   m_PrefabInstance: {fileID: 2146272546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1669705934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2233786531233252945, guid: aeaf11a9574f5c64a8b78afaf802ac60, type: 3}
+  m_PrefabInstance: {fileID: 881026722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1669705940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669705934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e0c0136333be146b3310487a86082d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EyeHealth: 10
+  EyeHurt: {r: 1, g: 0, b: 0, a: 0}
+  EyeBall: {fileID: 665114666}
+  GotHit: 0
 --- !u!1 &1703359594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3325,6 +3480,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 680a237fb759b9642a26105548306c02, type: 3}
       propertyPath: m_Name
       value: Glube_Rig
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 680a237fb759b9642a26105548306c02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1613105060660746987, guid: 680a237fb759b9642a26105548306c02, type: 3}
       propertyPath: m_Materials.Array.data[0]
