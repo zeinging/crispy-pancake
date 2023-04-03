@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638161317195423382
+  lastModified: 638161333000299564
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 581120
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -35,13 +35,15 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 1512690373372513155}
   - {fileID: -3191280132533056718}
-  EditorEvents: []
+  EditorEvents:
+  - {fileID: 8010891713674059157}
+  - {fileID: 7894404625163042949}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3191280132533056718}
   StringsBanks:
   - {fileID: 1512690373372513155}
-  cacheTime: 638161317195463391
+  cacheTime: 638161333000336634
   cacheVersion: 131603
 --- !u!114 &1512690373372513155
 MonoBehaviour:
@@ -58,8 +60,62 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638161317195463391
+  lastModified: 638161333000336634
   FileSizes:
   - Name: Desktop
-    Value: 712
+    Value: 820
   Exists: 1
+--- !u!114 &7894404625163042949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Test SFX
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Test SFX
+  Guid:
+    Data1: 739661788
+    Data2: 1192484910
+    Data3: -10860901
+    Data4: 835359730
+  Banks:
+  - {fileID: -3191280132533056718}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8010891713674059157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Test Music
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/Test Music
+  Guid:
+    Data1: 2061387146
+    Data2: 1227691173
+    Data3: 343104688
+    Data4: 1748935755
+  Banks:
+  - {fileID: -3191280132533056718}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 52097
