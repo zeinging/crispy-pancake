@@ -1,3 +1,6 @@
+#nullable enable
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,16 +10,20 @@ using UnityEngine.InputSystem.Controls;
 
 public class DestoryNearestBuildingDirector : MonoBehaviour
 {
-    public Transform[] buildings;
+    public Transform[]? buildings;
 
     private bool needsToFindNextBuilding = true;
 
     private Transform? FindClosestBuilding()
     {
+        if (buildings == null) return null;
+
         float? smallestDistance = null;
         Transform? closestVector3 = null;
-        foreach (Transform building in buildings)
+        foreach (Transform? building in buildings)
         {
+            if (building == null) continue;
+
             float distance = Vector3.Distance(building.position, this.transform.position);
 
             if (distance < smallestDistance || closestVector3 == null)
@@ -57,5 +64,18 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
             agent.destination = ((Transform)closestVector).position;
             needsToFindNextBuilding = false;
         }
+    }
+
+    public void HandleCompletedBulidingDestruction()
+    {
+        needsToFindNextBuilding = true;
+    }
+
+    public void HandleStopAgentAndAnimateAttacking()
+
+    {
+        // Stops the agent
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.isStopped = true;
     }
 }
