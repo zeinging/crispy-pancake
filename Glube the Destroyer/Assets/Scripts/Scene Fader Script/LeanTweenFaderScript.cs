@@ -19,8 +19,10 @@ public class LeanTweenFaderScript : MonoBehaviour {
 
     public float Duration = 0.3f, staySeconds = 3f;
 
-    [HideInInspector]
+    //[HideInInspector]
     //public Player Player;
+
+    public Image LoadingImage;
 
     public AudioSource TransitionSund;
 
@@ -93,8 +95,9 @@ public class LeanTweenFaderScript : MonoBehaviour {
         Panel.GetComponent<Image>().color = temp;
         yield return null;
         }
-
-        Time.timeScale = 0f;
+        LoadingImage.gameObject.SetActive(true);
+        
+        //Time.timeScale = 0f;
         //temp.a = 1;
         //Panel.GetComponent<Image>().color = temp;
 
@@ -103,13 +106,13 @@ public class LeanTweenFaderScript : MonoBehaviour {
 
         yield return StartCoroutine(MyCoroutineScript.WaitForRealSeconds(1f));
         //SceneManager.LoadScene (level);
-        AsyncOperation operation = SceneManager.LoadSceneAsync(level);
-        loadbar.gameObject.SetActive(true);
-        while (!operation.isDone) {
-            float progress = Mathf.Clamp01(operation.progress / .9f);
-            loadbar.value = progress;
-            yield return null;
-        }
+         AsyncOperation operation = SceneManager.LoadSceneAsync(level);
+        // loadbar.gameObject.SetActive(true);
+        // while (!operation.isDone) {
+        //     float progress = Mathf.Clamp01(operation.progress / .9f);
+        //     loadbar.value = progress;
+        //     yield return null;
+        // }
 
 
         //string temp = SceneManager.GetActiveScene().name;
@@ -117,14 +120,16 @@ public class LeanTweenFaderScript : MonoBehaviour {
         
 
 
-        loadbar.gameObject.SetActive(false);
+        //loadbar.gameObject.SetActive(false);
         //GameplayController.instance.DialogueBool = true;// freezes the player durring fader animation
+        LoadingImage.gameObject.SetActive(false);
         yield return StartCoroutine (MyCoroutineScript.WaitForRealSeconds(1f));//this is used to give more time to load a scene.
         //anim.Play("FadeOut");
         //LeanTween.moveLocal(TopSlide, new Vector3(0, 320, 0), Duration);
         //LeanTween.moveLocal(BottomSlide, new Vector3(0, -320, 0), Duration);
         
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
+        
 
         while(temp.a != 0){
 
