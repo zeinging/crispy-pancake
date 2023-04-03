@@ -625,10 +625,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 0
+  HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  sourceBankPath: Assets/FMOD/Builds
+  sourceProjectPath: Assets/FMOD/GlubeTheDestroyer_FMOD/GlubeTheDestroyer.fspro
+  sourceBankPath: Assets/FMOD/GlubeTheDestroyer_FMOD/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
