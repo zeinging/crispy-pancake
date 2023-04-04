@@ -39,10 +39,6 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-        }
-
         if (!needsToFindNextBuilding)
         {
             // If we don't need to find the next building, simply return.
