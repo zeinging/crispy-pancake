@@ -17,6 +17,7 @@ public class LaserScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //if(!laserHit)
         myBody.velocity = myBody.transform.forward * laserSpeed * Time.fixedDeltaTime * 100;
 
         if(laserDuration > 0){
@@ -31,7 +32,13 @@ public class LaserScript : MonoBehaviour
     void OnCollisionEnter(Collision other){
 
         if(!other.gameObject.GetComponent<PlayerPlane>()){//don't destroy if laser hits player
+            
+            //myBody.velocity = Vector3.zero;
+            //myBody.transform.position = other.transform.position;
+
             Destroy(gameObject);
+            //this.gameObject.SetActive(false);
+
         }
 
     }

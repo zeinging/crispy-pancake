@@ -120,8 +120,9 @@ public class PlayerPlane : MonoBehaviour
     void OnCollisionEnter(Collision other){
 
         if(!other.gameObject.GetComponent<LaserScript>())//don't destroy if collided with own laser
+        playerInputActions.Player.Disable();
         Destroy(gameObject);
-        Debug.Log("Crashed");
+        //Debug.Log("Crashed");
     }
 
     // Update is called once per frame

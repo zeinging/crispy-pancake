@@ -37,7 +37,7 @@ public class DialogueTriggerAera : MonoBehaviour
 
      void OnTriggerEnter(){
 
-        Debug.Log(barkDialogue);
+        //Debug.Log(barkDialogue);
         
         DialogueTex.text = barkDialogue;
         StartCoroutine(PanelTime());

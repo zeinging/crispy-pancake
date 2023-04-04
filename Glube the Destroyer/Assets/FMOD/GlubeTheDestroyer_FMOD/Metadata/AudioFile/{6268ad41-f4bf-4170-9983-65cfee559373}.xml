@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6268ad41-f4bf-4170-9983-65cfee559373}">
+		<property name="assetPath">
+			<value>SFX/Glube_Walk.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.6952083333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8c5aa0c3-dda3-4011-ad34-8b15602eb2f0}</destination>
+		</relationship>
+	</object>
+</objects>
