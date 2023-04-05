@@ -1,10 +1,10 @@
 ﻿using System.Collections;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Assets.Team_Members_Folders.CloakingPotion
 {
-
     public class GlubeAnimationController : MonoBehaviour
     {
         public Animator anim;
@@ -13,16 +13,16 @@ namespace Assets.Team_Members_Folders.CloakingPotion
 
         public NavMeshAgent myAgent;
 
-        private void Start(){
+        private void Start()
+        {
             //anim.SetFloat("AgentSpeed", agentSpeedSLider);
-
         }
 
-        void Update(){
+        private void Update()
+        {
             agentSpeedSLider = Mathf.Clamp01(agentSpeedSLider);
             float temp = Mathf.Clamp01(myAgent.velocity.magnitude);
             anim.SetFloat("AgentSpeed", temp);
-            
         }
 
         public void StartWalkingAnimationdDirectedTowards(Vector3 targetDirection)
@@ -33,8 +33,9 @@ namespace Assets.Team_Members_Folders.CloakingPotion
             //Vector3 targetDirection = Quaternion.LookRotation();
         }
 
-        public void StartAttackingAnimationDirectedAt()
+        public void StartAttackingAnimation()
         {
+            anim.SetBool("IsAttackingBuilding", true);
         }
     }
 }
