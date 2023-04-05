@@ -45,6 +45,8 @@ public class PlayerPlane : MonoBehaviour
 
     private void FixedUpdate(){
         MyBodyQuaternionRotationMethod();
+
+        
     }
 
     private void ShootLaser(InputAction.CallbackContext context){
@@ -117,12 +119,19 @@ public class PlayerPlane : MonoBehaviour
     }
 
 
-    void OnCollisionEnter(Collision other){
+    void OnTriggerEnter(Collider other){
 
-        if(!other.gameObject.GetComponent<LaserScript>())//don't destroy if collided with own laser
-        playerInputActions.Player.Disable();
-        Destroy(gameObject);
-        //Debug.Log("Crashed");
+        if(!other.gameObject.GetComponent<LaserScript>()){//don't take damage if collided with own laser
+
+        //playerInputActions.Player.Disable();
+        //Destroy(gameObject);
+        if(!other.gameObject.GetComponent<DialogueTriggerAera>()){//don't take damage if fly in dialogue trigger area.
+
+        Debug.Log("Crashed");
+        }
+
+        }
+            
     }
 
     // Update is called once per frame

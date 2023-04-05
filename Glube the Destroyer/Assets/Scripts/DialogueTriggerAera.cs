@@ -8,7 +8,9 @@ public class DialogueTriggerAera : MonoBehaviour
 
     public string barkDialogue;
 
-    public float DilogueDuration = 5f;
+    public float DialogueDuration = 5f;
+
+    private float tempTime;
 
     public GameObject Panel;
 
@@ -34,6 +36,8 @@ public class DialogueTriggerAera : MonoBehaviour
 
     private IEnumerator PanelTime(){
 
+        GetComponent<SphereCollider>().enabled = false;//disable so this only works once.
+        GetComponent<MeshRenderer>().enabled = false;
         Panel.SetActive(true);
         GameObject TempParent = Panel.transform.GetChild(1).gameObject;
         GameObject tempPort = TempParent.transform.Find(SelectedPortrait.ToString()).gameObject;
@@ -42,18 +46,27 @@ public class DialogueTriggerAera : MonoBehaviour
         //Debug.Log(Panel.transform.GetChild(1).name);
         //GameObject tempPort = Panel.transform.Find(SelectedPortrait.ToString()).gameObject;
         tempPort.SetActive(true);
-        yield return new WaitForSeconds(DilogueDuration);
+        yield return new WaitForSeconds(DialogueDuration);
         Panel.SetActive(false);
         tempPort.SetActive(false);
+        Destroy(gameObject);
 
     }
 
-     void OnTriggerEnter(){
+     void OnTriggerEnter(Collider other){
 
         //Debug.Log(barkDialogue);
         
-        DialogueTex.text = barkDialogue;
-        StartCoroutine(PanelTime());
+        
+        if(other.GetComponent<PlayerPlane>()){
+
+            //DialogueTex.text = barkDialogue;
+            //StartCoroutine(PanelTime());
+            //StartCoroutine(DialogueManager.instance.OpenDialogue(DialogueDuration, SelectedPortrait.ToString(), barkDialogue));
+            DialogueManager.instance.OpenManager(DialogueDuration, SelectedPortrait.ToString(), barkDialogue);
+            //this.gameObject.SetActive(false);
+            Destroy(gameObject);//destroy to prevent triggering the same dialogue
+        }
 
     }
 
