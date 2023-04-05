@@ -1348,7 +1348,7 @@ GameObject:
   - component: {fileID: 1310829724}
   - component: {fileID: 1310829731}
   m_Layer: 0
-  m_Name: Agent Cylinder
+  m_Name: Glube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
