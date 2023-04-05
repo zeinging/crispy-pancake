@@ -1,5 +1,6 @@
 #nullable enable
 
+using Assets.Team_Members_Folders.CloakingPotion;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,8 +12,14 @@ using UnityEngine.InputSystem.Controls;
 public class DestoryNearestBuildingDirector : MonoBehaviour
 {
     public Transform[]? buildings;
+    private GlubeAnimationController? animController;
 
     private bool needsToFindNextBuilding = true;
+
+    private void Start()
+    {
+        animController = GetComponent<GlubeAnimationController>();
+    }
 
     private Transform? FindClosestBuilding()
     {
@@ -39,10 +46,6 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
-        {
-        }
-
         if (!needsToFindNextBuilding)
         {
             // If we don't need to find the next building, simply return.
@@ -56,11 +59,16 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
             // Glube has destroyed all buildings!
             // Level Fail!~!
             // TODO: IMPLEMENT LEVEL FAIL!
-            Debug.Log("Level Failed. All Buildings Destroyed");
+            //Debug.Log("Level Failed. All Buildings Destroyed");
+            if (animController != null)
+            {
+                animController.GlubeWin();
+            }
         }
         else
         {
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            agent.isStopped = false;
             agent.destination = ((Transform)closestVector).position;
             needsToFindNextBuilding = false;
         }
@@ -69,6 +77,8 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
     public void HandleCompletedBulidingDestruction()
     {
         needsToFindNextBuilding = true;
+
+        Debug.Log("Updated needs to find next building");
     }
 
     public void HandleStopAgentAndAnimateAttacking()
@@ -77,5 +87,9 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         // Stops the agent
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.isStopped = true;
+        if (animController != null)
+        {
+            animController.StartAttackingAnimation();
+        }
     }
 }
