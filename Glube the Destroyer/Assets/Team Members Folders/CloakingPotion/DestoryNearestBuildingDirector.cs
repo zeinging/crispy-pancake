@@ -57,6 +57,7 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         else
         {
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            agent.isStopped = false;
             agent.destination = ((Transform)closestVector).position;
             needsToFindNextBuilding = false;
         }
@@ -65,6 +66,8 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
     public void HandleCompletedBulidingDestruction()
     {
         needsToFindNextBuilding = true;
+
+        Debug.Log("Updated needs to find next building");
     }
 
     public void HandleStopAgentAndAnimateAttacking()

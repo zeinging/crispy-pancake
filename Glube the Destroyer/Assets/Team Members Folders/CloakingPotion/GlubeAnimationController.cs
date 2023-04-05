@@ -25,12 +25,10 @@ namespace Assets.Team_Members_Folders.CloakingPotion
             anim.SetFloat("AgentSpeed", temp);
         }
 
-        public void StartWalkingAnimationdDirectedTowards(Vector3 targetDirection)
+        public void StopAttacking()
 
         {
-            //anim.CrossFade("Walk", 0.25f);
-            //anim.Play("Walk");
-            //Vector3 targetDirection = Quaternion.LookRotation();
+            anim.SetBool("IsAttackingBuilding", false);
         }
 
         public void StartAttackingAnimation()
