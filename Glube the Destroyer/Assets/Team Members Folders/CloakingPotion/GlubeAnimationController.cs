@@ -33,7 +33,14 @@ namespace Assets.Team_Members_Folders.CloakingPotion
 
         public void StartAttackingAnimation()
         {
+            Debug.Log("Starting Attacking Animation");
             anim.SetBool("IsAttackingBuilding", true);
+        }
+
+        public void GlubeWin()
+        {
+            anim.SetBool("IsAttackingBuilding", false);
+            anim.SetBool("isGlubeWin", true);
         }
     }
 }

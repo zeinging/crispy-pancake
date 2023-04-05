@@ -12,16 +12,23 @@ public class BuildingHandleDestroyProcess : MonoBehaviour
     public float health = 10.0f;
     public GameObject buildingWrapper;
 
+    private bool entered = false;
+
     private void HandleStartDestroyBuildingProcess()
     {
         // This should make the agent stop and also animate glube to be attacking the building
         buildingDestoryingDirector.HandleStopAgentAndAnimateAttacking();
-        animController.StartAttackingAnimation();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (entered)
+        {
+            return;
+
+        }
         HandleStartDestroyBuildingProcess();
+        entered = true;
         // Code to execute when the trigger is entered
     }
 
