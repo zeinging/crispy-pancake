@@ -75,9 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ed20505896fe246a0c6a28687712e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserSpeed: 85
+  laserSpeed: 185
   laserDuration: 2
-  laserHit: 0
 --- !u!1 &8297419700987918773
 GameObject:
   m_ObjectHideFlags: 0
