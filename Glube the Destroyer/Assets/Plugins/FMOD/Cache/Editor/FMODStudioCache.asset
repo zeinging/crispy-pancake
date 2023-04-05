@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638161550501037906
+  lastModified: 638161499468663055
   FileSizes:
   - Name: Desktop
     Value: 581120
@@ -43,7 +43,7 @@ MonoBehaviour:
   - {fileID: -3191280132533056718}
   StringsBanks:
   - {fileID: 1512690373372513155}
-  cacheTime: 638161550501110164
+  cacheTime: 638161499468673058
   cacheVersion: 131603
 --- !u!114 &1512690373372513155
 MonoBehaviour:
@@ -60,7 +60,7 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638161550501110164
+  lastModified: 638161499468673058
   FileSizes:
   - Name: Desktop
     Value: 820
