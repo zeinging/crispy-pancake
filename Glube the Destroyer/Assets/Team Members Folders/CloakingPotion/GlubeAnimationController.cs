@@ -41,6 +41,7 @@ namespace Assets.Team_Members_Folders.CloakingPotion
         {
             anim.SetBool("IsAttackingBuilding", false);
             anim.SetBool("isGlubeWin", true);
+            //anim.SetBool("isGlubeWin", false);//maybe change isGlubeWin to trigger inseatd of bool
         }
     }
 }

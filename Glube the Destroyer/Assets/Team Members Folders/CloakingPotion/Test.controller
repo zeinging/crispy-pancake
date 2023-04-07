@@ -22,14 +22,14 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &-8468080935400590032
+--- !u!1102 &-8353897433403545152
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Combo-2-Collisions
+  m_Name: Glube_RigAction_celebration_laughLoop
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -42,7 +42,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ed9089651824b734fabc75e3b2a76db3, type: 2}
+  m_Motion: {fileID: 7095269838447188668, guid: 13e08ef3665928f4da2f81eb57351356, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -87,7 +87,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 4455109385816663382}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 5525664857631511593}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -96,12 +97,24 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7995250221057183299, guid: f2e18026b7c66584aa0228057665357a, type: 3}
+  m_Motion: {fileID: 7400000, guid: 2a7344e6b4929764f9f7d3a24f2f4da5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-6299910292702002982
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d00d1e7263d69b4ea25dacc8a63c6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1101 &-5868073032374649900
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -116,7 +129,7 @@ AnimatorStateTransition:
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3020382418040384473}
   m_Solo: 0
-  m_Mute: 0
+  m_Mute: 1
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.25
@@ -139,7 +152,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -9114233605181313941}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -6299910292702002982}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -148,12 +162,46 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3172756630722565055, guid: f2e18026b7c66584aa0228057665357a, type: 3}
+  m_Motion: {fileID: 7400000, guid: ed9089651824b734fabc75e3b2a76db3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-5257756637931006776
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8353897433403545152}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 1
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &-4601498061756307240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d00d1e7263d69b4ea25dacc8a63c6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!206 &-4103887817330775326
 BlendTree:
   m_ObjectHideFlags: 1
@@ -207,32 +255,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &-2025278514835145674
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Combo-3-Collisions
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bcfadc06c8315094bbe719dae16d57fa, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1101 &-1008062925197605113
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -252,8 +274,8 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
-  m_ExitTime: 0.90625
-  m_HasExitTime: 1
+  m_ExitTime: 0
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -332,6 +354,32 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 0
+--- !u!1102 &1081602860298414614
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Glube_Rig_Angry
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 8485121575485977272, guid: d9220212f16e1f74a83cad08fc905c5b, type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &2891089277532306237
 AnimatorState:
   serializedVersion: 6
@@ -344,7 +392,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2336213166260819295}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -4601498061756307240}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -369,7 +418,8 @@ AnimatorState:
   m_Name: GlubeWin
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
+  m_Transitions:
+  - {fileID: -5257756637931006776}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -407,17 +457,17 @@ AnimatorStateMachine:
     m_State: {fileID: 2891089277532306237}
     m_Position: {x: 460, y: -40, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 8945919822575939273}
-    m_Position: {x: 50, y: -190, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -8468080935400590032}
-    m_Position: {x: 230, y: -290, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -2025278514835145674}
-    m_Position: {x: 350, y: -210, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 3020382418040384473}
-    m_Position: {x: -60, y: -100, z: 0}
+    m_Position: {x: -80, y: -70, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -8353897433403545152}
+    m_Position: {x: -160, y: -150, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 1081602860298414614}
+    m_Position: {x: -260, y: -10, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 8667775852324736369}
+    m_Position: {x: -260, y: 60, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 66574544841888134}
@@ -452,14 +502,26 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &8945919822575939273
+--- !u!114 &5525664857631511593
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d00d1e7263d69b4ea25dacc8a63c6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1102 &8667775852324736369
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Combo-1-Collisions
+  m_Name: Glube_Rig_melting
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -472,7 +534,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2a7344e6b4929764f9f7d3a24f2f4da5, type: 2}
+  m_Motion: {fileID: -7801888095166444841, guid: d9220212f16e1f74a83cad08fc905c5b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
