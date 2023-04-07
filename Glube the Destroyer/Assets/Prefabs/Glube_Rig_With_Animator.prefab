@@ -723,7 +723,7 @@ GameObject:
   - component: {fileID: 2233786530363386443}
   m_Layer: 0
   m_Name: Glube_Rig_With_Animator
-  m_TagString: Untagged
+  m_TagString: Glube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1140,7 +1140,7 @@ GameObject:
   - component: {fileID: 2233786530169344833}
   m_Layer: 0
   m_Name: Eyeball Block Rear Trigger
-  m_TagString: Untagged
+  m_TagString: Glube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1235,7 +1235,7 @@ GameObject:
   - component: {fileID: 2233786530752743454}
   m_Layer: 0
   m_Name: Tentalce Trigger
-  m_TagString: Untagged
+  m_TagString: Glube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1330,7 +1330,7 @@ GameObject:
   - component: {fileID: 2233786530995109463}
   m_Layer: 0
   m_Name: Base Trigger
-  m_TagString: Untagged
+  m_TagString: Glube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1520,7 +1520,7 @@ GameObject:
   - component: {fileID: 2233786531459796075}
   m_Layer: 0
   m_Name: Middle Trigger
-  m_TagString: Untagged
+  m_TagString: Glube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1615,7 +1615,7 @@ GameObject:
   - component: {fileID: 2233786531491663915}
   m_Layer: 0
   m_Name: Top Trigger
-  m_TagString: Untagged
+  m_TagString: Glube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

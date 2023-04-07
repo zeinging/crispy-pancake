@@ -29,7 +29,7 @@ public class LaserScript : MonoBehaviour
     }
 
 
-    void OnCollisionEnter(Collision other){
+    void OnTriggerEnter(Collider other){
 
         if(!other.gameObject.GetComponent<PlayerPlane>()){//don't destroy if laser hits player
             

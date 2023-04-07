@@ -19,6 +19,12 @@ public class PlayerPlane : MonoBehaviour
 
     public GameObject LaserShot, LaserPistle;
 
+    public Transform UIAimTransform;
+
+    //public GameObject TargetTest;
+
+    private Camera cam;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -28,6 +34,8 @@ public class PlayerPlane : MonoBehaviour
         playerInputActions.Player.Enable();
 
         playerInputActions.Player.Shoot.performed += ShootLaser;
+
+        cam = Camera.main;
 
         //inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
 
@@ -40,7 +48,7 @@ public class PlayerPlane : MonoBehaviour
     {
         //QuaternionRotationMethod();
         
-        
+        AimToUICrossHair();
     }
 
     private void FixedUpdate(){
@@ -53,6 +61,56 @@ public class PlayerPlane : MonoBehaviour
         if(context.performed){
             Instantiate(LaserShot, LaserPistle.transform.position, LaserPistle.transform.rotation);
         }
+    }
+
+    private void AimToUICrossHair(){
+
+        //Vector3 temp = transform.forward + UIAimTransform.forward;
+        // got to use camera to convert to world space
+        //Vector3 pos = cam.ScreenToWorldPoint(UIAimTransform.position);
+        //RaycastHit pos = cam.ScreenPointToRay(UIAimTransform.position, cam.stereoActiveEye eye);
+        //Vector3 pos = UIAimTransform.position;
+        //pos.z *= -1;
+        //Debug.Log(pos);
+
+        //pos += cam.transform.forward;
+        //pos.x *= -1;
+        //pos.y *= -1;
+        
+
+        //Vector3 CamPos = cam.transform.position;
+        //CamPos.x = pos.x;
+        //CamPos.y = pos.y;
+        //pos = pos + cam.transform.position;
+        //pos.z = transform.position.z;
+        //Vector3 UiForwar = UIAimTransform.forward;
+        //UiForwar.z = transform.position.z;
+        //Debug.dr(cam.transform.position, CamPos + cam.transform.forward * 50f);
+        //Debug.DrawLine(UIAimTransform.localPosition, cam.transform.forward * 5f);
+        //TargetTest.transform.position = pos;
+
+        Vector3 point = new Vector3();
+        //Event   currentEvent = Event.current;
+        Vector2 UIPos = new Vector2();
+
+        // Get the mouse position from Event.
+        // Note that the y position from Event is inverted.
+        UIPos.x = UIAimTransform.transform.position.x;
+        UIPos.y = UIAimTransform.transform.position.y;
+
+        
+
+        point = cam.ScreenToWorldPoint(new Vector3(UIPos.x, UIPos.y, cam.farClipPlane));
+
+        //TargetTest.transform.position = point;
+
+        Vector3 pistleDirection = point - LaserPistle.transform.position;
+
+        Vector3 targetDirection = Vector3.RotateTowards(LaserPistle.transform.forward, pistleDirection, 720, 0);
+
+        LaserPistle.transform.rotation = Quaternion.LookRotation(targetDirection);
+
+
     }
 
     private void LeanTweenMethod()
@@ -127,12 +185,45 @@ public class PlayerPlane : MonoBehaviour
         //Destroy(gameObject);
         if(!other.gameObject.GetComponent<DialogueTriggerAera>()){//don't take damage if fly in dialogue trigger area.
 
-        Debug.Log("Crashed");
+        if(other.gameObject.tag == "Glube"){//testing Glube triggers
+            myBody.velocity = Vector3.zero;
+            playerInputActions.Player.Disable();
+            this.transform.parent = other.transform;
+            GetComponent<PlayerPlane>().enabled = false;
+        }
+
+        Debug.Log(other.name);
         }
 
         }
             
     }
+
+
+
+    // void OnGUI(){
+
+    //     Vector3 point = new Vector3();
+    //     Event   currentEvent = Event.current;
+    //     Vector2 mousePos = new Vector2();
+
+    //     // Get the mouse position from Event.
+    //     // Note that the y position from Event is inverted.
+    //     mousePos.x = currentEvent.mousePosition.x;
+    //     mousePos.y = cam.pixelHeight - currentEvent.mousePosition.y;
+
+    //     point = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
+
+    //     GUILayout.BeginArea(new Rect(20, 20, 250, 120));
+    //     GUILayout.Label("Screen pixels: " + cam.pixelWidth + ":" + cam.pixelHeight);
+    //     GUILayout.Label("Mouse position: " + mousePos);
+    //     GUILayout.Label("World position: " + point.ToString("F3"));
+    //     GUILayout.EndArea();
+        
+
+    // }
+
+
 
     // Update is called once per frame
     //void FixedUpdate()
