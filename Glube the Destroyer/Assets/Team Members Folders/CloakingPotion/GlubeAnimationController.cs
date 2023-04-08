@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.AI;
@@ -41,6 +41,8 @@ namespace Assets.Team_Members_Folders.CloakingPotion
         {
             anim.SetBool("IsAttackingBuilding", false);
             anim.SetBool("isGlubeWin", true);
+            Debug.Log("wining");
+            //anim.Play("GlubeWin");
             //anim.SetBool("isGlubeWin", false);//maybe change isGlubeWin to trigger inseatd of bool
         }
     }

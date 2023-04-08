@@ -72,6 +72,7 @@ public class SceneFaderScript : MonoBehaviour {
             GetComponentInChildren<leanTweenFader>().FadingLeanTween();
 
         StartCoroutine(PlaySoundEffect());
+        Time.timeScale = 0;
 
 
         yield return StartCoroutine(MyCoroutineScript.WaitForRealSeconds(1f));
@@ -93,6 +94,8 @@ public class SceneFaderScript : MonoBehaviour {
         loadbar.gameObject.SetActive(false);
         //GameplayController.instance.DialogueBool = true;// freezes the player durring fader animation
         yield return StartCoroutine (MyCoroutineScript.WaitForRealSeconds(1f));//this is used to give more time to load a scene.
+
+        Time.timeScale = 1;
 
         if(anim != null)
         anim.Play("FadeOut");

@@ -19,6 +19,8 @@ public class LeanTweenFaderScript : MonoBehaviour {
 
     public float Duration = 0.3f, staySeconds = 3f;
 
+    public string sceneLevel;
+
     //[HideInInspector]
     //public Player Player;
 
@@ -51,7 +53,7 @@ public class LeanTweenFaderScript : MonoBehaviour {
     public IEnumerator WaitTest(float t){
 
         yield return new WaitForSeconds(t);
-        LoadLevel("SpacePlaneTestScene");
+        LoadLevel(sceneLevel);
 
     }
 
@@ -88,7 +90,7 @@ public class LeanTweenFaderScript : MonoBehaviour {
         //Mathf.Clamp01(temp.a);
         while(temp.a != 1){
 
-        temp.a = Mathf.MoveTowards(temp.a, 1, Duration * Time.deltaTime);
+        temp.a = Mathf.MoveTowards(temp.a, 1, Duration * 0.02f);
         
         //temp.a += Time.deltaTime;
         //Debug.Log(temp);
@@ -97,7 +99,7 @@ public class LeanTweenFaderScript : MonoBehaviour {
         }
         LoadingImage.gameObject.SetActive(true);
         
-        //Time.timeScale = 0f;
+        Time.timeScale = 0f;
         //temp.a = 1;
         //Panel.GetComponent<Image>().color = temp;
 
@@ -122,7 +124,7 @@ public class LeanTweenFaderScript : MonoBehaviour {
 
         //loadbar.gameObject.SetActive(false);
         //GameplayController.instance.DialogueBool = true;// freezes the player durring fader animation
-        LoadingImage.gameObject.SetActive(false);
+        //LoadingImage.gameObject.SetActive(false);
         yield return StartCoroutine (MyCoroutineScript.WaitForRealSeconds(1f));//this is used to give more time to load a scene.
         //anim.Play("FadeOut");
         //LeanTween.moveLocal(TopSlide, new Vector3(0, 320, 0), Duration);
@@ -133,13 +135,19 @@ public class LeanTweenFaderScript : MonoBehaviour {
 
         while(temp.a != 0){
 
-        temp.a = Mathf.MoveTowards(temp.a, 0, Duration * Time.deltaTime);
+        temp.a = Mathf.MoveTowards(temp.a, 0, Duration * 0.02f);
         //temp.a -= Time.deltaTime;
         //Debug.Log(temp);
         Panel.GetComponent<Image>().color = temp;
+
+        if(temp.a < 0.5){
+            Time.timeScale = 1f;
+            LoadingImage.gameObject.SetActive(false);
+        }
         //Mathf.Clamp01(temp.a);
         yield return null;
         }
+        //LoadingImage.gameObject.SetActive(false);
         //temp.a = 0;
         //Panel.GetComponent<Image>().color = temp;
 

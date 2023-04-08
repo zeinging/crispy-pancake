@@ -76,7 +76,8 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
 
     public void HandleCompletedBulidingDestruction()
     {
-        needsToFindNextBuilding = true;
+        //needsToFindNextBuilding = true;
+        StartCoroutine(FindDelay());
 
         Debug.Log("Updated needs to find next building");
     }
@@ -87,9 +88,29 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         // Stops the agent
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.isStopped = true;
+        agent.velocity = agent.velocity * 0.1f;
+        StartCoroutine(AttackDelay());
+        //if (animController != null)
+        //{
+            //animController.StartAttackingAnimation();
+        //}
+    }
+
+    private IEnumerator FindDelay(){
+
+        yield return new WaitForSeconds(2.5f);
+        needsToFindNextBuilding = true;
+
+    }
+
+    private IEnumerator AttackDelay(){
+
+        yield return new WaitForSeconds(1.2f);
         if (animController != null)
         {
             animController.StartAttackingAnimation();
         }
+
     }
+
 }

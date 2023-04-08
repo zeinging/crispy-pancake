@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class DialogueTriggerAera : MonoBehaviour
 {
 
-    public string barkDialogue;
+    public string barkDialogue, DestroyedDialogue;
 
-    public float DialogueDuration = 5f;
+    public float DialogueDuration = 5f, DestroyedDuration = 5f;
 
     private float tempTime;
 
@@ -31,6 +31,12 @@ public class DialogueTriggerAera : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnDestroy(){//open dialogue after trigger destroyed
+
+        if(DestroyedDialogue != "")
+        DialogueManager.instance.OpenManager(DestroyedDuration, SelectedPortrait.ToString(), DestroyedDialogue);
     }
 
 
@@ -65,7 +71,10 @@ public class DialogueTriggerAera : MonoBehaviour
             //StartCoroutine(DialogueManager.instance.OpenDialogue(DialogueDuration, SelectedPortrait.ToString(), barkDialogue));
             DialogueManager.instance.OpenManager(DialogueDuration, SelectedPortrait.ToString(), barkDialogue);
             //this.gameObject.SetActive(false);
-            Destroy(gameObject);//destroy to prevent triggering the same dialogue
+            //if(DestroyedDialogue == "")
+            //Destroy(gameObject);//destroy to prevent triggering the same dialogue
+            GetComponent<MeshRenderer>().enabled = false;// tempoary might get rid of later
+            GetComponent<SphereCollider>().enabled = false;//disabe trigger to prevent same dialogue showing up again.
         }
 
     }

@@ -22,6 +22,8 @@ public class BuildingHandleDestroyProcess : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //if(other.GetComponent<BuildingHandleDestroyProcess>()){//only if enter building trigger zone
+
         if (entered)
         {
             return;
@@ -30,6 +32,7 @@ public class BuildingHandleDestroyProcess : MonoBehaviour
         HandleStartDestroyBuildingProcess();
         entered = true;
         // Code to execute when the trigger is entered
+        //}
     }
 
     public void HandleBuildingDestroyed()
@@ -40,5 +43,6 @@ public class BuildingHandleDestroyProcess : MonoBehaviour
 
         Debug.Log("Deleting");
         Destroy(buildingWrapper.gameObject);
+        GameplayControllerScript.instance.ABuildingDestroyed();
     }
 }
