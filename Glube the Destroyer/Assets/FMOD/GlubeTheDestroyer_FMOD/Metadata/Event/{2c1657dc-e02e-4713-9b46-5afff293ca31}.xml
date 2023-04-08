@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{2c1657dc-e02e-4713-9b46-5afff293ca31}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="name">
 			<value>Test SFX</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{0d340c5b-4f0c-4929-b6af-0126a113d250}</destination>
@@ -96,6 +99,7 @@
 	<object class="MixerBusEffectChain" id="{b132b700-9b98-4eeb-a21b-55e026fff9ef}">
 		<relationship name="effects">
 			<destination>{3fe11d37-20b7-4fe4-b1b6-7f017ae06476}</destination>
+			<destination>{e757cb5e-fcab-4f27-9120-91d433ff97d4}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{97e1877b-b2d0-4b70-8644-b9c492e7a075}" />
@@ -106,4 +110,5 @@
 	</object>
 	<object class="MixerBusFader" id="{15819972-fbfb-41b6-bc89-e4a2217abb0f}" />
 	<object class="MixerBusFader" id="{3fe11d37-20b7-4fe4-b1b6-7f017ae06476}" />
+	<object class="SpatialiserEffect" id="{e757cb5e-fcab-4f27-9120-91d433ff97d4}" />
 </objects>

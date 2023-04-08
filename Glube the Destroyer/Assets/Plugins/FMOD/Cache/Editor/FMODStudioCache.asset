@@ -21,12 +21,32 @@ MonoBehaviour:
   Banks:
   - {fileID: 6458127714841535602}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6731735406874100204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Glube.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Glube.bank
+  Name: Glube
+  StudioPath: bank:/Glube
+  lastModified: 638165099068518496
+  FileSizes:
+  - Name: Desktop
+    Value: 122688
+  Exists: 1
 --- !u!114 &-6473605071894319754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,11 +89,65 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638161550501110164
+  lastModified: 638165099067826315
   FileSizes:
   - Name: Desktop
-    Value: 820
+    Value: 1148
   Exists: 1
+--- !u!114 &-3535607946891578372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Glube/Glube_Walk
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Glube/Glube_Walk
+  Guid:
+    Data1: 1789529977
+    Data2: 1338336348
+    Data3: -1995261303
+    Data4: -86360496
+  Banks:
+  - {fileID: -6731735406874100204}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1581888491074642973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Glube/Combo/Glube_Combo-2
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Glube/Combo/Glube_Combo-2
+  Guid:
+    Data1: -1121899215
+    Data2: 1319188203
+    Data3: -1871860069
+    Data4: -880154960
+  Banks:
+  - {fileID: -6731735406874100204}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,16 +163,77 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -3962470505092573222}
   - {fileID: 6458127714841535602}
+  - {fileID: -6731735406874100204}
   EditorEvents:
   - {fileID: -6473605071894319754}
   - {fileID: -6943033474008513606}
+  - {fileID: -1581888491074642973}
+  - {fileID: -3535607946891578372}
+  - {fileID: 8801902546067852834}
+  - {fileID: 6982522393440948560}
+  - {fileID: 4056415194934472894}
+  - {fileID: 2984786648972062431}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6458127714841535602}
   StringsBanks:
   - {fileID: -3962470505092573222}
-  cacheTime: 638161550501110164
+  cacheTime: 638165099068518496
   cacheVersion: 131603
+--- !u!114 &2984786648972062431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Glube/Glube_idle
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Glube/Glube_idle
+  Guid:
+    Data1: 1505308644
+    Data2: 1259393781
+    Data3: -1125055558
+    Data4: -1365305489
+  Banks:
+  - {fileID: -6731735406874100204}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4056415194934472894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Glube/Glube_Hurt
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Glube/Glube_Hurt
+  Guid:
+    Data1: 1471575212
+    Data2: 1112116070
+    Data3: 45383055
+    Data4: 85487801
+  Banks:
+  - {fileID: -6731735406874100204}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6458127714841535602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +249,62 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638161550501037906
+  lastModified: 638165099067786309
   FileSizes:
   - Name: Desktop
-    Value: 581120
+    Value: 581408
   Exists: 1
+--- !u!114 &6982522393440948560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Glube/Combo/Glube_Combo-1
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Glube/Combo/Glube_Combo-1
+  Guid:
+    Data1: 532681385
+    Data2: 1255275029
+    Data3: -1595501125
+    Data4: 1976706510
+  Banks:
+  - {fileID: -6731735406874100204}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8801902546067852834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Glube/Combo/Glube_Combo-3
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Glube/Combo/Glube_Combo-3
+  Guid:
+    Data1: 2002513786
+    Data2: 1310772017
+    Data3: 1928434590
+    Data4: -419677042
+  Banks:
+  - {fileID: -6731735406874100204}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
