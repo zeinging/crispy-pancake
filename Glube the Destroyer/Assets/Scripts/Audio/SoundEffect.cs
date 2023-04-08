@@ -7,17 +7,22 @@ using FMODUnity;
 
 public class SoundEffect : MonoBehaviour
 {
-    [Tooltip("Select the Sound Effect you want. Note: this script is not intended to play music.")]
+    [Tooltip("Select the Event you want.")]
     [SerializeField]EventReference eventRef;
     FMOD.Studio.EventInstance soundEvent;
-
-    [SerializeField]
+    [SerializeField] bool is3D = true;
 
     //[SerializeReference]StudioEventEmitter emitter;
 
     void Awake()
     {
         soundEvent = RuntimeManager.CreateInstance(eventRef);
+        RuntimeManager.AttachInstanceToGameObject(soundEvent, this.transform);
+    }
+
+    private void Update()
+    {
+        if (is3D) RuntimeManager.AttachInstanceToGameObject(soundEvent, this.transform);
     }
 
     public void Stop()
@@ -33,7 +38,7 @@ public class SoundEffect : MonoBehaviour
         } 
         catch
         {
-            Debug.LogWarning("SFX Event Reference is Missing.");
+            Debug.LogWarning("Sound Event Reference is Missing.");
         }
     }
 

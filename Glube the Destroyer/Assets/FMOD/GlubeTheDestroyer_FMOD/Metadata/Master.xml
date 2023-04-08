@@ -16,12 +16,18 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{d32d41a7-47b1-4a6f-9f52-40c3a416afe6}">
 		<relationship name="effects">
+			<destination>{6befc5be-082d-4e2a-9ce7-69e3deb2a760}</destination>
 			<destination>{d119ecc8-9308-4378-adae-bea3b7431d7e}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{953d3086-17b8-495d-821b-6262aba93a77}">
 		<property name="overridingOutputFormat">
 			<value>2</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{6befc5be-082d-4e2a-9ce7-69e3deb2a760}">
+		<property name="threshold">
+			<value>-6</value>
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{d119ecc8-9308-4378-adae-bea3b7431d7e}" />

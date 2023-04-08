@@ -2,10 +2,10 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{7ade458a-14a5-492d-b05c-73144ba43e68}">
 		<property name="color">
-			<value>Red</value>
+			<value>Yellow</value>
 		</property>
 		<property name="name">
-			<value>Test Music</value>
+			<value>Main Theme Loop</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -36,7 +36,7 @@
 			<destination>{c49fff9a-f014-4cba-8f21-01c14ceed7a2}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{e2476651-a4d3-47cd-8aef-3e30f9e62b82}</destination>
+			<destination>{2b5b5031-9cf0-4ddd-a3e4-903c515a6e58}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{ed3ee716-5f13-42cd-813e-1d2d5c2af799}">
@@ -61,7 +61,7 @@
 			<destination>{793c9adc-3294-4dcd-909e-eac5e2b3164e}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{d8694c90-6423-4292-b36f-335b971e4fb5}</destination>
+			<destination>{0748122e-7e3a-433d-be5c-929260678381}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{0fd0f5d8-9240-49dd-aa83-b766400263b2}" />
