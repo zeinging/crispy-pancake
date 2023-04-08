@@ -48,6 +48,7 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(coroutine);
             //isTalking = true;
             coroutine = OpenDialogue(Duration, charName, Dia);
+            if(coroutine != null)
             StartCoroutine(coroutine);
 
         }

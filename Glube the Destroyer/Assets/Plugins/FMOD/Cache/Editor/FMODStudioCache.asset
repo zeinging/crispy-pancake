@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638165108377137841
+  lastModified: 638165113667575810
   FileSizes:
   - Name: Desktop
     Value: 1123008
@@ -116,10 +116,10 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Glube.bank
   Name: Glube
   StudioPath: bank:/Glube
-  lastModified: 638165108376753566
+  lastModified: 638165113667315319
   FileSizes:
   - Name: Desktop
-    Value: 122688
+    Value: 159872
   Exists: 1
 --- !u!114 &-3962470505092573222
 MonoBehaviour:
@@ -136,10 +136,10 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638165108376363431
+  lastModified: 638165113667425807
   FileSizes:
   - Name: Desktop
-    Value: 1420
+    Value: 1454
   Exists: 1
 --- !u!114 &-3535607946891578372
 MonoBehaviour:
@@ -224,12 +224,13 @@ MonoBehaviour:
   - {fileID: -7854018550263639439}
   - {fileID: 1139516024428807671}
   - {fileID: 7565825135954970139}
+  - {fileID: 2271269974371937793}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6458127714841535602}
   StringsBanks:
   - {fileID: -3962470505092573222}
-  cacheTime: 638165108377137841
+  cacheTime: 638165113667575810
   cacheVersion: 131603
 --- !u!114 &1139516024428807671
 MonoBehaviour:
@@ -258,6 +259,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 12000
+--- !u!114 &2271269974371937793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Glube/Glube_jump
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Glube/Glube_jump
+  Guid:
+    Data1: 357029564
+    Data2: 1157356750
+    Data3: -497344622
+    Data4: -1021553612
+  Banks:
+  - {fileID: -6731735406874100204}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &2984786648972062431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +355,7 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638165108376323425
+  lastModified: 638165113667385910
   FileSizes:
   - Name: Desktop
     Value: 17760

@@ -55,7 +55,7 @@ public class DialogueTriggerAera : MonoBehaviour
         yield return new WaitForSeconds(DialogueDuration);
         Panel.SetActive(false);
         tempPort.SetActive(false);
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
     }
 
