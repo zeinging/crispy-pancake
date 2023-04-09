@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1170031720}
   mainFirstButton: {fileID: 1897589019}
-  levelName: CombindingScene
+  levelName: ScrollingTextScene
 --- !u!1 &1167558831
 GameObject:
   m_ObjectHideFlags: 0
