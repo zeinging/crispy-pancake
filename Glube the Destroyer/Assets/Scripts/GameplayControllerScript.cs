@@ -9,6 +9,8 @@ public class GameplayControllerScript : MonoBehaviour
 
     public GameObject BuildingParent;
 
+    private bool leaving = false;
+
     public static GameplayControllerScript instance;
 
     // Start is called before the first frame update
@@ -76,7 +78,10 @@ public class GameplayControllerScript : MonoBehaviour
     }
 
     public void ToTitleScreen(){
+        if(!leaving){//only load once, not on every frame
         LeanTweenFaderScript.instance.LoadLevel("MainMenuWithSceneFader");
+        leaving = true;
+        }
     }
 
 }

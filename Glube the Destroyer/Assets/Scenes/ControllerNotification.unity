@@ -1162,7 +1162,7 @@ MonoBehaviour:
   loadbar: {fileID: 114523564522323999}
   TopSlide: {fileID: 0}
   BottomSlide: {fileID: 0}
-  Duration: 0.1
+  Duration: 1
   staySeconds: 5
   sceneLevel: MainMenuWithSceneFader
   LoadingImage: {fileID: 1669134661}

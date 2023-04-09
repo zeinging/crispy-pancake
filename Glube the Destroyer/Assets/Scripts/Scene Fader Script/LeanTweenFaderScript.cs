@@ -93,7 +93,7 @@ public class LeanTweenFaderScript : MonoBehaviour {
         //Mathf.Clamp01(temp.a);
         while(temp.a != 1){
 
-        temp.a = Mathf.MoveTowards(temp.a, 1, Duration * 0.02f);
+        temp.a = Mathf.MoveTowards(temp.a, 1, Duration * Time.unscaledDeltaTime);
         
         //temp.a += Time.deltaTime;
         //Debug.Log(temp);
@@ -138,7 +138,7 @@ public class LeanTweenFaderScript : MonoBehaviour {
 
         while(temp.a != 0){
 
-        temp.a = Mathf.MoveTowards(temp.a, 0, Duration * 0.02f);
+        temp.a = Mathf.MoveTowards(temp.a, 0, Duration * Time.unscaledDeltaTime);
         //temp.a -= Time.deltaTime;
         //Debug.Log(temp);
         Panel.GetComponent<Image>().color = temp;
