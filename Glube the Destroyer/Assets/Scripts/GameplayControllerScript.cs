@@ -33,11 +33,14 @@ public class GameplayControllerScript : MonoBehaviour
         if(GlubeHealth == 0)
         PlayerWins();
 
-        if(RemainingBuildings == 0 && GlubeHealth > 0)//this should make player win out weigh glube's win if they happen around the same time
+        if(RemainingBuildings == 0 && GlubeHealth > 0){//this should make player win out weigh glube's win if they happen around the same time
         GlubeWins();
+        }
 
-        if(PlayerHealth == 0)
+        if(PlayerHealth == 0){
+
         PlayerDeath();
+        }
     }
 
     public void PlayerTakeDamage(int damage){

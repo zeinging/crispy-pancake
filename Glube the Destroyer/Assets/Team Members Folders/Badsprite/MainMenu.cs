@@ -21,7 +21,7 @@ public class MainMenu : MonoBehaviour
     {
         playerInputActions = new PlayerInputActions();
         playerInput = GetComponent<PlayerInput>();
-        playerInputActions.UI.Enable();
+        //playerInputActions.UI.Enable();
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(mainFirstButton);
@@ -35,6 +35,7 @@ public class MainMenu : MonoBehaviour
 
     public void LevelStart() {
         //SceneManager.LoadScene(levelName);
+        playerInputActions.UI.Disable();
         LeanTweenFaderScript.instance.LoadLevel(levelName);
     }
 

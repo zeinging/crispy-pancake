@@ -621,7 +621,7 @@ MonoBehaviour:
   loadbar: {fileID: 333957782}
   TopSlide: {fileID: 0}
   BottomSlide: {fileID: 0}
-  Duration: 0.1
+  Duration: 1
   staySeconds: 5
   sceneLevel: CombindingScene
   LoadingImage: {fileID: 321978633}

@@ -159,7 +159,7 @@ public class LeanTweenFaderScript : MonoBehaviour {
 
         //Time.timeScale = 1f;
         
-        yield return StartCoroutine(MyCoroutineScript.WaitForRealSeconds(1.2f));
+        //yield return StartCoroutine(MyCoroutineScript.WaitForRealSeconds(1.2f));
         
         // GameplayController.instance.TouchedGUIButn = false; used to freeze player until scenefader can be used again
         Panel.SetActive(false);

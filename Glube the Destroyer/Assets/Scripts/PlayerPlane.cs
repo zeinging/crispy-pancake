@@ -193,9 +193,13 @@ public class PlayerPlane : MonoBehaviour
             GameplayControllerScript.instance.PlayerCrashedIntoGlube();
         }
 
-        GameplayControllerScript.instance.PlayerTakeDamage(1);//need update to specific what player got hit by
+            if(!other.gameObject.GetComponent<BuildingHandleDestroyProcess>()){//don't take damage if fly in building destroy trigger
 
-        Debug.Log(other.name);
+            GameplayControllerScript.instance.PlayerTakeDamage(1);//need update to specific what player got hit by
+
+            Debug.Log(other.name);
+            }
+
         }
 
         }

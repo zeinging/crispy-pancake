@@ -46,6 +46,7 @@ public class ScrollingTextScript : MonoBehaviour
     private void SkipText(InputAction.CallbackContext context){
         if(context.performed){
             if(Skiping){
+                playerInputActions.UI.Disable();
             LeanTweenFaderScript.instance.LoadLevel(levelName);
             }
             NotificationText.SetActive(true);
