@@ -190,6 +190,7 @@ public class PlayerPlane : MonoBehaviour
             playerInputActions.Player.Disable();
             this.transform.parent = other.transform;
             GetComponent<PlayerPlane>().enabled = false;
+            GameplayControllerScript.instance.PlayerCrashedIntoGlube();
         }
 
         GameplayControllerScript.instance.PlayerTakeDamage(1);//need update to specific what player got hit by

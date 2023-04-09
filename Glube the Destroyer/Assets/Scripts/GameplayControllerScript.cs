@@ -28,7 +28,14 @@ public class GameplayControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(GlubeHealth == 0)
+        PlayerWins();
+
+        if(RemainingBuildings == 0 && GlubeHealth > 0)//this should make player win out weigh glube's win if they happen around the same time
+        GlubeWins();
+
+        if(PlayerHealth == 0)
+        PlayerDeath();
     }
 
     public void PlayerTakeDamage(int damage){
@@ -41,6 +48,35 @@ public class GameplayControllerScript : MonoBehaviour
 
     public void ABuildingDestroyed(){
         RemainingBuildings--;
+    }
+
+    public void PlayerWins(){
+            Debug.Log("Player Won!");
+            ToTitleScreen();
+    }
+
+    public void PlayerDeath(){
+            Debug.Log("Player Crashed");
+            //RespawnPlayer();
+            ToTitleScreen();
+    }
+
+    public void PlayerCrashedIntoGlube(){
+            Debug.Log("Hart: why did I do that?");
+            ToTitleScreen();
+    }
+
+    public void RespawnPlayer(){
+            Debug.Log("Player Respawned");
+    }
+
+    public void GlubeWins(){
+            Debug.Log("Glube Won!");
+            ToTitleScreen();
+    }
+
+    public void ToTitleScreen(){
+        LeanTweenFaderScript.instance.LoadLevel("MainMenuWithSceneFader");
     }
 
 }

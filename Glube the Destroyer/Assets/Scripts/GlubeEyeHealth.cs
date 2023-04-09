@@ -5,7 +5,7 @@ using UnityEngine;
 public class GlubeEyeHealth : MonoBehaviour
 {
 
-    public int EyeHealth = 10;
+    public int DamageAmout = 10;
 
     public Color EyeHurt, EyeDefault;
 
@@ -38,7 +38,7 @@ public class GlubeEyeHealth : MonoBehaviour
      void OnTriggerEnter(Collider other){
         if(other.gameObject.GetComponent<LaserScript>()){
             //EyeHealth--;
-            GameplayControllerScript.instance.GlubeTakeDamage(1);//possible update to specify what glube got hit with
+            GameplayControllerScript.instance.GlubeTakeDamage(DamageAmout);//possible update to specify what glube got hit with
             GotHit = true;
             //Destroy(other.gameObject);
             Debug.Log("OW, MY EYE!");

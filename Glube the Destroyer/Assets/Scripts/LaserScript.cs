@@ -35,8 +35,15 @@ public class LaserScript : MonoBehaviour
             
             //myBody.velocity = Vector3.zero;
             //myBody.transform.position = other.transform.position;
+            if(!other.gameObject.GetComponent<DialogueTriggerAera>()){//don't destroy if laser hits Dialogue trigger zone
+            
+            if(!other.gameObject.GetComponent<BuildingHandleDestroyProcess>()){//don't destroy if laser hits building zone for glube
 
-            Destroy(gameObject);
+                if(!other.gameObject.GetComponent<DestoryNearestBuildingDirector>())//don't destroy if laser hits glube's building detection capsole collider
+                Destroy(gameObject);
+            }
+
+            }
             //this.gameObject.SetActive(false);
 
         }
