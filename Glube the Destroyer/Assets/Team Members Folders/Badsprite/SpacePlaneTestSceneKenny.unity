@@ -270,7 +270,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barkDialogue: My FAVORITE coffe shop.
+  DestroyedDialogue: 
   DialogueDuration: 5
+  DestroyedDuration: 5
   Panel: {fileID: 281241622}
   DialogueTex: {fileID: 753586864}
   SelectedPortrait: 0
@@ -641,6 +643,7 @@ MonoBehaviour:
   Plane: {fileID: 205068534}
   LaserShot: {fileID: 5128690108637038337, guid: 715820a3a49887d4ebdd604def720003, type: 3}
   LaserPistle: {fileID: 1703359594}
+  UIAimTransform: {fileID: 0}
 --- !u!65 &205068536
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -654,6 +657,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.2392073, y: 1.4373796, z: 4.996174}
   m_Center: {x: 0.00000011920929, y: 0.06709778, z: 0.2502576}
+--- !u!114 &205068537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205068534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: c810a1f6148b22f44928cc5a99529ddd, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &205068538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f123846119282cd4581de40cbae61de4, type: 3}
@@ -1126,7 +1159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barkDialogue: I think they're kinda cute.
+  DestroyedDialogue: 
   DialogueDuration: 5
+  DestroyedDuration: 5
   Panel: {fileID: 281241622}
   DialogueTex: {fileID: 753586864}
   SelectedPortrait: 4
@@ -1579,14 +1614,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f82ebf9835023b4d9216cd1041de78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  independentAimCrossHair: {fileID: 1360357802}
-  NoseAimCrossHair: {fileID: 1312622600}
+  SmallAimCrossHair: {fileID: 0}
+  BigAimCrossHair: {fileID: 0}
   Plane: {fileID: 205068538}
   AimXDis: 450
   AimYDis: 255
   DisFromCamera: 70
   DisFromPlane: 100
   AimSpeed: 600
+  NoseAiming: 1
 --- !u!1 &475937779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,14 +1844,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f82ebf9835023b4d9216cd1041de78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  independentAimCrossHair: {fileID: 473455684}
-  NoseAimCrossHair: {fileID: 1360357802}
+  SmallAimCrossHair: {fileID: 0}
+  BigAimCrossHair: {fileID: 0}
   Plane: {fileID: 205068538}
   AimXDis: 450
   AimYDis: 255
   DisFromCamera: 70
   DisFromPlane: 100
   AimSpeed: 600
+  NoseAiming: 1
 --- !u!1 &539718048
 GameObject:
   m_ObjectHideFlags: 0
@@ -3139,7 +3176,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barkDialogue: testing stuff. NOOO! GLUBE THE DESTROYER
+  DestroyedDialogue: 
   DialogueDuration: 5
+  DestroyedDuration: 5
   Panel: {fileID: 281241622}
   DialogueTex: {fileID: 753586864}
   SelectedPortrait: 7
@@ -3912,14 +3951,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f82ebf9835023b4d9216cd1041de78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  independentAimCrossHair: {fileID: 1360357802}
-  NoseAimCrossHair: {fileID: 0}
+  SmallAimCrossHair: {fileID: 0}
+  BigAimCrossHair: {fileID: 0}
   Plane: {fileID: 205068538}
   AimXDis: 450
   AimYDis: 255
   DisFromCamera: 70
   DisFromPlane: 50
   AimSpeed: 600
+  NoseAiming: 1
 --- !u!114 &1312622600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4084,7 +4124,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 0.7529412}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.6039216}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.84313726}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -4575,7 +4615,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barkDialogue: testing stuff. NOOO! GLUBE THE DESTROYER
+  DestroyedDialogue: 
   DialogueDuration: 5
+  DestroyedDuration: 5
   Panel: {fileID: 281241622}
   DialogueTex: {fileID: 753586864}
   SelectedPortrait: 7
@@ -4932,6 +4974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EyeHealth: 10
   EyeHurt: {r: 1, g: 0, b: 0, a: 0}
+  EyeDefault: {r: 0, g: 0, b: 0, a: 0}
   EyeBall: {fileID: 665114666}
   GotHit: 0
 --- !u!1 &1703359594
@@ -5396,7 +5439,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 0.7529412}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.6039216}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.84313726}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -5417,7 +5460,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1807303326}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1742421112}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1807303326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5896,7 +5951,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 0.7529412}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.6039216}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.84313726}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}

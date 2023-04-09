@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CombindingScene.unity
     guid: 995a35fe32260394395cbd814a80bff1
+  - enabled: 1
+    path: Assets/Team Members Folders/Badsprite/MainMenu.unity
+    guid: 6dc0d034b9abb9449a0e28a321006b90
+  - enabled: 1
+    path: Assets/Team Members Folders/Badsprite/SpacePlaneTestSceneKenny.unity
+    guid: c15d3bbec736d434ba165eb2f87647ce
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 1b86b273bce5aa44f9a3397da18b26d3, type: 2}

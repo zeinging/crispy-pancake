@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class Menu : MonoBehaviour
 {
@@ -52,5 +54,10 @@ public class Menu : MonoBehaviour
     public void Resume() {
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void MainMenu() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }
