@@ -90,8 +90,8 @@ public class ScrollingTestManager : MonoBehaviour
 
         Color temp = past.color;
 
-        while(temp.a != 0.5f){
-            temp.a = Mathf.MoveTowards(temp.a, 0.5f, ImageFadeSpeed * Time.deltaTime);
+        while(temp.a != 1f){
+            temp.a = Mathf.MoveTowards(temp.a, 1f, ImageFadeSpeed * Time.deltaTime);
             past.color = temp;
             //Debug.Log(temp.a);
             yield return null;

@@ -57,7 +57,8 @@ public class Menu : MonoBehaviour
     }
 
     public void MainMenu() {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        //Time.timeScale = 1f;//scene fader should reset time scale to 1
+        //SceneManager.LoadScene("MainMenu");
+        LeanTweenFaderScript.instance.LoadLevel("MainMenuWithSceneFader");
     }
 }

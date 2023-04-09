@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
-    public GameObject mainFirstButton;
+    public GameObject mainFirstButton, backButton, creditsButton, CreditsText;
     public string levelName;
 
     // Start is called before the first frame update
@@ -38,6 +38,20 @@ public class MainMenu : MonoBehaviour
         playerInputActions.UI.Disable();
         EventSystem.current.gameObject.SetActive(false);//deactivate event system to prevent inputs while scene fading
         LeanTweenFaderScript.instance.LoadLevel(levelName);
+    }
+
+    public void Credits(){
+        if(!CreditsText.activeInHierarchy){
+            CreditsText.SetActive(true);
+            mainMenu.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(backButton);
+        }else{
+            CreditsText.SetActive(false);
+            mainMenu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(creditsButton);
+        }
     }
 
     public void Exit()

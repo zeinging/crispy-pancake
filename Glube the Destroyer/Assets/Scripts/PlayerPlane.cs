@@ -57,6 +57,10 @@ public class PlayerPlane : MonoBehaviour
         
     }
 
+    void OnDestroy(){
+        playerInputActions.Player.Disable();//disable player controls if destroyed
+    }
+
     private void ShootLaser(InputAction.CallbackContext context){
         if(context.performed){
             Instantiate(LaserShot, LaserPistle.transform.position, LaserPistle.transform.rotation);
