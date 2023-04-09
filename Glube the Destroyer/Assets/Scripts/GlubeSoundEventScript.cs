@@ -22,6 +22,9 @@ public class GlubeSoundEventScript : MonoBehaviour
     void Start(){
 
         EmittersParent.transform.parent = GlubeSoundSoruceLocation.transform;//parent emitters to glube
+        EmittersParent.transform.localPosition = Vector3.zero;//reset transform or else will be in the wrong spot
+        EmittersParent.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        EmittersParent.transform.localScale = new Vector3(1, 1, 1);
 
         anim = GetComponent<Animator>();
         
