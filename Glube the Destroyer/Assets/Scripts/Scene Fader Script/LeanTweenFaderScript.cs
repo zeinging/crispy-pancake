@@ -90,6 +90,8 @@ public class LeanTweenFaderScript : MonoBehaviour {
         //LeanTween.moveLocal(BottomSlide, new Vector3(0, 0, 0), Duration);
 
         Color temp = Panel.GetComponent<Image>().color;
+        temp.a = 0;
+        Panel.GetComponent<Image>().color = temp;//reset before scene fading starts
         //Mathf.Clamp01(temp.a);
         while(temp.a != 1){
 

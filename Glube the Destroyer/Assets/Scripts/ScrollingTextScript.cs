@@ -36,6 +36,7 @@ public class ScrollingTextScript : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, temp, speed * Time.deltaTime);
         if(transform.position.y > 190f){
             if(!isFinished){
+            playerInputActions.UI.Disable();
             LeanTweenFaderScript.instance.LoadLevel(levelName);
             isFinished = true;
             }

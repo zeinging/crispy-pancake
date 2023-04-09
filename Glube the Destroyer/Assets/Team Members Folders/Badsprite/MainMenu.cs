@@ -36,6 +36,7 @@ public class MainMenu : MonoBehaviour
     public void LevelStart() {
         //SceneManager.LoadScene(levelName);
         playerInputActions.UI.Disable();
+        EventSystem.current.gameObject.SetActive(false);//deactivate event system to prevent inputs while scene fading
         LeanTweenFaderScript.instance.LoadLevel(levelName);
     }
 
