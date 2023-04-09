@@ -28,11 +28,14 @@ public class LeanTweenFaderScript : MonoBehaviour {
 
     public AudioSource TransitionSund;
 
+    public bool AutoLoad = false;
+
 
 	// Use this for initialization
 	void Awake () {
 		MakeSigleton ();
         //Player = GetComponentInChildren<Player>();
+        if(AutoLoad)
         StartCoroutine(WaitTest(staySeconds));
     }
 

@@ -34,7 +34,8 @@ public class MainMenu : MonoBehaviour
     }
 
     public void LevelStart() {
-        SceneManager.LoadScene(levelName);
+        //SceneManager.LoadScene(levelName);
+        LeanTweenFaderScript.instance.LoadLevel(levelName);
     }
 
     public void Exit()

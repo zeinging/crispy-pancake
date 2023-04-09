@@ -35,8 +35,11 @@ public class DialogueTriggerAera : MonoBehaviour
 
     void OnDestroy(){//open dialogue after trigger destroyed
 
-        if(DestroyedDialogue != "")
-        DialogueManager.instance.OpenManager(DestroyedDuration, SelectedPortrait.ToString(), DestroyedDialogue);
+        if(DestroyedDialogue != "" ){
+
+            if(!gameObject.scene.isLoaded)//checks if was destroyed because of scene change
+            DialogueManager.instance.OpenManager(DestroyedDuration, SelectedPortrait.ToString(), DestroyedDialogue);
+        }
     }
 
 
