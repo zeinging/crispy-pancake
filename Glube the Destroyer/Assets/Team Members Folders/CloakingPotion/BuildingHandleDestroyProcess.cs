@@ -29,8 +29,11 @@ public class BuildingHandleDestroyProcess : MonoBehaviour
             return;
 
         }
+        if(other.GetComponent<DestoryNearestBuildingDirector>()){//should only trigger if glube enters the trigger zone
+
         HandleStartDestroyBuildingProcess();
         entered = true;
+        }
         // Code to execute when the trigger is entered
         //}
     }

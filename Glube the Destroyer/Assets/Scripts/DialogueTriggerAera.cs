@@ -37,13 +37,13 @@ public class DialogueTriggerAera : MonoBehaviour
 
         if(DestroyedDialogue != "" ){
 
-            if(!gameObject.scene.isLoaded)//checks if was destroyed because of scene change
+            if(gameObject.scene.isLoaded)//checks if was destroyed because of scene change
             DialogueManager.instance.OpenManager(DestroyedDuration, SelectedPortrait.ToString(), DestroyedDialogue);
         }
     }
 
 
-    private IEnumerator PanelTime(){
+    private IEnumerator PanelTime(){//probably not being used at the moment
 
         GetComponent<SphereCollider>().enabled = false;//disable so this only works once.
         GetComponent<MeshRenderer>().enabled = false;
@@ -58,6 +58,7 @@ public class DialogueTriggerAera : MonoBehaviour
         yield return new WaitForSeconds(DialogueDuration);
         Panel.SetActive(false);
         tempPort.SetActive(false);
+        //if(DestroyedDialogue == "" )
         //Destroy(gameObject);
 
     }
@@ -78,6 +79,8 @@ public class DialogueTriggerAera : MonoBehaviour
             //Destroy(gameObject);//destroy to prevent triggering the same dialogue
             GetComponent<MeshRenderer>().enabled = false;// tempoary might get rid of later
             GetComponent<SphereCollider>().enabled = false;//disabe trigger to prevent same dialogue showing up again.
+            if(DestroyedDialogue == "" )
+            Destroy(gameObject);
         }
 
     }

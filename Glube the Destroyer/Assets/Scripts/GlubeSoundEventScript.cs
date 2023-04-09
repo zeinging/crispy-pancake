@@ -11,9 +11,9 @@ public class GlubeSoundEventScript : MonoBehaviour
 
     //public List<string> FModIndex;
 
-    public GameObject EmittersParent;
+    public GameObject EmittersParent, GlubeSoundSoruceLocation;
 
-    public List<string> Emitters;
+    public List<GameObject> Emitters;
 
     private Animator anim;
 
@@ -21,12 +21,14 @@ public class GlubeSoundEventScript : MonoBehaviour
 
     void Start(){
 
+        EmittersParent.transform.parent = GlubeSoundSoruceLocation.transform;//parent emitters to glube
+
         anim = GetComponent<Animator>();
         
 
           for(int i = 0; i < EmittersParent.transform.childCount; i++){
 
-            Emitters.Add(EmittersParent.transform.GetChild(i).name);
+            Emitters.Add(EmittersParent.transform.GetChild(i).gameObject);
 
           }
         //instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent[0]);
@@ -43,6 +45,9 @@ public class GlubeSoundEventScript : MonoBehaviour
             WalkEnd();
         }else{
             IdleEnd();
+            if(!Emitters[6].activeInHierarchy){
+                WalkStart();
+            }
         }
 
         if(!anim.GetBool("IsAttackingBuilding")){//putting this here so combo sound can be interupted
@@ -54,57 +59,57 @@ public class GlubeSoundEventScript : MonoBehaviour
 
 
     public void Combo1Start(){
-    EmittersParent.transform.Find(Emitters[0]).gameObject.SetActive(true);
+    Emitters[0].gameObject.SetActive(true);
     }
     public void Combo1End(){
-    EmittersParent.transform.Find(Emitters[0]).gameObject.SetActive(false);
+    Emitters[0].gameObject.SetActive(false);
     }
 
     public void Combo2Start(){
-    EmittersParent.transform.Find(Emitters[1]).gameObject.SetActive(true);
+    Emitters[1].gameObject.SetActive(true);
     }
     public void Combo2End(){
-    EmittersParent.transform.Find(Emitters[1]).gameObject.SetActive(false);
+    Emitters[1].gameObject.SetActive(false);
     }
 
     public void Combo3Start(){
-    EmittersParent.transform.Find(Emitters[2]).gameObject.SetActive(true);
+    Emitters[2].gameObject.SetActive(true);
     }
     public void Combo3End(){
-    EmittersParent.transform.Find(Emitters[2]).gameObject.SetActive(false);
+    Emitters[2].gameObject.SetActive(false);
     }
 
 
      public void HurtStart(){
-    EmittersParent.transform.Find(Emitters[3]).gameObject.SetActive(true);
+    Emitters[3].gameObject.SetActive(true);
     }
     public void HurtEnd(){
-    EmittersParent.transform.Find(Emitters[3]).gameObject.SetActive(false);
+    Emitters[3].gameObject.SetActive(false);
     }
 
     public void IdleStart(){
-    EmittersParent.transform.Find(Emitters[4]).gameObject.SetActive(true);
+    Emitters[4].gameObject.SetActive(true);
     }
     public void IdleEnd(){
-    EmittersParent.transform.Find(Emitters[4]).gameObject.SetActive(false);
+    Emitters[4].gameObject.SetActive(false);
     }
 
     public void JumpStart(){
-    EmittersParent.transform.Find(Emitters[5]).gameObject.SetActive(true);
+    Emitters[5].gameObject.SetActive(true);
     }
     public void JumpEnd(){
-    EmittersParent.transform.Find(Emitters[5]).gameObject.SetActive(false);
+    Emitters[5].gameObject.SetActive(false);
     }
 
     public void WalkStart(){
-    EmittersParent.transform.Find(Emitters[6]).gameObject.SetActive(true);
+    Emitters[6].gameObject.SetActive(true);
     }
     public void WalkEnd(){
-    EmittersParent.transform.Find(Emitters[6]).gameObject.SetActive(false);
+    Emitters[6].gameObject.SetActive(false);
     }
 
-    public void PlaySoundNow(){
-        Debug.Log("Play sound now.");
-        FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Glube/Combo/Glube_Combo-1");
-    }
+    // public void PlaySoundNow(){
+    //     Debug.Log("Play sound now.");
+    //     FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Glube/Combo/Glube_Combo-1");
+    // }
 }
