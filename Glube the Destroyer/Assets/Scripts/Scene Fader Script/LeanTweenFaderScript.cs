@@ -53,6 +53,10 @@ public class LeanTweenFaderScript : MonoBehaviour {
 		StartCoroutine (FadeInOut (level));
 	}
 
+    public void ReloadCurrentScene(){
+        StartCoroutine(FadeInOut(SceneManager.GetActiveScene().name));
+    }
+
     public IEnumerator WaitTest(float t){
 
         yield return new WaitForSeconds(t);

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public GameObject PauseMenu;
+    public GameObject PauseMenu, retryMenu;
 
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
@@ -63,5 +63,24 @@ public class Menu : MonoBehaviour
         //Time.timeScale = 1f;//scene fader should reset time scale to 1
         //SceneManager.LoadScene("MainMenu");
         LeanTweenFaderScript.instance.LoadLevel("MainMenuWithSceneFader");
+    }
+
+    public void Retry(){
+        LeanTweenFaderScript.instance.ReloadCurrentScene();
+    }
+
+    public void openRetryMenu(){
+        
+        StartCoroutine(RetryMenuDelay(2f));
+
+    }
+
+    private IEnumerator RetryMenuDelay(float t){
+
+        yield return new WaitForSeconds(t);
+        retryMenu.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+
     }
 }

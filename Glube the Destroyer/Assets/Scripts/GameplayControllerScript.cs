@@ -7,9 +7,9 @@ public class GameplayControllerScript : MonoBehaviour
 
     public int PlayerHealth, GlubeHealth, RemainingBuildings, lostPlanes;
 
-    public GameObject BuildingParent;
+    public GameObject BuildingParent, retryMenu, PlayerPlane;
 
-    private bool leaving = false;
+    private bool leaving = false, menuOpened = false, playerWon = false;
 
     public static GameplayControllerScript instance;
 
@@ -39,7 +39,7 @@ public class GameplayControllerScript : MonoBehaviour
 
         if(PlayerHealth < 1){
 
-        PlayerDeath();
+        //PlayerDeath();
         }
     }
 
@@ -57,20 +57,34 @@ public class GameplayControllerScript : MonoBehaviour
 
     public void PlayerWins(){
             Debug.Log("Player Won!");
+            playerWon = true;
             //AudioManager.instance.StopMusic();
             AudioManager.instance.GlubeDefeatIntro();
+            PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
+            PlayerPlane.GetComponent<PlayerPlane>().enabled = false;
             //AudioManager.instance.GlubeDefeatLoop();
             //ToTitleScreen();
             if(!leaving){
                 //LeanTweenFaderScript.instance.LoadLevel("CreditsScene");
+                StartCoroutine(WinCutscene(15f));
                 leaving = true;
             }
+    }
+    private IEnumerator WinCutscene(float t){
+        yield return new WaitForSeconds(t);
+        LeanTweenFaderScript.instance.LoadLevel("CreditsScene");
     }
 
     public void PlayerDeath(){
             Debug.Log("Player Crashed");
             //AudioManager.instance.StopMusic();
+
+            if(!menuOpened){//should only open once.
+            PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
+            retryMenu.GetComponent<Menu>().openRetryMenu();
             AudioManager.instance.PlayerDown();
+            menuOpened = true;
+            }
             //RespawnPlayer();
             //ToTitleScreen();
     }
@@ -78,6 +92,7 @@ public class GameplayControllerScript : MonoBehaviour
     public void PlayerCrashedIntoGlube(){
             Debug.Log("Hart: why did I do that?");
             //AudioManager.instance.ResetMusic();
+            retryMenu.GetComponent<Menu>().openRetryMenu();
             AudioManager.instance.PlayerDown();
             //ToTitleScreen();
     }
@@ -90,7 +105,16 @@ public class GameplayControllerScript : MonoBehaviour
     public void GlubeWins(){
             Debug.Log("Glube Won!");
             //AudioManager.instance.ResetMusic();
-            AudioManager.instance.PlayerDown();
+            if(!playerWon){//don't run if player won
+
+                if(!menuOpened){//should only open once.
+
+                PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
+                retryMenu.GetComponent<Menu>().openRetryMenu();
+                AudioManager.instance.PlayerDown();
+                menuOpened = true;
+                }
+            }
             //ToTitleScreen();
     }
 

@@ -180,6 +180,10 @@ public class PlayerPlane : MonoBehaviour
 
     }
 
+    public void DisableControls(){
+        playerInputActions.Player.Disable();
+    }
+
 
     void OnTriggerEnter(Collider other){
 
@@ -198,9 +202,14 @@ public class PlayerPlane : MonoBehaviour
             GameplayControllerScript.instance.PlayerCrashedIntoGlube();
         }
 
-            if(!other.gameObject.GetComponent<BuildingHandleDestroyProcess>()){//don't take damage if fly in building destroy trigger
+            if(!other.gameObject.GetComponent<BuildingHandleDestroyProcess>()){//don't take damage if fly into building destroy trigger
 
             GameplayControllerScript.instance.PlayerTakeDamage(1);//need update to specific what player got hit by
+            
+            if(GameplayControllerScript.instance.PlayerHealth <= 0){//player health is zero.
+                GameplayControllerScript.instance.PlayerDeath();
+                Destroy(gameObject);// tempoary, replace with explosion instructions later.
+            }
 
             Debug.Log(other.name);
             }
