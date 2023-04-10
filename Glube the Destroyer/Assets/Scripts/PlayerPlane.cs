@@ -194,6 +194,7 @@ public class PlayerPlane : MonoBehaviour
             playerInputActions.Player.Disable();
             this.transform.parent = other.transform;
             GetComponent<PlayerPlane>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
             GameplayControllerScript.instance.PlayerCrashedIntoGlube();
         }
 

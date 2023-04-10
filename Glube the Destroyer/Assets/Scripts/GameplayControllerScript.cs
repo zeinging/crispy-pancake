@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameplayControllerScript : MonoBehaviour
 {
 
-    public int PlayerHealth, GlubeHealth, RemainingBuildings;
+    public int PlayerHealth, GlubeHealth, RemainingBuildings, lostPlanes;
 
     public GameObject BuildingParent;
 
@@ -57,36 +57,49 @@ public class GameplayControllerScript : MonoBehaviour
 
     public void PlayerWins(){
             Debug.Log("Player Won!");
+            //AudioManager.instance.StopMusic();
+            AudioManager.instance.GlubeDefeatIntro();
+            //AudioManager.instance.GlubeDefeatLoop();
             //ToTitleScreen();
             if(!leaving){
-                LeanTweenFaderScript.instance.LoadLevel("CreditsScene");
+                //LeanTweenFaderScript.instance.LoadLevel("CreditsScene");
                 leaving = true;
             }
     }
 
     public void PlayerDeath(){
             Debug.Log("Player Crashed");
+            //AudioManager.instance.StopMusic();
+            AudioManager.instance.PlayerDown();
             //RespawnPlayer();
-            ToTitleScreen();
+            //ToTitleScreen();
     }
 
     public void PlayerCrashedIntoGlube(){
             Debug.Log("Hart: why did I do that?");
-            ToTitleScreen();
+            //AudioManager.instance.ResetMusic();
+            AudioManager.instance.PlayerDown();
+            //ToTitleScreen();
     }
 
     public void RespawnPlayer(){
             Debug.Log("Player Respawned");
+            AudioManager.instance.PauseMusic(false);
     }
 
     public void GlubeWins(){
             Debug.Log("Glube Won!");
-            ToTitleScreen();
+            //AudioManager.instance.ResetMusic();
+            AudioManager.instance.PlayerDown();
+            //ToTitleScreen();
     }
 
     public void ToTitleScreen(){
         if(!leaving){//only load once, not on every frame
+        //AudioManager.instance.ResetMusic();
         LeanTweenFaderScript.instance.LoadLevel("MainMenuWithSceneFader");
+
+
         leaving = true;
         }
     }

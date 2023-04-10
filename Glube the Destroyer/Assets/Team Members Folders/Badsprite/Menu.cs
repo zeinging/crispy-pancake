@@ -54,6 +54,7 @@ public class Menu : MonoBehaviour
     }
 
     public void Resume() {
+        AudioManager.instance.PauseMusic(false);
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
