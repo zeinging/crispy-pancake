@@ -37,6 +37,7 @@ public class Menu : MonoBehaviour
         {
             if (!PauseMenu.activeInHierarchy)
             {
+                AudioManager.instance.PauseMusic(true);
                 PauseMenu.SetActive(true);
                 Time.timeScale = 0f;
 
@@ -45,6 +46,7 @@ public class Menu : MonoBehaviour
             }
             else
             {
+                AudioManager.instance.PauseMusic(false);
                 PauseMenu.SetActive(false);
                 Time.timeScale = 1f;
             }

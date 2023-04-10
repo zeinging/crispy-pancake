@@ -470,6 +470,7 @@ GameObject:
   - component: {fileID: 86382155}
   - component: {fileID: 86382154}
   - component: {fileID: 86382153}
+  - component: {fileID: 86382156}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -484,7 +485,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86382152}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e1065481212f8d4eb57d07977546ff6, type: 3}
   m_Name: 
@@ -542,6 +543,19 @@ Transform:
   m_Father: {fileID: 2055161034}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &86382156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86382152}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f74010f09f700e6408ae9d4909998d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busVolume: 0
 --- !u!4 &88939466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7143513099646662260, guid: 680a237fb759b9642a26105548306c02, type: 3}
@@ -1604,7 +1618,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
 --- !u!114 &289142631
@@ -4210,7 +4224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 847960014}
   m_Layer: 0
-  m_Name: EmittersParent
+  m_Name: Glube Emiters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4223,7 +4237,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847960013}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5969,7 +5983,7 @@ MonoBehaviour:
   DisFromCamera: 70
   DisFromPlane: 100
   AimSpeed: 800
-  NoseAiming: 1
+  NoseAiming: 0
 --- !u!114 &1244173015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9361,6 +9375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2055161034}
+  - component: {fileID: 2055161035}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -9384,6 +9399,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2055161035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055161033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d1f0c0777ab6f4f9e8ab4622dbbb49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MusicVolume: 0
+  SFXVolume: 0
 --- !u!1 &2085759329
 GameObject:
   m_ObjectHideFlags: 0
