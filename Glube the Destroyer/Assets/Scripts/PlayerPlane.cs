@@ -182,6 +182,7 @@ public class PlayerPlane : MonoBehaviour
 
     public void DisableControls(){
         playerInputActions.Player.Disable();
+        playerInputActions.UI.Disable();
     }
 
 

@@ -138,18 +138,22 @@ public class AudioManager : MonoBehaviour
     }
 
     public void GlubeDefeatIntro(){
+        StopMusic();
     if(MusicTracks[1] != currentTrack){
     currentTrack.SetActive(false);
     MusicTracks[1].SetActive(true);
     currentTrack = MusicTracks[1];
+    StartCoroutine(PlayMusicDelay(10f));
     }
     }
 
     public void GlubeDefeatLoop(){
+        StopMusic();
     if(MusicTracks[2] != currentTrack){
     currentTrack.SetActive(false);
     MusicTracks[2].SetActive(true);
     currentTrack = MusicTracks[2];
+    StartCoroutine(PlayMusicDelay(10f));
     }
     }
 
@@ -161,7 +165,7 @@ public class AudioManager : MonoBehaviour
     currentTrack.SetActive(false);
     MusicTracks[3].SetActive(true);
     currentTrack = MusicTracks[3];
-    StartCoroutine(PlayerDownDelay(2));
+    StartCoroutine(PlayMusicDelay(2));
     }
     }
 
@@ -173,7 +177,7 @@ public class AudioManager : MonoBehaviour
     currentTrack.SetActive(false);
     MusicTracks[3].SetActive(true);
     currentTrack = MusicTracks[3];
-    StartCoroutine(PlayerDownDelay(2));
+    StartCoroutine(PlayMusicDelay(2));
     }
     }
 
@@ -185,11 +189,11 @@ public class AudioManager : MonoBehaviour
     currentTrack.SetActive(false);
     MusicTracks[3].SetActive(true);
     currentTrack = MusicTracks[3];
-    StartCoroutine(PlayerDownDelay(3.9f));
+    StartCoroutine(PlayMusicDelay(3.9f));
     }
     }
 
-    private IEnumerator PlayerDownDelay(float t){
+    private IEnumerator PlayMusicDelay(float t){
                 yield return new WaitForSeconds(t);
                 PlayMusic();
                 //PlayerDown();

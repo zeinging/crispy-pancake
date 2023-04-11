@@ -32,6 +32,10 @@ public class Menu : MonoBehaviour
         
     }
 
+    void OnDestroy(){
+        playerInputActions.UI.Disable();
+    }
+
     public void PauseUnpause(InputAction.CallbackContext context) {
         if (context.performed)
         {

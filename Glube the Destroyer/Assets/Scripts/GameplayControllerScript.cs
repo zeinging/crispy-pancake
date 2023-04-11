@@ -7,7 +7,7 @@ public class GameplayControllerScript : MonoBehaviour
 
     public int PlayerHealth, GlubeHealth, RemainingBuildings, lostPlanes;
 
-    public GameObject BuildingParent, retryMenu, PlayerPlane;
+    public GameObject BuildingParent, retryMenu, GlubesCinemachine, Glube, VictoryCam, PlayerPlane;
 
     private bool leaving = false, menuOpened = false, playerWon = false;
 
@@ -30,17 +30,7 @@ public class GameplayControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GlubeHealth < 1)
-        PlayerWins();
-
-        if(RemainingBuildings == 0 && GlubeHealth > 0){//this should make player win out weigh glube's win if they happen around the same time
-        GlubeWins();
-        }
-
-        if(PlayerHealth < 1){
-
-        //PlayerDeath();
-        }
+        
     }
 
     public void PlayerTakeDamage(int damage){
@@ -49,30 +39,61 @@ public class GameplayControllerScript : MonoBehaviour
 
     public void GlubeTakeDamage(int damage){
         GlubeHealth -= damage;
+        if(GlubeHealth <= 0){
+            PlayerWins();
+        }
     }
 
     public void ABuildingDestroyed(){
         RemainingBuildings--;
+        if(RemainingBuildings == 0 && GlubeHealth > 0){
+            GlubeWins();
+        }
     }
 
     public void PlayerWins(){
             Debug.Log("Player Won!");
             playerWon = true;
             //AudioManager.instance.StopMusic();
-            AudioManager.instance.GlubeDefeatIntro();
+            //GlubesCinemachine.SetActive(true);
+            //AudioManager.instance.GlubeDefeatIntro();
             PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
             PlayerPlane.GetComponent<PlayerPlane>().enabled = false;
+            PlayerPlane.GetComponent<Rigidbody>().velocity = Vector3.zero;
             //AudioManager.instance.GlubeDefeatLoop();
             //ToTitleScreen();
-            if(!leaving){
+            //if(!leaving){
                 //LeanTweenFaderScript.instance.LoadLevel("CreditsScene");
-                StartCoroutine(WinCutscene(15f));
-                leaving = true;
-            }
+                StartCoroutine(WinCutscene());
+                //leaving = true;
+            //}
     }
-    private IEnumerator WinCutscene(float t){
-        yield return new WaitForSeconds(t);
+    private IEnumerator WinCutscene(){
+        //AudioManager.instance.StopMusic();
+        //PlayerPlane.SetActive(false);
+        Glube.GetComponent<DestoryNearestBuildingDirector>().enabled = false;
+        Glube.GetComponent<Assets.Team_Members_Folders.CloakingPotion.GlubeAnimationController>().enabled = false;
+        yield return null;
+        Glube.GetComponentInChildren<Animator>().SetBool("IsAttackingBuilding", false);
+        yield return null;
+        Glube.GetComponentInChildren<Animator>().CrossFade("GLube Idle And Walk", 0.1f);
+        AudioManager.instance.GlubeDefeatLoop();
+        yield return new WaitForSeconds(1f);
+        GlubesCinemachine.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        Glube.GetComponentInChildren<Animator>().SetBool("GlubeDefeated", true);
+        yield return new WaitForSeconds(6f);
+        VictoryCam.SetActive(true);
+        yield return new WaitForSeconds(10f);
+        if(!leaving){
         LeanTweenFaderScript.instance.LoadLevel("CreditsScene");
+        leaving = true;
+        }
+        //yield return new WaitForSeconds(6f);
+        //yield return null;
+        //AudioManager.instance.PlayMusic();
+        //yield return new WaitForSeconds(t);
+        //LeanTweenFaderScript.instance.LoadLevel("CreditsScene");
     }
 
     public void PlayerDeath(){
