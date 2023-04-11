@@ -1,4 +1,4 @@
-#nullable enable
+//#nullable enable
 
 using Assets.Team_Members_Folders.CloakingPotion;
 using System;
@@ -11,23 +11,31 @@ using UnityEngine.InputSystem.Controls;
 
 public class DestoryNearestBuildingDirector : MonoBehaviour
 {
-    public Transform[]? buildings;
-    private GlubeAnimationController? animController;
+    public List<Transform> buildings;
+
+    public GameObject buildingsParent;
+    private GlubeAnimationController animController;
 
     private bool needsToFindNextBuilding = true;
 
     private void Start()
     {
         animController = GetComponent<GlubeAnimationController>();
+
+        for(int i = 0; i < buildingsParent.transform.childCount; i++){
+            Debug.Log("" + i);
+            buildings.Add(buildingsParent.transform.GetChild(i));
+            //buildings[i] = buildingsParent.transform.GetChild(i);
+        }
     }
 
-    private Transform? FindClosestBuilding()
+    private Transform FindClosestBuilding()
     {
         if (buildings == null) return null;
 
         float? smallestDistance = null;
         Transform? closestVector3 = null;
-        foreach (Transform? building in buildings)
+        foreach (Transform building in buildings)
         {
             if (building == null) continue;
 
@@ -72,6 +80,11 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
             agent.destination = ((Transform)closestVector).position;
             needsToFindNextBuilding = false;
         }
+
+        //if(GameplayControllerScript.instance.GlubeHealth <= 0){
+            //StopAllCoroutines();
+        //}
+
     }
 
     public void HandleCompletedBulidingDestruction()
@@ -94,6 +107,16 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         //{
             //animController.StartAttackingAnimation();
         //}
+    }
+
+    public void GlubeDefeated(){
+        StopAllCoroutines();
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.isStopped = true;
+        agent.velocity = agent.velocity * 0.1f;
+
+        GetComponentInChildren<Animator>().SetBool("IsAttackingBuilding", false);
+        GetComponentInChildren<Animator>().CrossFade("GLube Idle And Walk", 0.1f);
     }
 
     private IEnumerator FindDelay(){

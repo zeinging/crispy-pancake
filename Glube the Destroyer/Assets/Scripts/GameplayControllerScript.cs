@@ -7,7 +7,7 @@ public class GameplayControllerScript : MonoBehaviour
 
     public int PlayerHealth, GlubeHealth, RemainingBuildings, lostPlanes;
 
-    public GameObject BuildingParent, retryMenu, GlubesCinemachine, Glube, VictoryCam, PlayerPlane;
+    public GameObject BuildingParent, retryMenu, GlubesCinemachine, Glube, VictoryCam, GameplayUI, crossHairUI, PlayerPlane;
 
     private bool leaving = false, menuOpened = false, playerWon = false;
 
@@ -71,12 +71,15 @@ public class GameplayControllerScript : MonoBehaviour
     private IEnumerator WinCutscene(){
         //AudioManager.instance.StopMusic();
         //PlayerPlane.SetActive(false);
-        Glube.GetComponent<DestoryNearestBuildingDirector>().enabled = false;// put this in a function inside the glube script
-        Glube.GetComponent<Assets.Team_Members_Folders.CloakingPotion.GlubeAnimationController>().enabled = false;
-        yield return null;
-        Glube.GetComponentInChildren<Animator>().SetBool("IsAttackingBuilding", false);
-        yield return null;
-        Glube.GetComponentInChildren<Animator>().CrossFade("GLube Idle And Walk", 0.1f);
+        Glube.GetComponent<DestoryNearestBuildingDirector>().GlubeDefeated();//use this to stop all courtines on glube
+        //Glube.GetComponent<DestoryNearestBuildingDirector>().enabled = false;// put this in a function inside the glube script
+        //Glube.GetComponent<Assets.Team_Members_Folders.CloakingPotion.GlubeAnimationController>().enabled = false;
+        //yield return null;
+        //Glube.GetComponentInChildren<Animator>().SetBool("IsAttackingBuilding", false);
+        //yield return null;
+        //Glube.GetComponentInChildren<Animator>().CrossFade("GLube Idle And Walk", 0.1f);
+        GameplayUI.SetActive(false);
+        crossHairUI.SetActive(false);
         AudioManager.instance.GlubeDefeatLoop();
         yield return new WaitForSeconds(1f);
         GlubesCinemachine.SetActive(true);
@@ -101,6 +104,8 @@ public class GameplayControllerScript : MonoBehaviour
             //AudioManager.instance.StopMusic();
 
             if(!menuOpened){//should only open once.
+            GameplayUI.SetActive(false);
+            crossHairUI.SetActive(false);
             PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
             retryMenu.GetComponent<Menu>().openRetryMenu(2f);
             //StartCoroutine(AudioSequence());
@@ -114,6 +119,8 @@ public class GameplayControllerScript : MonoBehaviour
     public void PlayerCrashedIntoGlube(){
             Debug.Log("Hart: why did I do that?");
             //AudioManager.instance.ResetMusic();
+            GameplayUI.SetActive(false);
+            crossHairUI.SetActive(false);
             retryMenu.GetComponent<Menu>().openRetryMenu(2f);
             AudioManager.instance.IntoGlube();
             //AudioManager.instance.PlayerDown();
@@ -131,7 +138,9 @@ public class GameplayControllerScript : MonoBehaviour
             if(!playerWon){//don't run if player won
 
                 if(!menuOpened){//should only open once.
-
+                GameplayUI.SetActive(false);
+                crossHairUI.SetActive(false);
+                GlubesCinemachine.SetActive(true);//activate CM Vcam to focus on glube.
                 PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
                 retryMenu.GetComponent<Menu>().openRetryMenu(3.9f);
                 AudioManager.instance.GlubeWins();

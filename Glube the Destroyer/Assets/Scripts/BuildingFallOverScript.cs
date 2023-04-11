@@ -35,6 +35,7 @@ public class BuildingFallOverScript : MonoBehaviour
         FallTarget.transform.localRotation = Quaternion.RotateTowards(FallTarget.transform.localRotation, TargetRotation, FallSpeed * Time.deltaTime);
         if(FallTarget.transform.localRotation == TargetRotation && !hitGround){
         AudioManager.instance.BuildingExplodeStart();
+        GameplayControllerScript.instance.ABuildingDestroyed();
         hitGround = true;
         //Destroy(gameObject);
         }
