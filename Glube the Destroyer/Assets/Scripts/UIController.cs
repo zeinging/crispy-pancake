@@ -15,8 +15,8 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GlubeSlider.maxValue = GameplayControllerScript.instance.GlubeHealth - 1;
-        PlayerSlider.maxValue = GameplayControllerScript.instance.PlayerHealth - 1;
+        GlubeSlider.maxValue = GameplayControllerScript.instance.GlubeHealth;
+        PlayerSlider.maxValue = GameplayControllerScript.instance.PlayerHealth;
         BuildingCounter.text = GameplayControllerScript.instance.RemainingBuildings.ToString();
     }
 

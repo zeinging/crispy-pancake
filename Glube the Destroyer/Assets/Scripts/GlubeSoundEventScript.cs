@@ -111,6 +111,54 @@ public class GlubeSoundEventScript : MonoBehaviour
     Emitters[6].gameObject.SetActive(false);
     }
 
+    public void GlubeFireStart(){
+    Emitters[7].SetActive(true);
+    }
+
+    public void GlubeFireEnd(){
+    Emitters[7].SetActive(false);
+    }
+
+    public void GlubeCrashStart(){
+    Emitters[8].SetActive(true);
+    }
+
+    public void GlubeCrashEnd(){
+    Emitters[8].SetActive(false);
+    }
+
+    public void GlubeCelebrateStart(){
+    Emitters[9].gameObject.SetActive(true);
+    }
+
+    public void GlubeCelebrateEnd(){
+    Emitters[9].gameObject.SetActive(false);
+    }
+
+    public void GlubeHurtStart(){
+    Emitters[10].gameObject.SetActive(true);
+    }
+
+    public void GlubeHurtEnd(){
+    Emitters[10].gameObject.SetActive(false);
+    }
+
+    public void GlubeJumpStart(){
+    Emitters[11].gameObject.SetActive(true);
+    }
+
+    public void GlubeJumpEnd(){
+    Emitters[11].gameObject.SetActive(false);
+    }
+
+    public void GlubeMeltStart(){
+    Emitters[12].gameObject.SetActive(true);
+    }
+
+    public void GlubeMeltEnd(){
+    Emitters[12].gameObject.SetActive(false);
+    }
+
     // public void PlaySoundNow(){
     //     Debug.Log("Play sound now.");
     //     FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Glube/Combo/Glube_Combo-1");

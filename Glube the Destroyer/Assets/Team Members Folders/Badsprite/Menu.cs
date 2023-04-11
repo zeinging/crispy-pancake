@@ -69,9 +69,9 @@ public class Menu : MonoBehaviour
         LeanTweenFaderScript.instance.ReloadCurrentScene();
     }
 
-    public void openRetryMenu(){
+    public void openRetryMenu(float t){
         
-        StartCoroutine(RetryMenuDelay(2f));
+        StartCoroutine(RetryMenuDelay(t));
 
     }
 

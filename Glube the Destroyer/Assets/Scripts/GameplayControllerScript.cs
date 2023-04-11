@@ -81,7 +81,8 @@ public class GameplayControllerScript : MonoBehaviour
 
             if(!menuOpened){//should only open once.
             PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
-            retryMenu.GetComponent<Menu>().openRetryMenu();
+            retryMenu.GetComponent<Menu>().openRetryMenu(2f);
+            //StartCoroutine(AudioSequence());
             AudioManager.instance.PlayerDown();
             menuOpened = true;
             }
@@ -92,8 +93,9 @@ public class GameplayControllerScript : MonoBehaviour
     public void PlayerCrashedIntoGlube(){
             Debug.Log("Hart: why did I do that?");
             //AudioManager.instance.ResetMusic();
-            retryMenu.GetComponent<Menu>().openRetryMenu();
-            AudioManager.instance.PlayerDown();
+            retryMenu.GetComponent<Menu>().openRetryMenu(2f);
+            AudioManager.instance.IntoGlube();
+            //AudioManager.instance.PlayerDown();
             //ToTitleScreen();
     }
 
@@ -110,8 +112,9 @@ public class GameplayControllerScript : MonoBehaviour
                 if(!menuOpened){//should only open once.
 
                 PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
-                retryMenu.GetComponent<Menu>().openRetryMenu();
-                AudioManager.instance.PlayerDown();
+                retryMenu.GetComponent<Menu>().openRetryMenu(3.9f);
+                AudioManager.instance.GlubeWins();
+                //AudioManager.instance.PlayerDown();
                 menuOpened = true;
                 }
             }

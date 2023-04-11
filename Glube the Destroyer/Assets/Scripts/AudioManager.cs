@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private GameObject AudioSFX, AudioMusic, currentTrack;
+    private GameObject GlubeSFX, AudioMusic, AudioPlayerSFX, currentTrack;
 
-    public List<GameObject> MusicTracks;
+    public List<GameObject> MusicTracks, PlayerSFX;
     public static AudioManager instance;
 
     FMOD.Studio.Bus MusicBus, SFXBus;
@@ -25,8 +25,9 @@ public class AudioManager : MonoBehaviour
         }
         if(transform.childCount > 0){
 
-        AudioSFX = transform.GetChild(0).gameObject;
+        GlubeSFX = transform.GetChild(0).gameObject;
         AudioMusic = transform.GetChild(1).gameObject;
+        AudioPlayerSFX = transform.GetChild(2).gameObject;
 
         }
 
@@ -41,6 +42,10 @@ public class AudioManager : MonoBehaviour
                 currentTrack = AudioMusic.transform.GetChild(i).gameObject;
             }
             
+        }
+
+        for(int i = 0; i < AudioPlayerSFX.transform.childCount; i++){
+            PlayerSFX.Add(AudioPlayerSFX.transform.GetChild(i).gameObject);
         }
 
 
@@ -67,6 +72,20 @@ public class AudioManager : MonoBehaviour
     //     }
     // }
 
+    public void StopRuble(){
+        PlayerSFX[0].SetActive(false);
+    }
+    public void PlayerCrashed(){
+        PlayerSFX[1].SetActive(true);
+    }
+    public void PlayerBoost(){
+        PlayerSFX[2].SetActive(true);
+    }
+
+    public void CrashedIntoGlube(){
+        PlayerSFX[3].SetActive(true);
+    }
+
     public void PauseMusic(bool isPaused){
         //if(!isPaused){
             //DisableChildren();
@@ -81,6 +100,10 @@ public class AudioManager : MonoBehaviour
     public void StopMusic(){//not sure if .setactive to false is better or not.
         //SFXBus.setPaused(false);
         MusicBus.setPaused(true);
+    }
+
+    public void PlayMusic(){
+        MusicBus.setPaused(false);
     }
 
     public void ResetMusic(){
@@ -115,11 +138,45 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayerDown(){
+        StopMusic();
+        StopRuble();
+        PlayerCrashed();
     if(MusicTracks[3] != currentTrack){
     currentTrack.SetActive(false);
     MusicTracks[3].SetActive(true);
     currentTrack = MusicTracks[3];
+    StartCoroutine(PlayerDownDelay(2));
     }
+    }
+
+    public void IntoGlube(){
+        StopMusic();
+        StopRuble();
+        CrashedIntoGlube();
+    if(MusicTracks[3] != currentTrack){
+    currentTrack.SetActive(false);
+    MusicTracks[3].SetActive(true);
+    currentTrack = MusicTracks[3];
+    StartCoroutine(PlayerDownDelay(2));
+    }
+    }
+
+    public void GlubeWins(){
+        StopMusic();
+        //StopRuble();
+        //CrashedIntoGlube();
+    if(MusicTracks[3] != currentTrack){
+    currentTrack.SetActive(false);
+    MusicTracks[3].SetActive(true);
+    currentTrack = MusicTracks[3];
+    StartCoroutine(PlayerDownDelay(3.9f));
+    }
+    }
+
+    private IEnumerator PlayerDownDelay(float t){
+                yield return new WaitForSeconds(t);
+                PlayMusic();
+                //PlayerDown();
     }
 
 }
