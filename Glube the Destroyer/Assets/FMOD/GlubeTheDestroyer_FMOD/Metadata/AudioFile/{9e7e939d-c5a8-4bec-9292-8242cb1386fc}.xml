@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{9e7e939d-c5a8-4bec-9292-8242cb1386fc}">
 		<property name="assetPath">
-			<value>SFX/Glube_Combo-3.wav</value>
+			<value>SFX/Old Glube/Glube_Combo-3.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

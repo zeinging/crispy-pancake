@@ -19,9 +19,45 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{1acd847a-0841-4afa-ac73-89f4ffebbb8b}">
 		<relationship name="effects">
+			<destination>{52c31153-e3ff-4212-83d1-38c19b9438d0}</destination>
+			<destination>{6898627a-a3e5-427f-8489-19aad4b5cb21}</destination>
 			<destination>{dbd8a5f9-8c33-4984-8a93-58abcd0f8592}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f2c0b6e7-0353-4638-b14b-e6e6291116df}" />
+	<object class="SFXReverbEffect" id="{52c31153-e3ff-4212-83d1-38c19b9438d0}">
+		<property name="decayTime">
+			<value>2300</value>
+		</property>
+		<property name="earlyDelay">
+			<value>0</value>
+		</property>
+		<property name="lateDelay">
+			<value>0</value>
+		</property>
+		<property name="HFReference">
+			<value>13000</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>29.5</value>
+		</property>
+		<property name="density">
+			<value>38.5</value>
+		</property>
+		<property name="lowShelfFrequency">
+			<value>230</value>
+		</property>
+		<property name="highCut">
+			<value>20000</value>
+		</property>
+		<property name="wetLevel">
+			<value>-27</value>
+		</property>
+	</object>
+	<object class="ThreeEQEffect" id="{6898627a-a3e5-427f-8489-19aad4b5cb21}">
+		<property name="midGain">
+			<value>-3</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{dbd8a5f9-8c33-4984-8a93-58abcd0f8592}" />
 </objects>

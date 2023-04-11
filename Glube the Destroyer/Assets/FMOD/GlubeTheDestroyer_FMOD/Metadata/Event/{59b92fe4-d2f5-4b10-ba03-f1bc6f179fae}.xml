@@ -5,7 +5,7 @@
 			<value>Blue</value>
 		</property>
 		<property name="name">
-			<value>Glube_idle</value>
+			<value>Idle</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -35,7 +35,7 @@
 			<destination>{e6b4c0cb-b2c6-4cb9-84cb-5c894075f6f4}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{7bf46ba8-3cfc-4bb8-835e-35a1f7ba558e}</destination>
+			<destination>{d76c0ace-804f-40af-bcb7-63acfae6da48}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{cde343c8-4ba4-42e5-8cda-457366b75cc1}">
@@ -59,7 +59,7 @@
 			<destination>{254b2c87-82dd-4340-9611-d07c8063593c}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{b4407e1a-567d-4408-9495-2ef7e26f505d}</destination>
+			<destination>{e7f95957-c1b4-4d20-add8-305bcab6f36e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{46aa0aed-2805-4149-b5f6-3dfb22c6ecb6}" />

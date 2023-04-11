@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{a1480746-dfdb-4d18-8144-f261bae1afdc}">
+		<property name="assetPath">
+			<value>SFX/Old Glube/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8c5aa0c3-dda3-4011-ad34-8b15602eb2f0}</destination>
+		</relationship>
+	</object>
+</objects>

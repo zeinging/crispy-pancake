@@ -5,7 +5,7 @@
 			<value>Blue</value>
 		</property>
 		<property name="name">
-			<value>Glube_Combo-2</value>
+			<value>2</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -35,7 +35,7 @@
 			<destination>{1f141bb0-cb47-49c8-9936-c9247a34cb59}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{7bf46ba8-3cfc-4bb8-835e-35a1f7ba558e}</destination>
+			<destination>{d76c0ace-804f-40af-bcb7-63acfae6da48}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{fd4a22a1-058d-4eb3-8048-5ea9a9afcc14}">
@@ -59,7 +59,7 @@
 			<destination>{966d4098-c783-4a89-86b4-b9cf01d7f578}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{b4407e1a-567d-4408-9495-2ef7e26f505d}</destination>
+			<destination>{e7f95957-c1b4-4d20-add8-305bcab6f36e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{58921790-c890-41eb-9225-7267c2e1c682}" />
@@ -86,8 +86,11 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{f9915fef-8f0f-459f-99e4-4c2dc3fc4d76}">
+		<property name="playbackMode">
+			<value>1</value>
+		</property>
 		<relationship name="sounds">
-			<destination>{f28956e4-634a-4754-8b97-08def060ee42}</destination>
+			<destination>{a1317497-1e54-4360-bc78-3404a2956d65}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{caeb825d-24af-417c-bb07-75d8e65bdac5}">
@@ -103,9 +106,9 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{aec6e231-ab1b-47ad-9fea-38d873fcb700}" />
-	<object class="SingleSound" id="{f28956e4-634a-4754-8b97-08def060ee42}">
+	<object class="SingleSound" id="{a1317497-1e54-4360-bc78-3404a2956d65}">
 		<relationship name="audioFile">
-			<destination>{c6cb4e94-3d86-4643-83aa-33337b4a3f6c}</destination>
+			<destination>{c6529092-ca07-4468-9c8e-e05b4491218a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{684b0b3f-d49e-48c5-b8b2-431329a17ffc}" />

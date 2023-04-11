@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{c6325789-400f-4482-ba5c-af237111866e}">
 		<property name="assetPath">
-			<value>SFX/Glube_jump.wav</value>
+			<value>SFX/Glube/Glube_jump.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

@@ -5,7 +5,7 @@
 			<value>Blue</value>
 		</property>
 		<property name="name">
-			<value>Glube_jump</value>
+			<value>Jump</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -38,7 +38,7 @@
 			<destination>{a81a591e-5423-4e48-b863-292afc6a04e0}</destination>
 		</relationship>
 		<relationship name="banks">
-			<destination>{7bf46ba8-3cfc-4bb8-835e-35a1f7ba558e}</destination>
+			<destination>{d76c0ace-804f-40af-bcb7-63acfae6da48}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{6d6fa2a1-b412-4c43-8f20-23d5b9345ebf}">
@@ -62,7 +62,7 @@
 			<destination>{0c266642-c5a0-4799-80cd-484560e911d0}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{d8694c90-6423-4292-b36f-335b971e4fb5}</destination>
+			<destination>{e7f95957-c1b4-4d20-add8-305bcab6f36e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{013145df-3235-453c-93ca-1d5aca8004f9}" />

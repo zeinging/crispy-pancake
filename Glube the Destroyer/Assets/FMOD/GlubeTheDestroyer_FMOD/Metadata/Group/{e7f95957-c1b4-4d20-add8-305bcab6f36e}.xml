@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{e7f95957-c1b4-4d20-add8-305bcab6f36e}">
+		<property name="color">
+			<value>Blue</value>
+		</property>
+		<property name="volume">
+			<value>-1</value>
+		</property>
+		<property name="name">
+			<value>Glube</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{503f9dda-c567-479c-a6ff-124be0dc4a00}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{69115eb3-de40-444b-8a63-e0409f2511ab}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{b4407e1a-567d-4408-9495-2ef7e26f505d}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{503f9dda-c567-479c-a6ff-124be0dc4a00}">
+		<relationship name="effects">
+			<destination>{7799455f-60de-413f-a20a-f54b216e63c2}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{69115eb3-de40-444b-8a63-e0409f2511ab}" />
+	<object class="MixerBusFader" id="{7799455f-60de-413f-a20a-f54b216e63c2}" />
+</objects>

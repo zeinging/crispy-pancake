@@ -339,7 +339,7 @@ MonoBehaviour:
       Data2: 1319188203
       Data3: -1871860069
       Data4: -880154960
-    Path: event:/SFX/Glube/Combo/Glube_Combo-2
+    Path: event:/SFX/Glube/Combo/2
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -656,7 +656,7 @@ MonoBehaviour:
       Data2: 1319188203
       Data3: -1871860069
       Data4: -880154960
-    Path: event:/SFX/Glube/Combo/Glube_Combo-2
+    Path: event:/SFX/Glube/Combo/2
   is3D: 0
 --- !u!114 &323590396
 MonoBehaviour:
@@ -677,7 +677,7 @@ MonoBehaviour:
       Data2: 1268134335
       Data3: 103958438
       Data4: 729319303
-    Path: event:/MUSIC/Glube Defeat Intro
+    Path: event:/MUSIC/Glube Defeat Loop
   Event: 
   PlayEvent: 11
   StopEvent: 2
@@ -1119,7 +1119,7 @@ MonoBehaviour:
       Data2: 1259393781
       Data3: -1125055558
       Data4: -1365305489
-    Path: event:/SFX/Glube/Glube_idle
+    Path: event:/SFX/Glube/Idle
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -1594,7 +1594,7 @@ MonoBehaviour:
       Data2: 1310772017
       Data3: 1928434590
       Data4: -419677042
-    Path: event:/SFX/Glube/Combo/Glube_Combo-3
+    Path: event:/SFX/Glube/Combo/3
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -2002,7 +2002,7 @@ MonoBehaviour:
       Data2: 1157356750
       Data3: -497344622
       Data4: -1021553612
-    Path: event:/SFX/Glube/Glube_jump
+    Path: event:/SFX/Glube/Jump
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -2198,7 +2198,7 @@ MonoBehaviour:
       Data2: 1338336348
       Data3: -1995261303
       Data4: -86360496
-    Path: event:/SFX/Glube/Glube_Walk
+    Path: event:/SFX/Glube/Walk_Loop
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -2844,7 +2844,7 @@ MonoBehaviour:
       Data2: 1112116070
       Data3: 45383055
       Data4: 85487801
-    Path: event:/SFX/Glube/Glube_Hurt
+    Path: event:/SFX/Glube/Hurt
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -3424,7 +3424,7 @@ MonoBehaviour:
       Data2: 1255275029
       Data3: -1595501125
       Data4: 1976706510
-    Path: event:/SFX/Glube/Combo/Glube_Combo-1
+    Path: event:/SFX/Glube/Combo/1
   Event: 
   PlayEvent: 11
   StopEvent: 12

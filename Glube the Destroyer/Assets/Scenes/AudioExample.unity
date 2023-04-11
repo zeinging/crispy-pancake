@@ -642,7 +642,7 @@ MonoBehaviour:
       Data2: 1338336348
       Data3: -1995261303
       Data4: -86360496
-    Path: event:/SFX/Glube/Glube_Walk
+    Path: event:/SFX/Glube/Walk_Loop
   is3D: 1
 --- !u!114 &1967182296
 MonoBehaviour:
