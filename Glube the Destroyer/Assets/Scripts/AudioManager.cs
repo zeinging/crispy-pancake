@@ -87,6 +87,13 @@ public class AudioManager : MonoBehaviour
         PlayerSFX[3].SetActive(true);
     }
 
+    public void GlubeFire(){
+        PlayerSFX[4].SetActive(true);
+    }
+    public void StopGlubeFire(){
+        PlayerSFX[4].SetActive(false);
+    }
+
     public void BuildingExplodeStart(){
         BuildingExplodeEnd();
         EnviromentSFX.SetActive(true);

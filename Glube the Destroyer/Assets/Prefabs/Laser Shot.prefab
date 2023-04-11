@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5614225265302506577}
   - component: {fileID: 761425749529967354}
   - component: {fileID: 6564301051412974000}
+  - component: {fileID: 2100153686249372508}
   m_Layer: 0
   m_Name: Laser Shot
   m_TagString: Untagged
@@ -77,6 +78,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserSpeed: 185
   laserDuration: 2
+--- !u!114 &2100153686249372508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128690108637038337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1571482320
+      Data2: 1184417421
+      Data3: 44321168
+      Data4: -196688056
+    Path: event:/SFX/Glube/Fire
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 200
+  OverrideMaxDistance: 1500
 --- !u!1 &8297419700987918773
 GameObject:
   m_ObjectHideFlags: 0

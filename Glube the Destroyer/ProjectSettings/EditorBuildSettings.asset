@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SpacePlaneTestScene.unity
     guid: 9ad96acaf1f4f9443b6978322348037f
   - enabled: 1
-    path: Assets/Scenes/CombindingScene.unity
+    path: Assets/Scenes/OldCombindingScene.unity
     guid: 995a35fe32260394395cbd814a80bff1
   - enabled: 1
     path: Assets/Team Members Folders/Badsprite/MainMenu.unity
@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: ae573a833bd37f24e9d321b09f95f3c6
+  - enabled: 1
+    path: Assets/Scenes/CombindingScene.unity
+    guid: c5c9916fc9d8c4a43a818464327f3f26
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 1b86b273bce5aa44f9a3397da18b26d3, type: 2}
