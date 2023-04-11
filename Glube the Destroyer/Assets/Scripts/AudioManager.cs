@@ -87,10 +87,10 @@ public class AudioManager : MonoBehaviour
         PlayerSFX[3].SetActive(true);
     }
 
-    public void BuildingExplodeStart(float t){
-        //EnviromentSFX.SetActive(true);
+    public void BuildingExplodeStart(){
         BuildingExplodeEnd();
-        StartCoroutine(ExplodeSFXDelay(t));
+        EnviromentSFX.SetActive(true);
+        //StartCoroutine(ExplodeSFXDelay(t));
     }
 
     private IEnumerator ExplodeSFXDelay(float t){

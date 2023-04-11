@@ -71,7 +71,7 @@ public class GameplayControllerScript : MonoBehaviour
     private IEnumerator WinCutscene(){
         //AudioManager.instance.StopMusic();
         //PlayerPlane.SetActive(false);
-        Glube.GetComponent<DestoryNearestBuildingDirector>().enabled = false;
+        Glube.GetComponent<DestoryNearestBuildingDirector>().enabled = false;// put this in a function inside the glube script
         Glube.GetComponent<Assets.Team_Members_Folders.CloakingPotion.GlubeAnimationController>().enabled = false;
         yield return null;
         Glube.GetComponentInChildren<Animator>().SetBool("IsAttackingBuilding", false);
