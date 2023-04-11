@@ -99,6 +99,7 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
     private IEnumerator FindDelay(){
 
         yield return new WaitForSeconds(2.5f);
+        //AudioManager.instance.BuildingExplodeEnd();//reset building emitter after finding a new building
         needsToFindNextBuilding = true;
 
     }

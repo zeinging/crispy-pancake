@@ -159,6 +159,14 @@ public class GlubeSoundEventScript : MonoBehaviour
     Emitters[12].gameObject.SetActive(false);
     }
 
+    public void BuildingExplosionStart(){
+    Emitters[12].gameObject.SetActive(true);
+    }
+
+    public void BuildingExplosionEnd(){
+    Emitters[12].gameObject.SetActive(false);
+    }
+
     // public void PlaySoundNow(){
     //     Debug.Log("Play sound now.");
     //     FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/Glube/Combo/Glube_Combo-1");

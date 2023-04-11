@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private GameObject GlubeSFX, AudioMusic, AudioPlayerSFX, currentTrack;
+    private GameObject GlubeSFX, AudioMusic, AudioPlayerSFX, EnviromentSFX, currentTrack;
 
     public List<GameObject> MusicTracks, PlayerSFX;
     public static AudioManager instance;
@@ -28,6 +28,7 @@ public class AudioManager : MonoBehaviour
         GlubeSFX = transform.GetChild(0).gameObject;
         AudioMusic = transform.GetChild(1).gameObject;
         AudioPlayerSFX = transform.GetChild(2).gameObject;
+        EnviromentSFX = transform.GetChild(3).gameObject;
 
         }
 
@@ -84,6 +85,21 @@ public class AudioManager : MonoBehaviour
 
     public void CrashedIntoGlube(){
         PlayerSFX[3].SetActive(true);
+    }
+
+    public void BuildingExplodeStart(float t){
+        //EnviromentSFX.SetActive(true);
+        BuildingExplodeEnd();
+        StartCoroutine(ExplodeSFXDelay(t));
+    }
+
+    private IEnumerator ExplodeSFXDelay(float t){
+        yield return new WaitForSeconds(t);
+        EnviromentSFX.SetActive(true);
+    }
+
+    public void BuildingExplodeEnd(){
+        EnviromentSFX.SetActive(false);
     }
 
     public void PauseMusic(bool isPaused){

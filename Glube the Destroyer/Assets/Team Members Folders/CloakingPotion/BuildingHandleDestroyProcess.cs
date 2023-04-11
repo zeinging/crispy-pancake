@@ -46,6 +46,7 @@ public class BuildingHandleDestroyProcess : MonoBehaviour
 
         Debug.Log("Deleting");
         Destroy(buildingWrapper.gameObject);
+        AudioManager.instance.BuildingExplodeStart(1f);
         GameplayControllerScript.instance.ABuildingDestroyed();
     }
 }
