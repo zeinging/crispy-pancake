@@ -11,7 +11,7 @@ public class GlubeEyeHealth : MonoBehaviour
 
     public GameObject EyeBall;
 
-    public bool GotHit = false;
+    public bool GotHit = false, changeColor = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,8 @@ public class GlubeEyeHealth : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(changeColor){
+
         EyeBall.GetComponent<SkinnedMeshRenderer>().material.color = EyeDefault;
 
         if(GotHit){//only handles hit animation
@@ -33,6 +35,8 @@ public class GlubeEyeHealth : MonoBehaviour
 
         }
         
+        }
+        
     }
 
      void OnTriggerEnter(Collider other){
@@ -41,7 +45,7 @@ public class GlubeEyeHealth : MonoBehaviour
             GameplayControllerScript.instance.GlubeTakeDamage(DamageAmout);//possible update to specify what glube got hit with
             GotHit = true;
             //Destroy(other.gameObject);
-            Debug.Log("OW, MY EYE!");
+            //Debug.Log("OW, MY EYE!");
         }
     }
 

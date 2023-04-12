@@ -128,6 +128,7 @@ public class GameplayControllerScript : MonoBehaviour
             crossHairUI.SetActive(false);
             GlubesCinemachine.SetActive(true);
             retryMenu.GetComponent<Menu>().openRetryMenu(2f);
+            menuOpened = true;
             AudioManager.instance.IntoGlube();
             //AudioManager.instance.PlayerDown();
             //ToTitleScreen();
@@ -144,6 +145,8 @@ public class GameplayControllerScript : MonoBehaviour
             if(!playerWon){//don't run if player won
 
                 if(!menuOpened){//should only open once.
+                //PlayerPlane.GetComponent<PlayerPlane>().enabled = false;
+                //PlayerPlane.GetComponent<BoxCollider>().enabled = false;
                 GameplayUI.SetActive(false);
                 crossHairUI.SetActive(false);
                 GlubesCinemachine.SetActive(true);//activate CM Vcam to focus on glube.

@@ -11,7 +11,7 @@
                     "id": "5dc7f287-df25-424e-9cce-f268e1aa33c7",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -74,8 +74,8 @@
                 },
                 {
                     "name": "",
-                    "id": "eb8d635b-cefa-487c-987b-b0f3e2d619a9",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "256752ef-933f-408f-b166-862586f78747",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -85,11 +85,44 @@
                 },
                 {
                     "name": "",
-                    "id": "256752ef-933f-408f-b166-862586f78747",
+                    "id": "1caab458-1c02-4124-b240-ad84fb9ac524",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db51ef5d-c488-4c96-9910-5163acfc183c",
                     "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d7755b6e-2b22-44b4-a544-6ba70c675067",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0451a444-c9ee-414c-8730-993a9770fbfa",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
