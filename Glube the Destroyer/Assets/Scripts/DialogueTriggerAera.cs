@@ -19,7 +19,7 @@ public class DialogueTriggerAera : MonoBehaviour
     public enum Portraits{
         Hart,Gerber,Civilian1,Civilian2,Civilian3,Civilian4,Civilian5,Civilian6
     }
-    public Portraits SelectedPortrait;
+    public Portraits TriggerPortrait, DestroyedPortrait;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class DialogueTriggerAera : MonoBehaviour
         if(DestroyedDialogue != "" ){
 
             if(gameObject.scene.isLoaded)//checks if was destroyed because of scene change
-            DialogueManager.instance.OpenManager(DestroyedDuration, SelectedPortrait.ToString(), DestroyedDialogue);
+            DialogueManager.instance.OpenManager(DestroyedDuration, DestroyedPortrait.ToString(), DestroyedDialogue);
         }
     }
 
@@ -49,7 +49,7 @@ public class DialogueTriggerAera : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         Panel.SetActive(true);
         GameObject TempParent = Panel.transform.GetChild(1).gameObject;
-        GameObject tempPort = TempParent.transform.Find(SelectedPortrait.ToString()).gameObject;
+        GameObject tempPort = TempParent.transform.Find(TriggerPortrait.ToString()).gameObject;
         //Debug.Log(SelectedPortrait.ToString());
         //if(Panel.transform.Find(SelectedPortrait.ToString()))
         //Debug.Log(Panel.transform.GetChild(1).name);
@@ -73,7 +73,7 @@ public class DialogueTriggerAera : MonoBehaviour
             //DialogueTex.text = barkDialogue;
             //StartCoroutine(PanelTime());
             //StartCoroutine(DialogueManager.instance.OpenDialogue(DialogueDuration, SelectedPortrait.ToString(), barkDialogue));
-            DialogueManager.instance.OpenManager(DialogueDuration, SelectedPortrait.ToString(), barkDialogue);
+            DialogueManager.instance.OpenManager(DialogueDuration, TriggerPortrait.ToString(), barkDialogue);
             //this.gameObject.SetActive(false);
             //if(DestroyedDialogue == "")
             //Destroy(gameObject);//destroy to prevent triggering the same dialogue

@@ -59,6 +59,7 @@ public class GameplayControllerScript : MonoBehaviour
             //AudioManager.instance.GlubeDefeatIntro();
             PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
             PlayerPlane.GetComponent<PlayerPlane>().enabled = false;
+            PlayerPlane.GetComponent<BoxCollider>().enabled = false;
             PlayerPlane.GetComponent<Rigidbody>().velocity = Vector3.zero;
             //AudioManager.instance.GlubeDefeatLoop();
             //ToTitleScreen();
@@ -78,7 +79,9 @@ public class GameplayControllerScript : MonoBehaviour
         //Glube.GetComponentInChildren<Animator>().SetBool("IsAttackingBuilding", false);
         //yield return null;
         //Glube.GetComponentInChildren<Animator>().CrossFade("GLube Idle And Walk", 0.1f);
-        GameplayUI.SetActive(false);
+        //GameplayUI.SetActive(false);
+        GameplayUI.transform.GetChild(1).gameObject.SetActive(false);//glube health bar
+        GameplayUI.transform.GetChild(2).gameObject.SetActive(false);//player health bar
         crossHairUI.SetActive(false);
         AudioManager.instance.GlubeDefeatLoop();
         yield return new WaitForSeconds(1f);
@@ -88,8 +91,10 @@ public class GameplayControllerScript : MonoBehaviour
         yield return new WaitForSeconds(6f);
         VictoryCam.SetActive(true);
         yield return new WaitForSeconds(10f);
+        GameplayUI.transform.GetChild(4).gameObject.SetActive(true);// credits text
         if(!leaving){
-        LeanTweenFaderScript.instance.LoadLevel("CreditsScene");
+
+        //LeanTweenFaderScript.instance.LoadLevel("CreditsScene");
         leaving = true;
         }
         //yield return new WaitForSeconds(6f);
@@ -121,6 +126,7 @@ public class GameplayControllerScript : MonoBehaviour
             //AudioManager.instance.ResetMusic();
             GameplayUI.SetActive(false);
             crossHairUI.SetActive(false);
+            GlubesCinemachine.SetActive(true);
             retryMenu.GetComponent<Menu>().openRetryMenu(2f);
             AudioManager.instance.IntoGlube();
             //AudioManager.instance.PlayerDown();
@@ -142,13 +148,21 @@ public class GameplayControllerScript : MonoBehaviour
                 crossHairUI.SetActive(false);
                 GlubesCinemachine.SetActive(true);//activate CM Vcam to focus on glube.
                 PlayerPlane.GetComponent<PlayerPlane>().DisableControls();
-                retryMenu.GetComponent<Menu>().openRetryMenu(3.9f);
                 AudioManager.instance.GlubeWins();
+                retryMenu.GetComponent<Menu>().openRetryMenu(6.9f);
+                StartCoroutine(CutsceneDelay(7f));
                 //AudioManager.instance.PlayerDown();
                 menuOpened = true;
                 }
             }
             //ToTitleScreen();
+    }
+
+    private IEnumerator CutsceneDelay(float t){
+        yield return new WaitForSeconds(t);
+        VictoryCam.SetActive(true);
+        AudioManager.instance.GameOVer(2f);
+        //AudioManager.instance.GlubeWins();
     }
 
     public void ToTitleScreen(){

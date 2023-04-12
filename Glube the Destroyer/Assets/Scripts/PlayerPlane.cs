@@ -25,6 +25,8 @@ public class PlayerPlane : MonoBehaviour
 
     private Camera cam;
 
+    private bool PlayerStopped = false;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -52,7 +54,19 @@ public class PlayerPlane : MonoBehaviour
     }
 
     private void FixedUpdate(){
+        if(!PlayerStopped){
         MyBodyQuaternionRotationMethod();
+        }else{
+
+        myBody.velocity = Vector3.zero;
+        
+        if(transform.localPosition.magnitude > 0.5f){
+        transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.zero, speed * Time.deltaTime);
+        }else
+        {
+            GetComponent<PlayerPlane>().enabled = false;
+        }
+        }
 
         
     }
@@ -198,7 +212,9 @@ public class PlayerPlane : MonoBehaviour
             myBody.velocity = Vector3.zero;
             playerInputActions.Player.Disable();
             this.transform.parent = other.transform;
-            GetComponent<PlayerPlane>().enabled = false;
+            //GetComponent<PlayerPlane>().enabled = false;
+            PlayerStopped = true;
+            //StartCoroutine(SinkIntoGlube());
             GetComponent<BoxCollider>().enabled = false;
             GameplayControllerScript.instance.PlayerCrashedIntoGlube();
         }

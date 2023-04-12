@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class ScrollingTextScript : MonoBehaviour
@@ -11,6 +12,8 @@ public class ScrollingTextScript : MonoBehaviour
     public GameObject NotificationText;
 
     private bool isFinished = false, Skiping = false;
+
+    private RectTransform MovingText;
 
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
@@ -23,6 +26,7 @@ public class ScrollingTextScript : MonoBehaviour
 
         playerInputActions.UI.Submit.performed += SkipText;
         //LeanTweenFaderScript.instance.LoadLevel(levelName);
+        MovingText = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -31,13 +35,17 @@ public class ScrollingTextScript : MonoBehaviour
 
         
 
-        Vector3 temp = transform.position;
-        temp.y += 1;
-        transform.position = Vector3.MoveTowards(transform.position, temp, speed * Time.deltaTime);
-        if(transform.position.y > 190f){
+        Vector3 temp = MovingText.anchoredPosition;
+        //temp.y += 1;
+        temp.y = 0;
+        MovingText.anchoredPosition = Vector3.MoveTowards(MovingText.anchoredPosition, temp, speed * Time.deltaTime);
+        if(MovingText.anchoredPosition.y == 0){
             if(!isFinished){
             playerInputActions.UI.Disable();
+            if(levelName != ""){
             LeanTweenFaderScript.instance.LoadLevel(levelName);
+            }
+                
             isFinished = true;
             }
         }

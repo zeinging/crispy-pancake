@@ -200,6 +200,18 @@ public class AudioManager : MonoBehaviour
     }
     }
 
+    public void GameOVer(float t){
+    StopMusic();
+        //StopRuble();
+        //CrashedIntoGlube();
+    if(MusicTracks[4] != currentTrack){
+    currentTrack.SetActive(false);
+    MusicTracks[4].SetActive(true);
+    currentTrack = MusicTracks[3];
+    StartCoroutine(PlayMusicDelay(t));
+    }
+    }
+
     private IEnumerator PlayMusicDelay(float t){
                 yield return new WaitForSeconds(t);
                 PlayMusic();
