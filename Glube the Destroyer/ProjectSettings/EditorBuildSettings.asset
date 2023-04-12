@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ScrollingTextScene.unity
     guid: ae80bb12e37cc934a80fc9996ac2352a
   - enabled: 1
-    path: Assets/Scenes/CreditsScene.unity
+    path: Assets/Scenes/PostCreditsScene.unity
     guid: ae573a833bd37f24e9d321b09f95f3c6
   - enabled: 1
     path: Assets/Scenes/CombindingScene.unity

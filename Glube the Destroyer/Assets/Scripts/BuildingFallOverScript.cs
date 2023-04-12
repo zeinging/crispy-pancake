@@ -33,7 +33,7 @@ public class BuildingFallOverScript : MonoBehaviour
         //Quaternion temp = transform.localRotation;
         //temp = Quaternion.Euler(90f, temp.eulerAngles.y, temp.eulerAngles.z);
         FallTarget.transform.localRotation = Quaternion.RotateTowards(FallTarget.transform.localRotation, TargetRotation, FallSpeed * Time.deltaTime);
-        if(FallTarget.transform.localRotation == TargetRotation && !hitGround){
+        if(Quaternion.Angle(FallTarget.transform.localRotation, TargetRotation) < 1 && !hitGround){
         AudioManager.instance.BuildingExplodeStart();
         GameplayControllerScript.instance.ABuildingDestroyed();
         hitGround = true;

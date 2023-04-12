@@ -338,10 +338,14 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: b1cb3652f01d01347bb07e3488c5e158, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: Glube is here.
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -349,11 +353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: Nooo, Glube destroyed another building!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -365,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 62
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -373,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33
+      value: -47
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1515,6 +1519,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181799652}
   m_CullTransparentMesh: 1
+--- !u!1 &188955300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188955301}
+  - component: {fileID: 188955303}
+  - component: {fileID: 188955302}
+  m_Layer: 5
+  m_Name: Past Image (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &188955301
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188955300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 949189008}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -9.035061, y: 21.345253}
+  m_SizeDelta: {x: 1080, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &188955302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188955300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: cb1e79a5985e34441879af14c7531fab, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &188955303
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188955300}
+  m_CullTransparentMesh: 1
 --- !u!4 &197789419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
@@ -1623,6 +1702,8 @@ MonoBehaviour:
   speed: 30
   turnSpeed: 10
   laserSpeed: 20
+  BoostSpeed: 40
+  BoostTime: 5
   Plane: {fileID: 205068534}
   LaserShot: {fileID: 5128690108637038337, guid: 715820a3a49887d4ebdd604def720003, type: 3}
   LaserPistle: {fileID: 1703359594}
@@ -2383,6 +2464,14 @@ PrefabInstance:
       value: welcome to Howland Coffee.
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: who ordered the XL Glube?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: my number one customer, Hart.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
       value: 4
       objectReference: {fileID: 0}
@@ -2394,6 +2483,14 @@ PrefabInstance:
       propertyPath: DestroyedPortrait
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
       value: Building Variant 1 (8)
@@ -2404,7 +2501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -344
+      value: -465
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2412,7 +2509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 226
+      value: 234
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3249,10 +3346,18 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: b1cb3652f01d01347bb07e3488c5e158, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: pew
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: wosh
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -3260,11 +3365,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: explosion
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -3276,7 +3389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 277
+      value: 349
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3284,7 +3397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 352
+      value: 371
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3611,15 +3724,27 @@ PrefabInstance:
       value: welcome to Howland Coffee.
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: I got this under control!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: everyone remain calm, I have this under control.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: I've lost conrol.
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
@@ -3632,7 +3757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 411
+      value: 606
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3640,7 +3765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 226
+      value: 236
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3842,7 +3967,7 @@ GameObject:
   - component: {fileID: 475937782}
   - component: {fileID: 475937781}
   m_Layer: 5
-  m_Name: Civilian5
+  m_Name: Johna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4459,7 +4584,7 @@ GameObject:
   - component: {fileID: 539718051}
   - component: {fileID: 539718050}
   m_Layer: 5
-  m_Name: Civilian4
+  m_Name: KidGirl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4565,7 +4690,7 @@ GameObject:
   - component: {fileID: 543079715}
   - component: {fileID: 543079714}
   m_Layer: 5
-  m_Name: Civilian3
+  m_Name: RedHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4713,10 +4838,18 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f35b57285fc72746b1593410292bb2a, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: oh no, it's glube the destroyer!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: how did you get here so fast?
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -4724,11 +4857,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: My company!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 0
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -4740,7 +4881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -183
+      value: -238
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4748,7 +4889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 358
+      value: 435
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5189,10 +5330,18 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: 7f751b171fb319a4f978c5c3b9dbddcc, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: I've never seen Glube this close before?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: I've never seen one of their ships this close before!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -5200,11 +5349,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: I've never seen the ground this close before.
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 0
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -5216,7 +5373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 212
+      value: 278
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5224,7 +5381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -64
+      value: -236
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5694,7 +5851,7 @@ RectTransform:
   - {fileID: 181799653}
   - {fileID: 114459038}
   - {fileID: 966501785}
-  - {fileID: 1027405147}
+  - {fileID: 949189008}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5708,6 +5865,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4308093486958815777, guid: 680a237fb759b9642a26105548306c02, type: 3}
   m_PrefabInstance: {fileID: 2146272546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &741386809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 741386810}
+  - component: {fileID: 741386812}
+  - component: {fileID: 741386811}
+  m_Layer: 5
+  m_Name: Past Image (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &741386810
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741386809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 949189008}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -9.035061, y: 21.345253}
+  m_SizeDelta: {x: 1080, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &741386811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741386809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ca8e80ad81f2cc44893207da45dd65fd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &741386812
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741386809}
+  m_CullTransparentMesh: 1
 --- !u!1 &753586862
 GameObject:
   m_ObjectHideFlags: 0
@@ -5742,8 +5974,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 175, y: 0}
-  m_SizeDelta: {x: -350, y: 0}
+  m_AnchoredPosition: {x: 100, y: 0}
+  m_SizeDelta: {x: -500, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &753586864
 MonoBehaviour:
@@ -5800,7 +6032,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -6421,7 +6653,7 @@ GameObject:
   - component: {fileID: 843672258}
   - component: {fileID: 843672257}
   m_Layer: 5
-  m_Name: Civilian2
+  m_Name: KidBoy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7073,14 +7305,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddd1129a2da9f24cad9b909343e0e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barkDialogue: testing stuff. NOOO! GLUBE THE DESTROYER
+  PlaneTriggeredPortrait: 0
+  PlaneDialogue: 
+  GlubeTriggeredPortrait: 0
+  GlubeDialogue: 
+  DestroyedPortrait: 0
   DestroyedDialogue: 
   DialogueDuration: 5
   DestroyedDuration: 5
-  Panel: {fileID: 281241622}
-  DialogueTex: {fileID: 753586864}
-  TriggerPortrait: 0
-  DestroyedPortrait: 0
+  TriggeredPlane: 0
+  TriggeredGlube: 0
 --- !u!135 &881776765
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7217,16 +7451,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 0e19f00af86c77c418505710ae8551cf, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: oh no, it's glube the destroyer!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: ooh, a space plane!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: I'm falling
+      value: Aah! Glube is tearing the city apart!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 2
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -7238,7 +7484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 376
+      value: 574
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7246,7 +7492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 47
+      value: -77
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7771,6 +8017,47 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &949189007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949189008}
+  m_Layer: 5
+  m_Name: Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &949189008
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949189007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1359630754}
+  - {fileID: 188955301}
+  - {fileID: 1913549707}
+  - {fileID: 741386810}
+  - {fileID: 2009773306}
+  - {fileID: 1027405147}
+  m_Father: {fileID: 714398504}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &950534696
 GameObject:
   m_ObjectHideFlags: 3
@@ -7971,7 +8258,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966501784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7999,7 +8286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 80
   skipTextDuration: 2
-  levelName: MainMenuWithSceneFader
+  levelName: PostCreditsScene
   NotificationText: {fileID: 1027405146}
 --- !u!4 &973711778 stripped
 Transform:
@@ -8421,16 +8708,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027405146}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 714398504}
+  m_Father: {fileID: 949189008}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 910, y: 470}
   m_SizeDelta: {x: 450, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1027405148
@@ -8685,7 +8972,7 @@ GameObject:
   - component: {fileID: 1047943660}
   - component: {fileID: 1047943659}
   m_Layer: 5
-  m_Name: Civilian1
+  m_Name: BlondeMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9248,10 +9535,18 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: 0e19f00af86c77c418505710ae8551cf, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: Look it's Glube the Destroyer!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: Look it's Hart piloting a space plane!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -9259,11 +9554,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: Look a falling building!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -9275,7 +9574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 263
+      value: 245
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9283,7 +9582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 523
+      value: 671
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9641,7 +9940,7 @@ MonoBehaviour:
   DisFromCamera: 70
   DisFromPlane: 100
   AimSpeed: 800
-  NoseAiming: 0
+  NoseAiming: 1
 --- !u!114 &1244173015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9925,6 +10224,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4913183546425865046, guid: 680a237fb759b9642a26105548306c02, type: 3}
   m_PrefabInstance: {fileID: 2146272546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1359630753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1359630754}
+  - component: {fileID: 1359630755}
+  m_Layer: 5
+  m_Name: Scrolling Text Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1359630754
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359630753}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 949189008}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -9.035061, y: 21.345253}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1359630755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359630753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0603e7547be784c861c9f020d14108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextSpeed: 20
+  skipTextDuration: 1
+  imageDuration: 5
+  imageDelay: 2
+  ImageFadeSpeed: 0.5
+  levelName: 
+  NotificationText: {fileID: 0}
+  PastProgress: 0
+  pastEvents:
+  - {fileID: 188955302}
+  - {fileID: 1913549708}
+  - {fileID: 741386811}
+  - {fileID: 2009773307}
 --- !u!1 &1360357801
 GameObject:
   m_ObjectHideFlags: 0
@@ -10443,10 +10803,18 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: 6f35b57285fc72746b1593410292bb2a, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: Glube ... the destroyer?!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: Hart, don't go blowing up that space plane!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -10454,11 +10822,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: Did glube just destroyed my repair shop!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 0
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -10470,7 +10846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 256
+      value: 301
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10478,7 +10854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 150
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10777,7 +11153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504812574}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 420}
+  m_LocalPosition: {x: -159, y: 0, z: 853}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 1768428657501097556}
@@ -10895,6 +11271,14 @@ PrefabInstance:
       value: wosh!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: ooh a Glube!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: ooh a space plane!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
       value: 6
       objectReference: {fileID: 0}
@@ -10906,6 +11290,14 @@ PrefabInstance:
       propertyPath: DestroyedPortrait
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
       value: Building Variant 1 (1)
@@ -10916,7 +11308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -201
+      value: -249
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10924,7 +11316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11
+      value: -34
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11188,14 +11580,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddd1129a2da9f24cad9b909343e0e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barkDialogue: testing stuff. NOOO! GLUBE THE DESTROYER
+  PlaneTriggeredPortrait: 0
+  PlaneDialogue: 
+  GlubeTriggeredPortrait: 0
+  GlubeDialogue: 
+  DestroyedPortrait: 0
   DestroyedDialogue: 
   DialogueDuration: 5
   DestroyedDuration: 5
-  Panel: {fileID: 281241622}
-  DialogueTex: {fileID: 753586864}
-  TriggerPortrait: 0
-  DestroyedPortrait: 0
+  TriggeredPlane: 0
+  TriggeredGlube: 0
 --- !u!1 &1613559591
 GameObject:
   m_ObjectHideFlags: 0
@@ -11674,10 +12068,18 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: b2f21ebd89c27e4429369c3c188419a0, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: Look, you can see Glube right outside the window!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: Look, you can see the ship right outside the window!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -11685,11 +12087,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: BAD glube! go to time out!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -11701,7 +12111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -97
+      value: -417
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11709,7 +12119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -114
+      value: -225
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12752,10 +13162,18 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: 0e19f00af86c77c418505710ae8551cf, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: Glube is in front of the indoor playground.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: I want to fly in one of those so bad.
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -12763,11 +13181,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: WEEEEE!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -12779,7 +13205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -157
+      value: -213
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12787,7 +13213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 183
+      value: 201
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13233,6 +13659,81 @@ MonoBehaviour:
   OverrideAttenuation: 1
   OverrideMinDistance: 200
   OverrideMaxDistance: 1500
+--- !u!1 &1913549706
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1913549707}
+  - component: {fileID: 1913549709}
+  - component: {fileID: 1913549708}
+  m_Layer: 5
+  m_Name: Past Image (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1913549707
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913549706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 949189008}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -9.035061, y: 79.08028}
+  m_SizeDelta: {x: 773.3, y: 1093.7}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1913549708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913549706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: f634347d5769b5f4c90de1173c2aafd9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1913549709
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913549706}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1924690370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13243,10 +13744,18 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: 7f751b171fb319a4f978c5c3b9dbddcc, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: Glube is in front of Amal News building!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: Piper, bring me pictures of glube Man!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -13254,11 +13763,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: NOOOOOOO!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 0
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -13270,7 +13787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 401
+      value: 597
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13278,7 +13795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 391
+      value: 552
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13833,6 +14350,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4028607848809032194, guid: 680a237fb759b9642a26105548306c02, type: 3}
   m_PrefabInstance: {fileID: 2146272546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2009773305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2009773306}
+  - component: {fileID: 2009773308}
+  - component: {fileID: 2009773307}
+  m_Layer: 5
+  m_Name: Past Image (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2009773306
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009773305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 949189008}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -9.035061, y: 21.345253}
+  m_SizeDelta: {x: 1080, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2009773307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009773305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: dc1e3b62beec8474786d60c0ad292921, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2009773308
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009773305}
+  m_CullTransparentMesh: 1
 --- !u!4 &2010835754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5277585455056549691, guid: 680a237fb759b9642a26105548306c02, type: 3}
@@ -14084,10 +14676,18 @@ PrefabInstance:
     - target: {fileID: 3943127270528742612, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: a033c0551b0c00f4581cb66eda7edcf4, type: 2}
+      objectReference: {fileID: 2100000, guid: b2f21ebd89c27e4429369c3c188419a0, type: 2}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: barkDialogue
       value: welcome to Howland Coffee.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeDialogue
+      value: AAHHHHH!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneDialogue
+      value: AAHHHHH!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: TriggerPortrait
@@ -14095,11 +14695,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedDialogue
-      value: NOO! NOT HOWLAND COFFEE!
+      value: AAHHHHH!
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: DestroyedPortrait
-      value: 0
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: GlubeTriggeredPortrait
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237373219140254996, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
+      propertyPath: PlaneTriggeredPortrait
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792064, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_Name
@@ -14111,7 +14719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: 94
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14119,7 +14727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 222
+      value: 246
       objectReference: {fileID: 0}
     - target: {fileID: 5237373219339792065, guid: 36b5e21cf539b10458859f62d8821114, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14474,7 +15082,7 @@ GameObject:
   - component: {fileID: 2118357995}
   - component: {fileID: 2118357994}
   m_Layer: 5
-  m_Name: Civilian6
+  m_Name: Pinky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

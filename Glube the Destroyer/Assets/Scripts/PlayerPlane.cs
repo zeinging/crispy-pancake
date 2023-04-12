@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerPlane : MonoBehaviour
 {
     [SerializeField]
-    private float speed, turnSpeed, laserSpeed;
+    private float speed, turnSpeed, laserSpeed, BoostSpeed, BoostTime;
 
     private Rigidbody myBody;//probably only for detecting collitions
 
@@ -25,7 +25,7 @@ public class PlayerPlane : MonoBehaviour
 
     private Camera cam;
 
-    private bool PlayerStopped = false;
+    private bool PlayerStopped = false, CanBoost = true, isBoosting = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -36,6 +36,8 @@ public class PlayerPlane : MonoBehaviour
         playerInputActions.Player.Enable();
 
         playerInputActions.Player.Shoot.performed += ShootLaser;
+        playerInputActions.Player.Boost.performed += BoostPlane;
+
 
         cam = Camera.main;
 
@@ -51,6 +53,37 @@ public class PlayerPlane : MonoBehaviour
         //QuaternionRotationMethod();
         
         AimToUICrossHair();
+
+
+        
+        //Boosting();
+        
+        
+    }
+
+    private void Boosting(){
+
+        float temp = speed;
+        float tempBoost = BoostTime;
+
+        if(isBoosting){
+
+            if(BoostTime > 0){
+                BoostTime -= Time.deltaTime;
+                speed = BoostSpeed;
+            }else{
+                speed = temp;
+                CanBoost = false;
+                isBoosting = false;
+            }
+
+        }else{
+            speed = temp;
+            if(BoostTime < tempBoost){
+            BoostTime = Mathf.MoveTowards(BoostTime, tempBoost, Time.deltaTime);
+            }
+        }
+
     }
 
     private void FixedUpdate(){
@@ -78,6 +111,15 @@ public class PlayerPlane : MonoBehaviour
     private void ShootLaser(InputAction.CallbackContext context){
         if(context.performed){
             Instantiate(LaserShot, LaserPistle.transform.position, LaserPistle.transform.rotation);
+        }
+    }
+
+    private void BoostPlane(InputAction.CallbackContext context){
+        if(context.performed){
+            if(CanBoost){
+                isBoosting = true;
+                Debug.Log("Boosting");
+            }
         }
     }
 
