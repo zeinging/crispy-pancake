@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserSpeed: 185
-  laserDuration: 2
+  laserDuration: 5
 --- !u!114 &2100153686249372508
 MonoBehaviour:
   m_ObjectHideFlags: 0
