@@ -231,7 +231,7 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Menu.bank
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 638171867501977970
+  lastModified: 638167678891505593
   FileSizes:
   - Name: Desktop
     Value: 1900384
@@ -305,7 +305,7 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638171867501907864
+  lastModified: 638167678891424274
   FileSizes:
   - Name: Desktop
     Value: 1944
@@ -436,7 +436,7 @@ MonoBehaviour:
   - {fileID: 6458127714841535602}
   StringsBanks:
   - {fileID: -3962470505092573222}
-  cacheTime: 638171867501977970
+  cacheTime: 638167678891505593
   cacheVersion: 131603
 --- !u!114 &5938209998214784
 MonoBehaviour:
@@ -588,7 +588,7 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 638171867501887969
+  lastModified: 638167678891414302
   FileSizes:
   - Name: Desktop
     Value: 2255264
@@ -689,7 +689,7 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638171867501907864
+  lastModified: 638167678891424274
   FileSizes:
   - Name: Desktop
     Value: 18176

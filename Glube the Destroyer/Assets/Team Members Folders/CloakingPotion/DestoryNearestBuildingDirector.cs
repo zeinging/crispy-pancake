@@ -34,7 +34,7 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         if (buildings == null) return null;
 
         float? smallestDistance = null;
-        Transform? closestVector3 = null;
+        Transform closestVector3 = null;
         foreach (Transform building in buildings)
         {
             if (building == null) continue;
@@ -60,7 +60,7 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
             return;
         }
 
-        Transform? closestVector = FindClosestBuilding();
+        Transform closestVector = FindClosestBuilding();
 
         if (closestVector == null)
         {

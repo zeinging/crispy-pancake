@@ -13,7 +13,7 @@ public class Menu : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
-    public GameObject pauseFirstButton;
+    public GameObject pauseFirstButton, retryFirstButton;
     // Start is called before the first frame update
     //if ((Keyboard.current.tKey.wasPressedThisFrame) || (Gamepad.current.startButton.wasPressedThisFrame))
     void Start()
@@ -81,10 +81,11 @@ public class Menu : MonoBehaviour
 
     private IEnumerator RetryMenuDelay(float t){
 
+        playerInputActions.UI.Pause.Disable();//disable pause button when retry menu appears
         yield return new WaitForSeconds(t);
         retryMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
-        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
+        EventSystem.current.SetSelectedGameObject(retryFirstButton);
 
     }
 }
