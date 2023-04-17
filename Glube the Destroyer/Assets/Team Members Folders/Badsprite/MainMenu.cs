@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject mainMenu;
+    public GameObject mainMenu, optionsMenu;
 
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
-    public GameObject mainFirstButton, backButton, creditsButton, CreditsText;
+    public GameObject mainFirstButton, CreditsBack, optionsBack, creditsButton, CreditsText, optionsButton;
     public string levelName;
 
     // Start is called before the first frame update
@@ -45,12 +45,26 @@ public class MainMenu : MonoBehaviour
             CreditsText.SetActive(true);
             mainMenu.SetActive(false);
             EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(backButton);
+            EventSystem.current.SetSelectedGameObject(CreditsBack);
         }else{
             CreditsText.SetActive(false);
             mainMenu.SetActive(true);
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(creditsButton);
+        }
+    }
+
+    public void Options(){
+        if(!optionsMenu.activeInHierarchy){
+            optionsMenu.SetActive(true);
+            mainMenu.SetActive(false);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(optionsBack);
+        }else{
+            optionsMenu.SetActive(false);
+            mainMenu.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(optionsButton);
         }
     }
 
