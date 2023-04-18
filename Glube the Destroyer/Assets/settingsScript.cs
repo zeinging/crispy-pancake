@@ -34,7 +34,7 @@ public class settingsScript : MonoBehaviour
     public TMPro.TMP_Text testText;
 
     [SerializeField]
-    private List<string> options;
+    private List<string> options = new List<string>();
 
     private void Start()
     {
@@ -62,14 +62,14 @@ public class settingsScript : MonoBehaviour
 
         for (int i = 0; i < resolutuions.Length; i++)
         {
-            options = new List<string>(resolutuions.Length);
+            //options = new List<string>(resolutuions.Length);
 
             string option = (resolutuions[i].width + " x " + resolutuions[i].height + " " + resolutuions[i].refreshRate) + "Hz";
 
-            //if( i == 0){
+            if(resolutuions[i].refreshRate == 60){//should only add 60 Hrtz resolutions after unity update
                 options.Add(option);//add the first one
-                //ebug.Log("looped this many times: " + i);
-            //}
+                Debug.Log(option);
+            }
 
             //if(i > 0 ){//if statement skips the first one
 
@@ -115,7 +115,8 @@ public class settingsScript : MonoBehaviour
         //resolutionDropdown.RefreshShownValue();
 
         ResolutionSlider.minValue = 0;
-        ResolutionSlider.maxValue = options.Capacity - 1;
+        if(options.Count > 0)
+        ResolutionSlider.maxValue = options.Count - 1;
         Debug.Log("should only happen once");
         ResolutionSlider.GetComponentInChildren<TMPro.TMP_Text>().text = resolutuions[currentResolutionIndex].ToString();
         ResolutionSlider.value = currentResolutionIndex;
@@ -171,7 +172,7 @@ public class settingsScript : MonoBehaviour
 
     public void NewSetResolution(){
         Resolution tempres = resolutuions[(int)ResolutionSlider.value];
-        Screen.SetResolution(tempres.width, tempres.height, Screen.fullScreen);
+        Screen.SetResolution(tempres.width, tempres.height, Screen.fullScreen, tempres.refreshRate);
         ApplyButton.interactable = false;
         ApplyButton.alpha = 0.5f;
         ResolutionSlider.Select();
