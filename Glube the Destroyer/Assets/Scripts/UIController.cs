@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
 
-    public Slider GlubeSlider, PlayerSlider;
+    public Slider GlubeSlider, PlayerSlider, BoostSlider;
 
-    public GameObject GlubeFill, PlayerFill;
+    public GameObject GlubeFill, PlayerFill, BoostFill;
 
     public TMPro.TMP_Text BuildingCounter;
+
+    private PlayerPlane Player;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,8 @@ public class UIController : MonoBehaviour
         GlubeSlider.maxValue = GameplayControllerScript.instance.GlubeHealth;
         PlayerSlider.maxValue = GameplayControllerScript.instance.PlayerHealth;
         BuildingCounter.text = GameplayControllerScript.instance.RemainingBuildings.ToString();
+        Player = GameplayControllerScript.instance.PlayerPlane.GetComponent<PlayerPlane>();
+        BoostSlider.maxValue = Player.BoostDuration;
     }
 
     // Update is called once per frame
@@ -38,6 +42,15 @@ public class UIController : MonoBehaviour
         if(int.Parse(BuildingCounter.text) != GameplayControllerScript.instance.RemainingBuildings){
             BuildingCounter.text = GameplayControllerScript.instance.RemainingBuildings.ToString();
         }
+
+        if(BoostSlider.value != Player.BoostDuration){//boost meter
+            BoostSlider.value = Player.BoostDuration;
+        }
+
+        if(BoostSlider.value == 0)//maybe delete, this would only happen for one frame.
+            BoostFill.SetActive(false);
+        else
+            BoostFill.SetActive(true);
 
 
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameplayControllerScript : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class GameplayControllerScript : MonoBehaviour
     public GameObject BuildingParent, retryMenu, GlubesCinemachine, Glube, VictoryCam, GameplayUI, crossHairUI, PlayerPlane;
 
     private bool leaving = false, menuOpened = false, playerWon = false;
+
+    public PlayerInput playerInput;
+    public PlayerInputActions playerInputActions;
 
     public static GameplayControllerScript instance;
 
@@ -23,6 +27,10 @@ public class GameplayControllerScript : MonoBehaviour
         instance = this;
 
         }
+
+        playerInputActions = new PlayerInputActions();
+        playerInput = GetComponent<PlayerInput>();
+
         //BuildingParent = GameObject.Find("BuildingParent");
         RemainingBuildings = BuildingParent.transform.childCount;
     }

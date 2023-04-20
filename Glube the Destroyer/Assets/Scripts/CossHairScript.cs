@@ -29,9 +29,9 @@ public class CossHairScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerInputActions = new PlayerInputActions();
-        playerInput = GetComponent<PlayerInput>();
-        playerInputActions.Player.Enable();
+        playerInputActions = GameplayControllerScript.instance.playerInputActions;
+        playerInput = GameplayControllerScript.instance.playerInput;
+        //playerInputActions.Player.Enable();
         //CrossHair.transform.parent = Camera.main.transform;
         cam = Camera.main;
         

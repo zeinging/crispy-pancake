@@ -19,9 +19,9 @@ public class Menu : MonoBehaviour
     void Start()
     {
         PauseMenu.SetActive(false);
-        playerInputActions = new PlayerInputActions();
-        playerInput = GetComponent<PlayerInput>();
-        playerInputActions.UI.Enable();
+        playerInputActions = GameplayControllerScript.instance.playerInputActions;
+        playerInput = GameplayControllerScript.instance.playerInput;
+        playerInputActions.UI.Pause.Enable();//should only make the pause action active
 
         playerInputActions.UI.Pause.performed += PauseUnpause;
     }
@@ -43,6 +43,8 @@ public class Menu : MonoBehaviour
             {
                 AudioManager.instance.PauseMusic(true);
                 PauseMenu.SetActive(true);
+                playerInputActions.Player.Disable();
+                playerInputActions.UI.Enable();
                 Time.timeScale = 0f;
 
                 EventSystem.current.SetSelectedGameObject(null);
@@ -52,6 +54,9 @@ public class Menu : MonoBehaviour
             {
                 AudioManager.instance.PauseMusic(false);
                 PauseMenu.SetActive(false);
+                playerInputActions.Player.Enable();
+                playerInputActions.UI.Disable();
+                playerInputActions.UI.Pause.Enable();//reEnable pause action
                 Time.timeScale = 1f;
             }
         }
@@ -60,6 +65,9 @@ public class Menu : MonoBehaviour
     public void Resume() {
         AudioManager.instance.PauseMusic(false);
         PauseMenu.SetActive(false);
+        playerInputActions.Player.Enable();
+        playerInputActions.UI.Disable();
+        playerInputActions.UI.Pause.Enable();//reEnable pause action
         Time.timeScale = 1f;
     }
 
@@ -74,7 +82,7 @@ public class Menu : MonoBehaviour
     }
 
     public void openRetryMenu(float t){
-        
+        playerInputActions.UI.Pause.Disable();//prevent pausing in the retry menu.
         StartCoroutine(RetryMenuDelay(t));
 
     }
@@ -84,6 +92,7 @@ public class Menu : MonoBehaviour
         playerInputActions.UI.Pause.Disable();//disable pause button when retry menu appears
         yield return new WaitForSeconds(t);
         retryMenu.SetActive(true);
+        playerInputActions.UI.Enable();
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(retryFirstButton);
 

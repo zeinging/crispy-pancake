@@ -75,6 +75,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -153,6 +154,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -533,6 +546,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      IsoFront_Walk_11: -663188886275805337
+      IsoFront_Walk_4: 3334718383918028642
+      IsoFront_Walk_7: 7959104993865316171
+      IsoFront_Walk_12: 6505310115341936310
+      IsoFront_Walk_15: -2739324942417859255
+      IsoFront_Walk_2: -550482948572401192
+      IsoFront_Walk_16: 8566528763581069247
+      IsoFront_Walk_13: 1099069267136684467
+      IsoFront_Walk_0: -1668966737775220527
+      IsoFront_Walk_3: 8665373696991563188
+      IsoFront_Walk_10: -3290090849392912406
+      IsoFront_Walk_9: -7326174247163895148
+      IsoFront_Walk_5: -5268837351602148422
+      IsoFront_Walk_14: 7919308676165473217
+      IsoFront_Walk_1: 8974334515064376870
+      IsoFront_Walk_8: 7706768363098927660
+      IsoFront_Walk_6: -9017353480828393116
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -33,8 +33,12 @@ public class settingsScript : MonoBehaviour
 
     public TMPro.TMP_Text testText;
 
+    //[SerializeField]
+    //private List<string> options = new List<string>();
+
+
     [SerializeField]
-    private List<string> options = new List<string>();
+    private List<Vector3> options = new List<Vector3>();
 
     private void Start()
     {
@@ -64,7 +68,11 @@ public class settingsScript : MonoBehaviour
         {
             //options = new List<string>(resolutuions.Length);
 
-            string option = (resolutuions[i].width + " x " + resolutuions[i].height + " " + resolutuions[i].refreshRate) + "Hz";
+            //string option = (resolutuions[i].width + " x " + resolutuions[i].height + " " + resolutuions[i].refreshRate) + "Hz";
+
+            Vector3 option = new Vector3(resolutuions[i].width, resolutuions[i].height, resolutuions[i].refreshRate);
+
+            //Vector3 options3 = new Vector3(resolutuions[i].width, resolutuions[i].height, resolutuions[i].refreshRate);
 
             if(resolutuions[i].refreshRate == 60){//should only add 60 Hrtz resolutions after unity update
                 options.Add(option);//add the first one
@@ -118,7 +126,8 @@ public class settingsScript : MonoBehaviour
         if(options.Count > 0)
         ResolutionSlider.maxValue = options.Count - 1;
         Debug.Log("should only happen once");
-        ResolutionSlider.GetComponentInChildren<TMPro.TMP_Text>().text = resolutuions[currentResolutionIndex].ToString();
+        string optiontemp = options[(int)ResolutionSlider.value].x + " x " + options[(int)ResolutionSlider.value].y + " @ " + options[(int)ResolutionSlider.value].z;
+        ResolutionSlider.GetComponentInChildren<TMPro.TMP_Text>().text = optiontemp;
         ResolutionSlider.value = currentResolutionIndex;
 
         //ChangeActiveButton();
@@ -126,7 +135,10 @@ public class settingsScript : MonoBehaviour
 
     void OnEnable(){
         FullScreenTogle.isOn = Screen.fullScreen;
-        ResolutionSlider.GetComponentInChildren<TMPro.TMP_Text>().text = resolutuions[currentResolutionIndex].ToString();
+        if(options.Count > 0){
+        string optiontemp = options[(int)ResolutionSlider.value].x + " x " + options[(int)ResolutionSlider.value].y + " @ " + options[(int)ResolutionSlider.value].z;
+        ResolutionSlider.GetComponentInChildren<TMPro.TMP_Text>().text = optiontemp;
+        }
         ResolutionSlider.value = currentResolutionIndex;
     }
 
@@ -157,7 +169,9 @@ public class settingsScript : MonoBehaviour
     // }
     public void ChangeResolution(){
         //currentResolutionIndex = (int)ResolutionSlider.value;
-        ResolutionSlider.GetComponentInChildren<TMPro.TMP_Text>().text = resolutuions[(int)ResolutionSlider.value].ToString();
+        //ResolutionSlider.GetComponentInChildren<TMPro.TMP_Text>().text = options[(int)ResolutionSlider.value].ToString();
+        string optiontemp = options[(int)ResolutionSlider.value].x + " x " + options[(int)ResolutionSlider.value].y + " @ " + options[(int)ResolutionSlider.value].z;
+        ResolutionSlider.GetComponentInChildren<TMPro.TMP_Text>().text = optiontemp;
 
         testText.text = "index = " + currentResolutionIndex + " slider = " + ResolutionSlider.value + " options: " + options.Capacity;
 
@@ -171,8 +185,10 @@ public class settingsScript : MonoBehaviour
     }
 
     public void NewSetResolution(){
-        Resolution tempres = resolutuions[(int)ResolutionSlider.value];
-        Screen.SetResolution(tempres.width, tempres.height, Screen.fullScreen, tempres.refreshRate);
+        //Resolution tempres = resolutuions[(int)ResolutionSlider.value];
+        Vector3 temp3pres = options[(int)ResolutionSlider.value];
+        //Screen.SetResolution(tempres.width, tempres.height, Screen.fullScreen, tempres.refreshRate);
+        Screen.SetResolution((int)temp3pres.x, (int)temp3pres.y, Screen.fullScreen, (int)temp3pres.z);
         ApplyButton.interactable = false;
         ApplyButton.alpha = 0.5f;
         ResolutionSlider.Select();

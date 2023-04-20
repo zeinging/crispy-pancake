@@ -6,7 +6,9 @@ using UnityEngine.InputSystem;
 public class PlayerPlane : MonoBehaviour
 {
     [SerializeField]
-    private float speed, turnSpeed, laserSpeed, BoostSpeed, BoostTime;
+    private float speed, turnSpeed, laserSpeed;
+
+    public float BoostSpeed = 60, BoostDuration = 3;
 
     private Rigidbody myBody;//probably only for detecting collitions
 
@@ -21,6 +23,8 @@ public class PlayerPlane : MonoBehaviour
 
     public Transform UIAimTransform;
 
+    private Coroutine BoostCor, BrakeCor;
+
     //public GameObject TargetTest;
 
     private Camera cam;
@@ -28,15 +32,16 @@ public class PlayerPlane : MonoBehaviour
     private bool PlayerStopped = false, CanBoost = true, isBoosting = false;
 
     // Start is called before the first frame update
-    private void Awake()
+    private void Start()
     {
         myBody = GetComponent<Rigidbody>();
-        playerInputActions = new PlayerInputActions();
-        playerInput = GetComponent<PlayerInput>();
-        playerInputActions.Player.Enable();
+        playerInputActions = GameplayControllerScript.instance.playerInputActions;
+        playerInput = GameplayControllerScript.instance.playerInput;
+        playerInputActions.Player.Enable();//might place this inside a cutscene controller
 
         playerInputActions.Player.Shoot.performed += ShootLaser;
         playerInputActions.Player.Boost.performed += BoostPlane;
+        playerInputActions.Player.Boost.canceled += CancelBoost;
 
 
         cam = Camera.main;
@@ -61,30 +66,70 @@ public class PlayerPlane : MonoBehaviour
         
     }
 
-    private void Boosting(){
-
-        float temp = speed;
-        float tempBoost = BoostTime;
-
-        if(isBoosting){
-
-            if(BoostTime > 0){
-                BoostTime -= Time.deltaTime;
-                speed = BoostSpeed;
-            }else{
-                speed = temp;
-                CanBoost = false;
-                isBoosting = false;
-            }
-
-        }else{
-            speed = temp;
-            if(BoostTime < tempBoost){
-            BoostTime = Mathf.MoveTowards(BoostTime, tempBoost, Time.deltaTime);
-            }
+    private IEnumerator StartBoost(){
+        float tempSpeed = speed;
+        float tempBoost = BoostDuration;
+        //speed = BoostSpeed;
+        while(BoostDuration > 0 && isBoosting){
+            speed = Mathf.MoveTowards(speed, BoostSpeed, 50 * Time.deltaTime);//place here so speed is gradualy built up.
+            BoostDuration = Mathf.MoveTowards(BoostDuration, 0, Time.deltaTime);//boost duration
+            yield return null;
         }
 
+        yield return new WaitForSeconds(0.5f);//have a little delay before recharge
+
+        if(isBoosting){//make is boosting false if boost duration reaches 0
+            isBoosting = false;    
+        }
+        while(BoostDuration < tempBoost){
+            speed = Mathf.MoveTowards(speed, tempSpeed, 40 * Time.deltaTime);//place here so speed is gradualy built back down to default speed.
+            BoostDuration = Mathf.MoveTowards(BoostDuration, tempBoost, Time.deltaTime);//boost duration reset
+            yield return null;
+        }
+
+        CanBoost = true;//reset boost bool so player can boost again.
+
+
     }
+
+    // private IEnumerator EndBoost(){
+    //     while(start.tempBoost > 0){
+    //         tempBoost = Mathf.MoveTowards(tempBoost, 0, Time.deltaTime);
+    //         yield return null;
+    //     }
+    // }
+
+    //private void Boosting(){
+
+        //if(CanBoost){
+            //isBoosting = true;
+            //CanBoost = false;//make false so this only runs once
+            //BoostCor = StartCoroutine(StartBoost());
+        //}
+
+
+        // float temp = speed;
+        // float tempBoost = BoostTime;
+
+        // if(isBoosting){
+
+        //     if(BoostTime > 0){
+        //         BoostTime -= Time.deltaTime;
+        //         speed = BoostSpeed;
+        //     }else{
+        //         speed = temp;
+        //         CanBoost = false;
+        //         isBoosting = false;
+        //     }
+
+        // }else{
+        //     speed = temp;
+        //     if(BoostTime < tempBoost){
+        //     BoostTime = Mathf.MoveTowards(BoostTime, tempBoost, Time.deltaTime);
+        //     }
+        // }
+
+    //}
 
     private void FixedUpdate(){
         if(!PlayerStopped){
@@ -105,7 +150,7 @@ public class PlayerPlane : MonoBehaviour
     }
 
     void OnDestroy(){
-        playerInputActions.Player.Disable();//disable player controls if destroyed
+        GameplayControllerScript.instance.playerInputActions.Player.Disable();//disable player controls if destroyed
     }
 
     private void ShootLaser(InputAction.CallbackContext context){
@@ -118,12 +163,20 @@ public class PlayerPlane : MonoBehaviour
         if(context.performed){
             if(CanBoost){
                 isBoosting = true;
-                Debug.Log("Boosting");
+                CanBoost = false;//make false so this only runs once
+                BoostCor = StartCoroutine(StartBoost());
             }
         }
     }
 
-    private void AimToUICrossHair(){
+        private void CancelBoost(InputAction.CallbackContext context){
+            if(context.canceled){
+                isBoosting = false;
+            }
+
+    }
+
+    private void AimToUICrossHair(){//rotate pistle to UIAim, probably replace with UIAim follows Laser Pistle Rotation
 
         //Vector3 temp = transform.forward + UIAimTransform.forward;
         // got to use camera to convert to world space
