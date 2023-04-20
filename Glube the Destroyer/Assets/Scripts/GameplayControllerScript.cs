@@ -8,7 +8,7 @@ public class GameplayControllerScript : MonoBehaviour
 
     public int PlayerHealth, GlubeHealth, RemainingBuildings, lostPlanes;
 
-    public GameObject BuildingParent, retryMenu, GlubesCinemachine, Glube, VictoryCam, GameplayUI, crossHairUI, PlayerPlane;
+    public GameObject BuildingParent, retryMenu, GlubesCinemachine, Glube, VictoryCam, GameplayUI, crossHairUI, PlayerPlane, CreditText;
 
     private bool leaving = false, menuOpened = false, playerWon = false;
 
@@ -99,7 +99,8 @@ public class GameplayControllerScript : MonoBehaviour
         yield return new WaitForSeconds(6f);
         VictoryCam.SetActive(true);
         yield return new WaitForSeconds(10f);
-        GameplayUI.transform.GetChild(4).gameObject.SetActive(true);// credits text
+        //GameplayUI.transform.GetChild(4).gameObject.SetActive(true);// credits text
+        CreditText.SetActive(true);
         if(!leaving){
 
         //LeanTweenFaderScript.instance.LoadLevel("CreditsScene");

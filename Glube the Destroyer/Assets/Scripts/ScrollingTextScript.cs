@@ -24,6 +24,7 @@ public class ScrollingTextScript : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerInputActions.UI.Enable();
 
+        if(NotificationText != null)
         playerInputActions.UI.Submit.performed += SkipText;
         //LeanTweenFaderScript.instance.LoadLevel(levelName);
         MovingText = GetComponent<RectTransform>();

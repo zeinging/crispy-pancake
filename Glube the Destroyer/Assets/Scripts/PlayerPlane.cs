@@ -66,31 +66,7 @@ public class PlayerPlane : MonoBehaviour
         
     }
 
-    private IEnumerator StartBoost(){
-        float tempSpeed = speed;
-        float tempBoost = BoostDuration;
-        //speed = BoostSpeed;
-        while(BoostDuration > 0 && isBoosting){
-            speed = Mathf.MoveTowards(speed, BoostSpeed, 50 * Time.deltaTime);//place here so speed is gradualy built up.
-            BoostDuration = Mathf.MoveTowards(BoostDuration, 0, Time.deltaTime);//boost duration
-            yield return null;
-        }
 
-        yield return new WaitForSeconds(0.5f);//have a little delay before recharge
-
-        if(isBoosting){//make is boosting false if boost duration reaches 0
-            isBoosting = false;    
-        }
-        while(BoostDuration < tempBoost){
-            speed = Mathf.MoveTowards(speed, tempSpeed, 40 * Time.deltaTime);//place here so speed is gradualy built back down to default speed.
-            BoostDuration = Mathf.MoveTowards(BoostDuration, tempBoost, Time.deltaTime);//boost duration reset
-            yield return null;
-        }
-
-        CanBoost = true;//reset boost bool so player can boost again.
-
-
-    }
 
     // private IEnumerator EndBoost(){
     //     while(start.tempBoost > 0){
@@ -151,6 +127,7 @@ public class PlayerPlane : MonoBehaviour
 
     void OnDestroy(){
         GameplayControllerScript.instance.playerInputActions.Player.Disable();//disable player controls if destroyed
+        AudioManager.instance.CancelBoost();
     }
 
     private void ShootLaser(InputAction.CallbackContext context){
@@ -168,6 +145,37 @@ public class PlayerPlane : MonoBehaviour
             }
         }
     }
+
+        private IEnumerator StartBoost(){
+        float tempSpeed = speed;
+        float tempBoost = BoostDuration;
+        AudioManager.instance.PlayerBoost();
+        //speed = BoostSpeed;
+        while(BoostDuration > 0 && isBoosting){
+            speed = Mathf.MoveTowards(speed, BoostSpeed, 50 * Time.deltaTime);//place here so speed is gradualy built up.
+            BoostDuration = Mathf.MoveTowards(BoostDuration, 0, Time.deltaTime);//boost duration
+            yield return null;
+        }
+
+        if(BoostDuration == 0)//only wait if player used up all of the boost meter
+        yield return new WaitForSeconds(0.5f);//have a little delay before recharge
+
+        AudioManager.instance.CancelBoost();
+
+        if(isBoosting){//make is boosting false if boost duration reaches 0
+            isBoosting = false;    
+        }
+        while(BoostDuration < tempBoost){
+            speed = Mathf.MoveTowards(speed, tempSpeed, 40 * Time.deltaTime);//place here so speed is gradualy built back down to default speed.
+            BoostDuration = Mathf.MoveTowards(BoostDuration, tempBoost, Time.deltaTime);//boost duration reset
+            yield return null;
+        }
+
+        CanBoost = true;//reset boost bool so player can boost again.
+
+
+    }
+
 
         private void CancelBoost(InputAction.CallbackContext context){
             if(context.canceled){

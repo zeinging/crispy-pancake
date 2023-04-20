@@ -83,6 +83,10 @@ public class AudioManager : MonoBehaviour
         PlayerSFX[2].SetActive(true);
     }
 
+    public void CancelBoost(){
+        PlayerSFX[2].SetActive(false);
+    }
+
     public void CrashedIntoGlube(){
         PlayerSFX[3].SetActive(true);
     }
