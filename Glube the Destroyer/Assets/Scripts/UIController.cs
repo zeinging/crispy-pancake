@@ -20,8 +20,8 @@ public class UIController : MonoBehaviour
         GlubeSlider.maxValue = GameplayControllerScript.instance.GlubeHealth;
         PlayerSlider.maxValue = GameplayControllerScript.instance.PlayerHealth;
         BuildingCounter.text = GameplayControllerScript.instance.RemainingBuildings.ToString();
-        Player = GameplayControllerScript.instance.PlayerPlane.GetComponent<PlayerPlane>();
-        BoostSlider.maxValue = Player.BoostDuration;
+        Player = GameObject.FindAnyObjectByType<PlayerPlane>();
+        BoostSlider.maxValue = Player.BoostMax;
     }
 
     // Update is called once per frame

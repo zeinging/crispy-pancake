@@ -84,6 +84,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public void CancelBoost(){
+        if(PlayerSFX[2] != null)//place here to get rid of error.
         PlayerSFX[2].SetActive(false);
     }
 
