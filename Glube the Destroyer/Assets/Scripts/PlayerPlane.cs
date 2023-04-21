@@ -8,9 +8,9 @@ public class PlayerPlane : MonoBehaviour
     [SerializeField]
     private float speed, turnSpeed, laserSpeed;
 
-    public float BoostSpeed = 60, BoostDuration = 3, BoostMax;
+    public float BoostSpeed = 60, BoostDuration = 3, BoostMax, BrakeDuration = 2;
 
-    //private float BoostMax;
+    private float speedCach, brakeCach;
 
     private Rigidbody myBody;//probably only for detecting collitions
 
@@ -31,7 +31,7 @@ public class PlayerPlane : MonoBehaviour
 
     private Camera cam;
 
-    private bool PlayerStopped = false, CanBoost = true, isBoosting = false;
+    private bool PlayerStopped = false, CanBoost = true, isBoosting = false, CanBrake = true, isBraking = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -44,9 +44,13 @@ public class PlayerPlane : MonoBehaviour
         playerInputActions.Player.Shoot.performed += ShootLaser;
         playerInputActions.Player.Boost.performed += BoostPlane;
         playerInputActions.Player.Boost.canceled += CancelBoost;
+        playerInputActions.Player.Brake.performed += Brake;
+        playerInputActions.Player.Brake.canceled += CancelBrake;
 
         BoostMax = BoostDuration;
         BoostDuration = 0;
+        speedCach = speed;
+        brakeCach = BrakeDuration;
 
 
         cam = Camera.main;
@@ -145,6 +149,7 @@ public class PlayerPlane : MonoBehaviour
     private void BoostPlane(InputAction.CallbackContext context){
         if(context.performed){
             if(CanBoost){
+                isBraking = false;
                 isBoosting = true;
                 CanBoost = false;//make false so this only runs once
                 BoostCor = StartCoroutine(StartBoost());
@@ -153,7 +158,7 @@ public class PlayerPlane : MonoBehaviour
     }
 
         private IEnumerator StartBoost(){
-        float tempSpeed = speed;
+        //float tempSpeed = speed;
         //float tempBoost = BoostDuration;
         BoostDuration = 0;//set to zero at beginning.
         AudioManager.instance.PlayerBoost();
@@ -173,7 +178,7 @@ public class PlayerPlane : MonoBehaviour
             isBoosting = false;    
         }
         while(BoostDuration > 0){
-            speed = Mathf.MoveTowards(speed, tempSpeed, 40 * Time.deltaTime);//place here so speed is gradualy built back down to default speed.
+            speed = Mathf.MoveTowards(speed, speedCach, 40 * Time.deltaTime);//place here so speed is gradualy built back down to default speed.
             BoostDuration = Mathf.MoveTowards(BoostDuration, 0, Time.deltaTime);//boost duration reset
             yield return null;
         }
@@ -189,7 +194,46 @@ public class PlayerPlane : MonoBehaviour
                 isBoosting = false;
             }
 
-    }
+        }
+
+        private void Brake(InputAction.CallbackContext context){
+            if(context.performed){
+                if(CanBrake){
+                    isBoosting = false;
+                    isBraking = true;
+                    CanBrake = false;
+                    BrakeCor = StartCoroutine(Braking());
+                }
+            }
+        }
+        private IEnumerator Braking(){
+
+            while(BrakeDuration > 0 && isBraking){
+                speed = Mathf.MoveTowards(speed, 0, 50 * Time.deltaTime);
+                BrakeDuration = Mathf.MoveTowards(BrakeDuration, 0, Time.deltaTime);
+                yield return null;
+            }
+            //speed = 0;
+            //if(isBraking)
+            //yield return new WaitForSeconds(t);
+
+            isBraking = false;
+            while(BrakeDuration < brakeCach){
+                speed = Mathf.MoveTowards(speed, speedCach, 50 * Time.deltaTime);
+                BrakeDuration = Mathf.MoveTowards(BrakeDuration, brakeCach, Time.deltaTime);
+                yield return null;
+            }
+            CanBrake = true;
+
+        }
+
+        private void CancelBrake(InputAction.CallbackContext context){
+            if(context.canceled){
+                //StopCoroutine(BrakeCor);
+                //speed = speedCach;
+                isBraking = false;
+            }
+        }
 
     private void AimToUICrossHair(){//rotate pistle to UIAim, probably replace with UIAim follows Laser Pistle Rotation
 
