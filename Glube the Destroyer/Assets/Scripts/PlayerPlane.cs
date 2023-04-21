@@ -31,7 +31,7 @@ public class PlayerPlane : MonoBehaviour
 
     private Camera cam;
 
-    private bool PlayerStopped = false, CanBoost = true, isBoosting = false, CanBrake = true, isBraking = false;
+    private bool PlayerStopped = false, CanBoost = true, isBoosting = false, CanBrake = true, isBraking = false, NoseAim = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -67,7 +67,7 @@ public class PlayerPlane : MonoBehaviour
         //QuaternionRotationMethod();
         
         AimToUICrossHair();
-
+        //RotateLaserPistle();
 
         
         //Boosting();
@@ -282,6 +282,20 @@ public class PlayerPlane : MonoBehaviour
 
         LaserPistle.transform.rotation = Quaternion.LookRotation(targetDirection);
 
+
+    }
+
+    private void RotateLaserPistle(){
+
+        LaserPistle.transform.rotation = cam.transform.rotation;
+
+        if(NoseAim){
+            Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
+
+            Quaternion tempRot = Quaternion.Euler(45f * inputVector.y, 45f * inputVector.x, 0);
+
+            Quaternion tempLevel = Quaternion.Euler(0, inputVector.x, 0);
+        }
 
     }
 
