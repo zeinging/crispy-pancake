@@ -8,7 +8,9 @@ public class PlayerPlane : MonoBehaviour
     [SerializeField]
     private float speed, turnSpeed, laserSpeed;
 
-    public float BoostSpeed = 60, BoostDuration = 3;
+    public float BoostSpeed = 60, BoostDuration = 3, BoostMax;
+
+    //private float BoostMax;
 
     private Rigidbody myBody;//probably only for detecting collitions
 
@@ -42,6 +44,9 @@ public class PlayerPlane : MonoBehaviour
         playerInputActions.Player.Shoot.performed += ShootLaser;
         playerInputActions.Player.Boost.performed += BoostPlane;
         playerInputActions.Player.Boost.canceled += CancelBoost;
+
+        BoostMax = BoostDuration;
+        BoostDuration = 0;
 
 
         cam = Camera.main;
@@ -127,6 +132,7 @@ public class PlayerPlane : MonoBehaviour
 
     void OnDestroy(){
         GameplayControllerScript.instance.playerInputActions.Player.Disable();//disable player controls if destroyed
+        StopAllCoroutines();
         AudioManager.instance.CancelBoost();
     }
 
@@ -148,16 +154,17 @@ public class PlayerPlane : MonoBehaviour
 
         private IEnumerator StartBoost(){
         float tempSpeed = speed;
-        float tempBoost = BoostDuration;
+        //float tempBoost = BoostDuration;
+        BoostDuration = 0;//set to zero at beginning.
         AudioManager.instance.PlayerBoost();
         //speed = BoostSpeed;
-        while(BoostDuration > 0 && isBoosting){
+        while(BoostDuration < BoostMax && isBoosting){
             speed = Mathf.MoveTowards(speed, BoostSpeed, 50 * Time.deltaTime);//place here so speed is gradualy built up.
-            BoostDuration = Mathf.MoveTowards(BoostDuration, 0, Time.deltaTime);//boost duration
+            BoostDuration = Mathf.MoveTowards(BoostDuration, BoostMax, Time.deltaTime);//boost duration
             yield return null;
         }
 
-        if(BoostDuration == 0)//only wait if player used up all of the boost meter
+        if(BoostDuration == BoostMax)//only wait if player used up all of the boost meter
         yield return new WaitForSeconds(0.5f);//have a little delay before recharge
 
         AudioManager.instance.CancelBoost();
@@ -165,9 +172,9 @@ public class PlayerPlane : MonoBehaviour
         if(isBoosting){//make is boosting false if boost duration reaches 0
             isBoosting = false;    
         }
-        while(BoostDuration < tempBoost){
+        while(BoostDuration > 0){
             speed = Mathf.MoveTowards(speed, tempSpeed, 40 * Time.deltaTime);//place here so speed is gradualy built back down to default speed.
-            BoostDuration = Mathf.MoveTowards(BoostDuration, tempBoost, Time.deltaTime);//boost duration reset
+            BoostDuration = Mathf.MoveTowards(BoostDuration, 0, Time.deltaTime);//boost duration reset
             yield return null;
         }
 
@@ -324,6 +331,7 @@ public class PlayerPlane : MonoBehaviour
 
             if(!other.gameObject.GetComponent<BuildingHandleDestroyProcess>()){//don't take damage if fly into building destroy trigger
 
+            if(!PlayerStopped)//prevent damage if hit glube
             GameplayControllerScript.instance.PlayerTakeDamage(1);//need update to specific what player got hit by
             
             if(GameplayControllerScript.instance.PlayerHealth <= 0){//player health is zero.
