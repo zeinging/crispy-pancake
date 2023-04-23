@@ -323,6 +323,101 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &28316108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28316109}
+  - component: {fileID: 28316112}
+  - component: {fileID: 28316111}
+  - component: {fileID: 28316110}
+  m_Layer: 0
+  m_Name: CMVCam Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28316109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28316108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_Children: []
+  m_Father: {fileID: 205068538}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &28316110
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28316108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &28316111
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28316108}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &28316112
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28316108}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &32002458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8906706927891849715, guid: 680a237fb759b9642a26105548306c02, type: 3}
@@ -1568,7 +1663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 41.34839, y: 33.98584}
+  m_AnchoredPosition: {x: 41.348145, y: 33.98584}
   m_SizeDelta: {x: 260.3256, y: 243.2521}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &181799654
@@ -1795,9 +1890,11 @@ MonoBehaviour:
   BoostSpeed: 60
   BoostDuration: 3.7
   BoostMax: 0
+  BrakeDuration: 2
   Plane: {fileID: 205068534}
   LaserShot: {fileID: 5128690108637038337, guid: 715820a3a49887d4ebdd604def720003, type: 3}
   LaserPistle: {fileID: 1703359594}
+  CMVCamTarget: {fileID: 28316108}
   UIAimTransform: {fileID: 126982421}
 --- !u!65 &205068536
 BoxCollider:
@@ -4191,11 +4288,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallAimCrossHair: {fileID: 0}
   BigAimCrossHair: {fileID: 0}
-  Plane: {fileID: 205068538}
+  LaserPistle: {fileID: 0}
   AimXDis: 450
   AimYDis: 255
   DisFromCamera: 70
   DisFromPlane: 100
+  SmallAimDis: 500
+  BigAimDis: 100
   AimSpeed: 600
   NoseAiming: 1
 --- !u!1 &475937779
@@ -4595,11 +4694,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallAimCrossHair: {fileID: 0}
   BigAimCrossHair: {fileID: 0}
-  Plane: {fileID: 205068538}
+  LaserPistle: {fileID: 0}
   AimXDis: 450
   AimYDis: 255
   DisFromCamera: 70
   DisFromPlane: 100
+  SmallAimDis: 500
+  BigAimDis: 100
   AimSpeed: 600
   NoseAiming: 1
 --- !u!1 &526182908
@@ -5377,7 +5478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 41.34839, y: 33.98584}
+  m_AnchoredPosition: {x: 41.348145, y: 33.98584}
   m_SizeDelta: {x: 260.3256, y: 243.2521}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &561698866
@@ -7167,11 +7268,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallAimCrossHair: {fileID: 0}
   BigAimCrossHair: {fileID: 0}
-  Plane: {fileID: 0}
+  LaserPistle: {fileID: 0}
   AimXDis: 450
   AimYDis: 255
   DisFromCamera: 70
   DisFromPlane: 50
+  SmallAimDis: 500
+  BigAimDis: 100
   AimSpeed: 600
   NoseAiming: 1
 --- !u!114 &845926341
@@ -8221,6 +8324,7 @@ MonoBehaviour:
   crossHairUI: {fileID: 1244173013}
   PlayerPlane: {fileID: 205068534}
   CreditText: {fileID: 966501784}
+  CamOffset: 1
   playerInput: {fileID: 0}
 --- !u!4 &914021469
 Transform:
@@ -8590,11 +8694,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallAimCrossHair: {fileID: 0}
   BigAimCrossHair: {fileID: 0}
-  Plane: {fileID: 0}
+  LaserPistle: {fileID: 0}
   AimXDis: 450
   AimYDis: 255
   DisFromCamera: 70
   DisFromPlane: 100
+  SmallAimDis: 500
+  BigAimDis: 100
   AimSpeed: 600
   NoseAiming: 1
 --- !u!114 &956238975
@@ -9877,8 +9983,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 205068538}
-  m_Follow: {fileID: 205068538}
+  m_LookAt: {fileID: 28316109}
+  m_Follow: {fileID: 28316109}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 5
@@ -10318,11 +10424,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallAimCrossHair: {fileID: 126982419}
   BigAimCrossHair: {fileID: 1422361576}
-  Plane: {fileID: 0}
+  LaserPistle: {fileID: 1703359595}
   AimXDis: 450
   AimYDis: 255
   DisFromCamera: 70
   DisFromPlane: 100
+  SmallAimDis: 32.5
+  BigAimDis: 25
   AimSpeed: 800
   NoseAiming: 1
 --- !u!114 &1244173015
@@ -10384,7 +10492,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1244173018
 RectTransform:
@@ -10628,11 +10736,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SmallAimCrossHair: {fileID: 0}
   BigAimCrossHair: {fileID: 0}
-  Plane: {fileID: 205068538}
+  LaserPistle: {fileID: 0}
   AimXDis: 450
   AimYDis: 255
   DisFromCamera: 70
   DisFromPlane: 50
+  SmallAimDis: 500
+  BigAimDis: 100
   AimSpeed: 600
   NoseAiming: 1
 --- !u!114 &1312622600

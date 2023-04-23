@@ -17,11 +17,11 @@ public class PlayerPlane : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
-    private Vector2 inputVector;
+    private Vector2 inputVector, cachInputs = Vector2.zero;
 
     public GameObject Plane;
 
-    public GameObject LaserShot, LaserPistle;
+    public GameObject LaserShot, LaserPistle, CMVCamTarget;
 
     public Transform UIAimTransform;
 
@@ -55,6 +55,12 @@ public class PlayerPlane : MonoBehaviour
 
         cam = Camera.main;
 
+        LaserPistle.transform.parent = cam.transform;
+
+        if(GameplayControllerScript.instance.CamOffset)
+        CMVCamTarget.transform.localPosition = new Vector3(0, 3, 0);//default offset position
+        //LaserPistle.transform.position = transform.position;
+
         //inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
 
         //Vector3 tempROt = new Vector3(inputVector.y * 45f, inputVector.x * 3, inputVector.x * -30);
@@ -65,11 +71,11 @@ public class PlayerPlane : MonoBehaviour
     private void Update()
     {
         //QuaternionRotationMethod();
-        
-        AimToUICrossHair();
-        //RotateLaserPistle();
+        LaserPistle.transform.position = transform.position + transform.forward * 3;
+        //AimToUICrossHair();
+        RotateLaserPistle();
 
-        
+        //ControlCMVCam();
         //Boosting();
         
         
@@ -119,6 +125,9 @@ public class PlayerPlane : MonoBehaviour
     private void FixedUpdate(){
         if(!PlayerStopped){
         MyBodyQuaternionRotationMethod();
+
+        if(GameplayControllerScript.instance.CamOffset)
+            ControlCMVCam();//place inside an if statement to check if Cam Offset is true
         }else{
 
         myBody.velocity = Vector3.zero;
@@ -287,14 +296,57 @@ public class PlayerPlane : MonoBehaviour
 
     private void RotateLaserPistle(){
 
-        LaserPistle.transform.rotation = cam.transform.rotation;
+        //LaserPistle.transform.rotation = cam.transform.rotation;
 
         if(NoseAim){
-            Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
+            Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
 
-            Quaternion tempRot = Quaternion.Euler(45f * inputVector.y, 45f * inputVector.x, 0);
+            var UDStep = 5 * Time.deltaTime;
 
-            Quaternion tempLevel = Quaternion.Euler(0, inputVector.x, 0);
+            //Quaternion temp = Quaternion.Euler(45 * inputVector.x, 45 * inputVector.y, 0);
+            Quaternion temp = LaserPistle.transform.localRotation;
+            float tempX = 65f * inputVector.x;
+            float tempY = 40f * inputVector.y;
+            //tempX = Mathf.Clamp(tempX, -45, 45);
+            //tempY = Mathf.Clamp(tempY, -45, 45);
+            temp = Quaternion.Euler(tempY, tempX, 0);
+            if(inputVector.magnitude != 0){
+
+            //LaserPistle.transform.localRotation = temp;
+            LaserPistle.transform.localRotation = Quaternion.Lerp(LaserPistle.transform.localRotation, temp, UDStep);
+            }
+            else{
+
+            LaserPistle.transform.localRotation = Quaternion.Lerp(LaserPistle.transform.localRotation, Quaternion.Euler(0, 0, 0), UDStep);
+            }
+
+        }else{
+
+            Vector2 inputVector = playerInputActions.Player.Aim.ReadValue<Vector2>();
+
+            var UDStep = turnSpeed * Time.deltaTime;
+
+            //Quaternion temp = Quaternion.Euler(45 * inputVector.x, 45 * inputVector.y, 0);
+            float tempX = inputVector.x + LaserPistle.transform.localEulerAngles.y;
+            float tempY = -inputVector.y + LaserPistle.transform.localEulerAngles.x;
+            //tempX = Mathf.Clamp(tempX, -25f, 25f);
+            //tempY = Mathf.Clamp(tempY, -45f, 45f);
+            
+            //Quaternion temp = Quaternion.Euler(25f * -inputVector.y, 45f * inputVector.x, 0);
+            Quaternion temp = Quaternion.Euler(tempY, tempX, 0);
+            
+           
+            
+
+            //if(inputVector.magnitude > 0){
+            //LaserPistle.transform.localRotation = temp;
+            //Debug.Log(Quaternion.Angle(LaserPistle.transform.localRotation, temp));
+            //if(Quaternion.Angle(LaserPistle.transform.localRotation, Quaternion.Euler(25f, 45f, 0)) < 10f){
+
+            LaserPistle.transform.localRotation = Quaternion.Lerp(LaserPistle.transform.localRotation, temp, UDStep);
+            //}
+            //}
+
         }
 
     }
@@ -354,10 +406,32 @@ public class PlayerPlane : MonoBehaviour
 
         Quaternion XLevel = Quaternion.Euler(0, Xtemp, 0);//level plane rotation
 
-        if (inputVector.magnitude != 0.2)
+        if (inputVector.magnitude != 0.2f)
         {
             //transform.localRotation = Quaternion.RotateTowards(transform.localRotation, XAngle, UDStep);//rotate plane from inputs
             myBody.transform.localRotation = Quaternion.Lerp(myBody.transform.localRotation, XAngle, UDStep);//rotate plane from inputs
+        }else{
+            //myBody.transform.localRotation = Quaternion.Lerp(myBody.transform.localRotation, XLevel, UDStep);
+        }
+
+    }
+
+    private void ControlCMVCam(){
+
+        Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();
+        
+
+        if(inputVector.magnitude != 0){
+            cachInputs = inputVector.normalized;
+        }else if(cachInputs == Vector2.zero){
+            cachInputs = new Vector2(0, -1);//should point up by default
+        }
+
+            CMVCamTarget.transform.localPosition = Vector3.Lerp(CMVCamTarget.transform.localPosition, new Vector3(cachInputs.x, -cachInputs.y, 0) * 3f, 2 * Time.deltaTime);
+        if(inputVector.magnitude == 0){
+            //CMVCamTarget.transform.localPosition = Vector3.MoveTowards(CMVCamTarget.transform.localPosition, new Vector3(inputVector.x, -inputVector.y, 0) * 3f, 5 * Time.deltaTime);
+        }else{
+            //CMVCamTarget.transform.localPosition = Vector3.Lerp(CMVCamTarget.transform.localPosition, new Vector3(0, 0, 0) * 3f, 2 * Time.deltaTime);
         }
 
     }

@@ -105,7 +105,7 @@ public class DialogueTriggerAera : MonoBehaviour
         
         
         if(other.GetComponentInParent<DestoryNearestBuildingDirector>()){//glube entered trigger zone.
-            Debug.Log("Glube entered Trigger zone");
+            //Debug.Log("Glube entered Trigger zone");
             if(!TriggeredGlube && GlubeDialogue != ""){
             DialogueManager.instance.OpenManager(DialogueDuration, GlubeTriggeredPortrait.ToString(), GlubeDialogue);
             TriggeredGlube = true;

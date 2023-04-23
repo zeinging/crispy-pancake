@@ -10,11 +10,11 @@ public class CossHairScript : MonoBehaviour
 
     public Image SmallAimCrossHair, BigAimCrossHair;
 
-    public Transform Plane;
+    public Transform LaserPistle;
 
     //public GameObject CrossHair;
 
-    public float AimXDis = 5f, AimYDis = 5f, DisFromCamera = 70f, DisFromPlane = 100f;
+    public float AimXDis = 5f, AimYDis = 5f, DisFromCamera = 70f, DisFromPlane = 100f, SmallAimDis = 500f, BigAimDis = 100f;
 
     public float AimSpeed = 20;
 
@@ -38,12 +38,21 @@ public class CossHairScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //if(Plane != null)
         //NoseAim();
 
-        independentAim();
+        //independentAim();
+
+        UIAimCrossHair();
+
+    }
+
+    private void UIAimCrossHair(){
+
+        SmallAimCrossHair.transform.position = cam.WorldToScreenPoint(LaserPistle.position + (LaserPistle.forward * SmallAimDis));
+        BigAimCrossHair.transform.position = cam.WorldToScreenPoint(LaserPistle.position + (LaserPistle.forward * BigAimDis));
 
     }
 

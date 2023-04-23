@@ -12,6 +12,8 @@ public class GameplayControllerScript : MonoBehaviour
 
     private bool leaving = false, menuOpened = false, playerWon = false;
 
+    public bool CamOffset = true;
+
     public PlayerInput playerInput;
     public PlayerInputActions playerInputActions;
 
