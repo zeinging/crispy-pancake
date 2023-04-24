@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerPlane : MonoBehaviour
 {
     [SerializeField]
-    private float speed, turnSpeed, laserSpeed;
+    private float speed, turnSpeed, laserSpeed,
+     NoseSmallAimDis = 32.5f, NoseBigAimDis = 25f, IndependentSmallAim, IndependentBigAim;
 
     public float BoostSpeed = 60, BoostDuration = 3, BoostMax, BrakeDuration = 2;
 
@@ -31,7 +32,9 @@ public class PlayerPlane : MonoBehaviour
 
     private Camera cam;
 
-    private bool PlayerStopped = false, CanBoost = true, isBoosting = false, CanBrake = true, isBraking = false, NoseAim = true;
+    private CossHairScript CrossHair; 
+
+    private bool PlayerStopped = false, CanBoost = true, isBoosting = false, CanBrake = true, isBraking = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -55,10 +58,20 @@ public class PlayerPlane : MonoBehaviour
 
         cam = Camera.main;
 
+        CrossHair = GameObject.FindAnyObjectByType<CossHairScript>();
+
         LaserPistle.transform.parent = cam.transform;
 
         if(GameplayControllerScript.instance.CamOffset)
         CMVCamTarget.transform.localPosition = new Vector3(0, 3, 0);//default offset position
+
+        if(GameplayControllerScript.instance.NoseAim){
+            CrossHair.SmallAimDis = NoseSmallAimDis;
+            CrossHair.BigAimDis = NoseBigAimDis;
+        }else{
+            CrossHair.SmallAimDis = IndependentSmallAim;
+            CrossHair.BigAimDis = IndependentBigAim;
+        }
         //LaserPistle.transform.position = transform.position;
 
         //inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
@@ -298,7 +311,8 @@ public class PlayerPlane : MonoBehaviour
 
         //LaserPistle.transform.rotation = cam.transform.rotation;
 
-        if(NoseAim){
+        if(GameplayControllerScript.instance.NoseAim){
+
             Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
 
             var UDStep = 5 * Time.deltaTime;
@@ -327,23 +341,56 @@ public class PlayerPlane : MonoBehaviour
             var UDStep = turnSpeed * Time.deltaTime;
 
             //Quaternion temp = Quaternion.Euler(45 * inputVector.x, 45 * inputVector.y, 0);
-            float tempX = inputVector.x + LaserPistle.transform.localEulerAngles.y;
-            float tempY = -inputVector.y + LaserPistle.transform.localEulerAngles.x;
-            //tempX = Mathf.Clamp(tempX, -25f, 25f);
-            //tempY = Mathf.Clamp(tempY, -45f, 45f);
+            //float tempX = inputVector.x + LaserPistle.transform.localEulerAngles.y;
+            //float tempY = -inputVector.y + LaserPistle.transform.localEulerAngles.x;
+
+            //float tempX = 25f * inputVector.x;
+            //float tempY = 10f * inputVector.y;
+
+
+
+            float tempX = LaserPistle.transform.localEulerAngles.y;
+            float tempY = LaserPistle.transform.localEulerAngles.x;
+
+            //tempX = Mathf.MoveTowards(tempX, 45 * inputVector.x, UDStep);
+            //tempY = Mathf.MoveTowards(tempY, 45 * inputVector.y, UDStep);
+
+            //tempX = Mathf.MoveTowardsAngle(tempX, 20 + inputVector.x, 30);
+
+            //tempY = Mathf.MoveTowardsAngle(tempY, 20 + inputVector.y, 30);
+
+            //tempX += inputVector.x * turnSpeed;
+            tempY += -inputVector.y * turnSpeed;
+            
+            
+            //if(Mathf.DeltaAngle(tempX, -20) > 1){
+                //Debug.Log("hit left side" + tempX);
+                
+            //}
+            //if(Mathf.DeltaAngle(tempX, 20) < 1){
+                //Debug.Log("hit right side" + tempX);
+            //}
+            if(inputVector.x > 0){
+                tempX = Mathf.Lerp(tempX, 40, turnSpeed);
+            }else{
+                tempX = Mathf.Lerp(tempX, -40, turnSpeed);
+            }
             
             //Quaternion temp = Quaternion.Euler(25f * -inputVector.y, 45f * inputVector.x, 0);
+            //Quaternion Xaxis = Quaternion.AngleAxis(tempY, LaserPistle.transform.right);//rotates pislte up and down
+            //Quaternion Yaxis = Quaternion.AngleAxis(tempX, LaserPistle.transform.up);//rotates pislte left and right
+
             Quaternion temp = Quaternion.Euler(tempY, tempX, 0);
-            
-           
+            //Quaternion temp = Xaxis * Yaxis;
             
 
             //if(inputVector.magnitude > 0){
             //LaserPistle.transform.localRotation = temp;
             //Debug.Log(Quaternion.Angle(LaserPistle.transform.localRotation, temp));
             //if(Quaternion.Angle(LaserPistle.transform.localRotation, Quaternion.Euler(25f, 45f, 0)) < 10f){
-
-            LaserPistle.transform.localRotation = Quaternion.Lerp(LaserPistle.transform.localRotation, temp, UDStep);
+            if(inputVector.magnitude != 0){
+                LaserPistle.transform.localRotation = Quaternion.Lerp(LaserPistle.transform.localRotation, temp, UDStep);
+            }
             //}
             //}
 
@@ -427,11 +474,11 @@ public class PlayerPlane : MonoBehaviour
             cachInputs = new Vector2(0, -1);//should point up by default
         }
 
+        if(inputVector.magnitude < 0.5f){
             CMVCamTarget.transform.localPosition = Vector3.Lerp(CMVCamTarget.transform.localPosition, new Vector3(cachInputs.x, -cachInputs.y, 0) * 3f, 2 * Time.deltaTime);
-        if(inputVector.magnitude == 0){
             //CMVCamTarget.transform.localPosition = Vector3.MoveTowards(CMVCamTarget.transform.localPosition, new Vector3(inputVector.x, -inputVector.y, 0) * 3f, 5 * Time.deltaTime);
         }else{
-            //CMVCamTarget.transform.localPosition = Vector3.Lerp(CMVCamTarget.transform.localPosition, new Vector3(0, 0, 0) * 3f, 2 * Time.deltaTime);
+            CMVCamTarget.transform.localPosition = Vector3.Lerp(CMVCamTarget.transform.localPosition, new Vector3(0, 0, 0) * 3f, 2 * Time.deltaTime);
         }
 
     }

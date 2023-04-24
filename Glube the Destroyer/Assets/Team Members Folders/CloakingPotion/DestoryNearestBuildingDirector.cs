@@ -23,7 +23,7 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         animController = GetComponent<GlubeAnimationController>();
 
         for(int i = 0; i < buildingsParent.transform.childCount; i++){
-            Debug.Log("" + i);
+            //Debug.Log("" + i);
             buildings.Add(buildingsParent.transform.GetChild(i));
             //buildings[i] = buildingsParent.transform.GetChild(i);
         }
@@ -92,7 +92,7 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         //needsToFindNextBuilding = true;
         StartCoroutine(FindDelay());
 
-        Debug.Log("Updated needs to find next building");
+        //Debug.Log("Updated needs to find next building");
     }
 
     public void HandleStopAgentAndAnimateAttacking()

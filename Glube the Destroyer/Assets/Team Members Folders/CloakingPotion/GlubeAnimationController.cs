@@ -33,7 +33,7 @@ namespace Assets.Team_Members_Folders.CloakingPotion
 
         public void StartAttackingAnimation()
         {
-            Debug.Log("Starting Attacking Animation");
+            //Debug.Log("Starting Attacking Animation");
             anim.SetBool("IsAttackingBuilding", true);
         }
 
@@ -41,7 +41,7 @@ namespace Assets.Team_Members_Folders.CloakingPotion
         {
             anim.SetBool("IsAttackingBuilding", false);
             anim.SetBool("isGlubeWin", true);
-            Debug.Log("wining");
+            //Debug.Log("wining");
             //anim.Play("GlubeWin");
             //anim.SetBool("isGlubeWin", false);//maybe change isGlubeWin to trigger inseatd of bool
         }

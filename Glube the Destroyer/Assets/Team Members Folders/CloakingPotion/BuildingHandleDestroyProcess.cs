@@ -44,7 +44,7 @@ public class BuildingHandleDestroyProcess : MonoBehaviour
         buildingDestoryingDirector.HandleCompletedBulidingDestruction();
         animController.StopAttacking();
 
-        Debug.Log("Deleting");
+        //Debug.Log("Deleting");
         //Destroy(buildingWrapper.gameObject);
         //AudioManager.instance.BuildingExplodeStart(1f);
         //GameplayControllerScript.instance.ABuildingDestroyed();

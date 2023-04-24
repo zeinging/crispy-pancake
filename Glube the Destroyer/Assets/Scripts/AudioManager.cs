@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
 
         for(int i = 0; i < AudioMusic.transform.childCount; i++){//get music tracks
             MusicTracks.Add(AudioMusic.transform.GetChild(i).gameObject);
-            Debug.Log("" + MusicTracks[0]);
+            //Debug.Log("" + MusicTracks[0]);
             if(AudioMusic.transform.GetChild(i).gameObject.activeInHierarchy){
                 currentTrack = AudioMusic.transform.GetChild(i).gameObject;
             }

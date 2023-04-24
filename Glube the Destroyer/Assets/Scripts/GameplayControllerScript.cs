@@ -12,7 +12,7 @@ public class GameplayControllerScript : MonoBehaviour
 
     private bool leaving = false, menuOpened = false, playerWon = false;
 
-    public bool CamOffset = true;
+    public bool CamOffset = true, NoseAim = true;
 
     public PlayerInput playerInput;
     public PlayerInputActions playerInputActions;
@@ -35,6 +35,9 @@ public class GameplayControllerScript : MonoBehaviour
 
         //BuildingParent = GameObject.Find("BuildingParent");
         RemainingBuildings = BuildingParent.transform.childCount;
+
+        if(!NoseAim)//disable camera offset if not using nose aim.
+            CamOffset = false;
     }
 
     // Update is called once per frame

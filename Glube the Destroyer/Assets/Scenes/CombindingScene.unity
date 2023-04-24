@@ -1887,6 +1887,10 @@ MonoBehaviour:
   speed: 30
   turnSpeed: 10
   laserSpeed: 20
+  NoseSmallAimDis: 32.5
+  NoseBigAimDis: 25
+  IndependentSmallAim: 100
+  IndependentBigAim: 30
   BoostSpeed: 60
   BoostDuration: 3.7
   BoostMax: 0
@@ -8325,6 +8329,7 @@ MonoBehaviour:
   PlayerPlane: {fileID: 205068534}
   CreditText: {fileID: 966501784}
   CamOffset: 1
+  NoseAim: 1
   playerInput: {fileID: 0}
 --- !u!4 &914021469
 Transform:
@@ -10890,6 +10895,7 @@ MonoBehaviour:
   - {fileID: 1913549708}
   - {fileID: 741386811}
   - {fileID: 2009773307}
+  textForImages: []
 --- !u!1 &1360357801
 GameObject:
   m_ObjectHideFlags: 0
