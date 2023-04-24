@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class ScrollingTestManager : MonoBehaviour
 {
-    public float TextSpeed = 20f, skipTextDuration = 1f, imageDuration = 2f, imageDelay = 2f;
+    public float TextSpeed = 20f, skipTextDuration = 1f, imageDelay = 2f;
 
     public float ImageFadeSpeed = 0.1f;
     public string levelName;
@@ -28,7 +28,7 @@ public class ScrollingTestManager : MonoBehaviour
     {
         playerInputActions = new PlayerInputActions();
         playerInput = GetComponent<PlayerInput>();
-        //playerInputActions.UI.Enable();
+        playerInputActions.UI.Enable();
 
         playerInputActions.UI.Submit.performed += SkipText;
         //LeanTweenFaderScript.instance.LoadLevel(levelName);

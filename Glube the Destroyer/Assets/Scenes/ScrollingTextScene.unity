@@ -1747,12 +1747,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextSpeed: 40
-  skipTextDuration: 1
-  imageDuration: 5
+  skipTextDuration: 2
   imageDelay: 0.2
   ImageFadeSpeed: 0.5
   levelName: CombindingScene
-  NotificationText: {fileID: 0}
+  NotificationText: {fileID: 297049537}
   PastProgress: 0
   pastEvents:
   - {fileID: 1412903067}
