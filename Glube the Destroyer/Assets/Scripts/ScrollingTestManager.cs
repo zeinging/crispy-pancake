@@ -23,8 +23,12 @@ public class ScrollingTestManager : MonoBehaviour
 
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
+
+    public bool easteregg = false;
+
+    public GameObject easterEggTitle;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerInputActions = new PlayerInputActions();
         playerInput = GetComponent<PlayerInput>();
@@ -35,7 +39,11 @@ public class ScrollingTestManager : MonoBehaviour
         //StartCoroutine(PlayPastEvents(pastEvents, imageDuration, imageDelay));
         ResizeAndRePositionTextBox();
 
-        pastEventsPlayer(PastProgress, imageDelay);
+        if(!easteregg){
+            pastEventsPlayer(PastProgress, imageDelay);
+        }else{
+            StartCoroutine(easterEgg());
+        }
     }
 
     // Update is called once per frame
@@ -52,7 +60,7 @@ public class ScrollingTestManager : MonoBehaviour
 
     private void ResizeAndRePositionTextBox(){
 
-        textForImages[0].transform.parent.GetComponent<Mask>().enabled = true;
+        //textForImages[0].transform.parent.GetComponent<Mask>().enabled = true;
 
         for(int i = 0; i < textForImages.Length; i++){
         Vector2 temp = textForImages[i].sizeDelta;
@@ -110,6 +118,18 @@ public class ScrollingTestManager : MonoBehaviour
 
     }
 
+    IEnumerator easterEgg(){
+
+        yield return new WaitForSeconds(2.5f);
+        easterEggTitle.SetActive(true);
+        while(easterEggTitle.transform.localScale != Vector3.zero){
+            easterEggTitle.transform.localScale = Vector3.MoveTowards(easterEggTitle.transform.localScale, Vector3.zero, 0.8f * Time.deltaTime);
+            yield return null;
+        }
+        pastEventsPlayer(PastProgress, imageDelay);
+
+    }
+
     private void pastEventsPlayer(int past, float delay){
         if(PastProgress < pastEvents.Length){
         StartCoroutine(FadeInPastEvent(past, delay));
@@ -119,8 +139,12 @@ public class ScrollingTestManager : MonoBehaviour
 
     private IEnumerator FadeInPastEvent(int past, float delay){
 
-        if(PastProgress == 0)
+        float MaskY = FindObjectOfType<Mask>().rectTransform.sizeDelta.y;
+
+        if(PastProgress == 0){
         yield return new WaitForSeconds(2f);
+        textForImages[0].gameObject.SetActive(true);
+        }
 
         yield return new WaitForSeconds(delay);
 
@@ -133,18 +157,40 @@ public class ScrollingTestManager : MonoBehaviour
             temp.a = Mathf.MoveTowards(temp.a, 1f, ImageFadeSpeed * Time.deltaTime);
             pastEvents[past].color = temp;
             //Debug.Log(temp.a);
-            if(temp.a > 0.5f)
-            textForImages[past].anchoredPosition = Vector2.MoveTowards(textForImages[PastProgress].anchoredPosition, TextTemp, TextSpeed * Time.deltaTime);
+            if(temp.a > 0.5f){
+            //textForImages[past].gameObject.SetActive(true);
+            //textForImages[past].anchoredPosition = Vector2.MoveTowards(textForImages[PastProgress].anchoredPosition, TextTemp, TextSpeed * Time.deltaTime);
+            }
             yield return null;
         }
 
         //Vector2 TextTemp = textForImages[PastProgress].anchoredPosition;
         //TextTemp.y = 0;
         while(textForImages[past].anchoredPosition.y < 0){//scroll text up the screen
-            textForImages[past].anchoredPosition = Vector2.MoveTowards(textForImages[PastProgress].anchoredPosition, TextTemp, TextSpeed * Time.deltaTime);
+            //textForImages[past].anchoredPosition = Vector2.MoveTowards(textForImages[PastProgress].anchoredPosition, TextTemp, TextSpeed * Time.deltaTime);
+
+            // if(textForImages[past].anchoredPosition.y > -100f){
+            //     if(past < textForImages.Length - 1){
+            //     textForImages[past + 1].gameObject.SetActive(true);
+            //     }   
+            // }
+
             yield return null;
         }
 
+        if(past < textForImages.Length - 1){
+        textForImages[past + 1].gameObject.SetActive(true);
+        }
+
+        //Debug.Log(textForImages.Length);
+        if(past == textForImages.Length - 1){
+            //Debug.Log("Last image");
+
+            while(textForImages[past].gameObject.activeInHierarchy){
+                yield return null;
+            }
+
+        }
 
         while(temp.a != 0){//fade out image
             temp.a = Mathf.MoveTowards(temp.a, 0, ImageFadeSpeed * Time.deltaTime);
@@ -156,6 +202,7 @@ public class ScrollingTestManager : MonoBehaviour
         
 
         yield return new WaitForSeconds(delay * 2);
+
 
         if(PastProgress < pastEvents.Length - 1){
             PastProgress++;

@@ -1109,7 +1109,7 @@ RectTransform:
   m_GameObject: {fileID: 1037507357}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.2217, y: 2.2217, z: 2.2217}
   m_Children: []
   m_Father: {fileID: 1583670946}
   m_RootOrder: 6
@@ -1375,11 +1375,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1718328590
-      Data2: 1271660602
-      Data3: -865949305
-      Data4: -232045513
-    Path: event:/MUSIC/Text Scroll Loop
+      Data1: 581255400
+      Data2: 1236889926
+      Data3: -691519347
+      Data4: -306097476
+    Path: event:/MUSIC/Glube Does a Star Wars
   Event: 
   PlayEvent: 11
   StopEvent: 2
@@ -1868,7 +1868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0603e7547be784c861c9f020d14108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextSpeed: 40
+  TextSpeed: 45
   skipTextDuration: 2
   imageDelay: 0.2
   ImageFadeSpeed: 0.5
@@ -1885,7 +1885,7 @@ MonoBehaviour:
   - {fileID: 906029406}
   - {fileID: 2082051521}
   - {fileID: 86685256}
-  easteregg: 0
+  easteregg: 1
   easterEggTitle: {fileID: 1037507357}
 --- !u!1 &2026706787
 GameObject:
