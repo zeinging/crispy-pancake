@@ -51,15 +51,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "d8e38b13-c713-475d-954c-531f77dc1532",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Boost",
                     "type": "Button",
                     "id": "0cf97e51-33a6-4624-aef0-5bf5c9588cea",
@@ -75,6 +66,15 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dodge",
+                    "type": "Button",
+                    "id": "2f54ba01-f2cb-402d-b7c2-ed2a30e62249",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -94,17 +94,6 @@
                     "name": "",
                     "id": "256752ef-933f-408f-b166-862586f78747",
                     "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1caab458-1c02-4124-b240-ad84fb9ac524",
-                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -411,41 +400,8 @@
                 },
                 {
                     "name": "",
-                    "id": "fc2858ea-f81f-49a7-9817-1b066c0d06a6",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dd08a858-69fa-4867-944d-4ef6b5f327c6",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "4596b3f9-094f-4ae7-b5b4-fc30f7da103d",
                     "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Boost",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "58eacc2c-9d9b-4990-bc9d-7cfd392597a9",
-                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
@@ -478,11 +434,33 @@
                 {
                     "name": "",
                     "id": "8ca4d601-9d12-4e7c-a9ca-e78ec66579d4",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b81fd729-da8d-44e5-a298-fcbacdb8f101",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2197889b-e63f-40f0-bfef-a1dff509c984",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -9,7 +9,7 @@ public class PlayerPlane : MonoBehaviour
     private float speed, turnSpeed, laserSpeed,
      NoseSmallAimDis = 32.5f, NoseBigAimDis = 25f, IndependentSmallAim, IndependentBigAim;
 
-    public float BoostSpeed = 60, BoostDuration = 3, BoostMax, BrakeDuration = 2;
+    public float BoostSpeed = 60, BoostDuration = 3, BoostMax, BrakeDuration = 2, DodgeSpeed = 15f;
 
     private float speedCach, brakeCach;
 
@@ -20,7 +20,7 @@ public class PlayerPlane : MonoBehaviour
 
     private Vector2 inputVector, cachInputs = Vector2.zero;
 
-    public GameObject Plane;
+    public GameObject PlaneMesh;
 
     public GameObject LaserShot, LaserPistle, CMVCamTarget;
 
@@ -34,7 +34,7 @@ public class PlayerPlane : MonoBehaviour
 
     private CossHairScript CrossHair; 
 
-    private bool PlayerStopped = false, CanBoost = true, isBoosting = false, CanBrake = true, isBraking = false;
+    private bool PlayerStopped = false, CanBoost = true, isBoosting = false, CanBrake = true, isBraking = false, canDodge = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -49,6 +49,7 @@ public class PlayerPlane : MonoBehaviour
         playerInputActions.Player.Boost.canceled += CancelBoost;
         playerInputActions.Player.Brake.performed += Brake;
         playerInputActions.Player.Brake.canceled += CancelBrake;
+        playerInputActions.Player.Dodge.performed += Dodge;
 
         BoostMax = BoostDuration;
         BoostDuration = 0;
@@ -72,6 +73,8 @@ public class PlayerPlane : MonoBehaviour
             CrossHair.SmallAimDis = IndependentSmallAim;
             CrossHair.BigAimDis = IndependentBigAim;
         }
+
+
         //LaserPistle.transform.position = transform.position;
 
         //inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
@@ -257,6 +260,66 @@ public class PlayerPlane : MonoBehaviour
             }
         }
 
+        private void Dodge(InputAction.CallbackContext context){
+            if(context.performed){
+                if(canDodge){
+                    canDodge = false;
+                    StartCoroutine(SpinPlane());
+                }
+            }
+        }
+
+        private IEnumerator SpinPlane(){
+            bool isRotating = true;
+            float rotationProgress = 0;
+            //Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
+            Vector2 inputVector = cachInputs;//read control inputs
+            float RotateXDir = inputVector.x;
+
+            //inputVector.x = Mathf.FloorToInt(inputVector.x);
+            //PlaneMesh.transform.localRotation = Quaternion.Lerp(PlaneMesh.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime);
+            Quaternion temp = PlaneMesh.transform.localRotation;
+
+            float Tempprogress = 1;
+
+            
+                if(inputVector.x >= 0){
+                RotateXDir = -1;
+                }else
+                RotateXDir = 1;
+
+                float speedCach = turnSpeed;
+                turnSpeed = DodgeSpeed;
+
+            while(isRotating){
+                //LeanTween.rotateLocal(PlaneMesh, new Vector3(0, 0, 360), turnSpeed * Time.deltaTime);
+
+
+                if(rotationProgress < 360f * RotateXDir){
+                    rotationProgress += RotateXDir;
+                }
+                Tempprogress = Mathf.MoveTowards(Tempprogress, 360 * RotateXDir, 600 * Time.deltaTime);
+                Quaternion tempRot = Quaternion.Euler(0 ,0 ,Tempprogress);
+
+
+                PlaneMesh.transform.localRotation = tempRot;
+
+                if(Tempprogress == 360 * RotateXDir){
+                    isRotating = false;
+                }
+                //PlaneMesh.transform.localRotation = Quaternion.RotateTowards(PlaneMesh.transform.localRotation, tempRot, 180 * Time.deltaTime);
+                //if(PlaneMesh.transform.localRotation == tempRot && rotationProgress == -360){
+                    //isRotating = true;
+                    //canDodge = true;
+                    //PlaneMesh.transform.localRotation = tempRot;
+                //}
+                yield return null;
+            }
+            yield return new WaitForSeconds(0.1f);
+            canDodge = true;
+            turnSpeed = speedCach;
+        }
+
     private void AimToUICrossHair(){//rotate pistle to UIAim, probably replace with UIAim follows Laser Pistle Rotation
 
         //Vector3 temp = transform.forward + UIAimTransform.forward;
@@ -310,6 +373,8 @@ public class PlayerPlane : MonoBehaviour
     private void RotateLaserPistle(){
 
         //LaserPistle.transform.rotation = cam.transform.rotation;
+        //PlaneMesh.transform.position = transform.position;
+        //PlaneMesh.transform.rotation = LaserPistle.transform.rotation;
 
         if(GameplayControllerScript.instance.NoseAim){
 
@@ -328,10 +393,13 @@ public class PlayerPlane : MonoBehaviour
 
             //LaserPistle.transform.localRotation = temp;
             LaserPistle.transform.localRotation = Quaternion.Lerp(LaserPistle.transform.localRotation, temp, UDStep);
+            //PlaneMesh.transform.rotation = LaserPistle.transform.rotation;
             }
             else{
 
             LaserPistle.transform.localRotation = Quaternion.Lerp(LaserPistle.transform.localRotation, Quaternion.Euler(0, 0, 0), UDStep);
+            //PlaneMesh.transform.rotation = LaserPistle.transform.rotation;
+            
             }
 
         }else{
@@ -398,19 +466,19 @@ public class PlayerPlane : MonoBehaviour
 
     }
 
-    private void LeanTweenMethod()
-    {
-        LeanTween.move(Plane, transform.position + transform.forward, speed * Time.deltaTime);//constant forward movement
+    // private void LeanTweenMethod()
+    // {
+    //     LeanTween.move(Plane, transform.position + transform.forward, speed * Time.deltaTime);//constant forward movement
 
-        Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
+    //     Vector2 inputVector = playerInputActions.Player.Movement.ReadValue<Vector2>();//read control inputs
 
-        float tempX = inputVector.x + transform.localEulerAngles.y;
+    //     float tempX = inputVector.x + transform.localEulerAngles.y;
 
-        Vector3 tempROt = new Vector3(inputVector.y * 45f, tempX * 2f, 0);
+    //     Vector3 tempROt = new Vector3(inputVector.y * 45f, tempX * 2f, 0);
 
-        LeanTween.rotateX(Plane, inputVector.y * 45, 0.2f);
-        LeanTween.rotateY(Plane, inputVector.x + Time.deltaTime, 0.2f);
-    }
+    //     LeanTween.rotateX(Plane, inputVector.y * 45, 0.2f);
+    //     LeanTween.rotateY(Plane, inputVector.x + Time.deltaTime, 0.2f);
+    // }
 
     private void QuaternionRotationMethod()
     {

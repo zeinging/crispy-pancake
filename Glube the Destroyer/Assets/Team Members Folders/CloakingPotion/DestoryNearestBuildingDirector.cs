@@ -54,6 +54,24 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if(!GameplayControllerScript.instance.GlubeAngry){
+        
+            if(animController.anim.GetBool("Angry")){
+                GlubeCalmsDown();
+            }
+
+            GlubeAttacksBuildings();
+
+        }else{
+            GlubeAttacksPlayer();
+        }
+
+    }
+
+    public void GlubeAttacksBuildings(){
+        
+
+
         if (!needsToFindNextBuilding)
         {
             // If we don't need to find the next building, simply return.
@@ -81,10 +99,6 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
             needsToFindNextBuilding = false;
         }
 
-        //if(GameplayControllerScript.instance.GlubeHealth <= 0){
-            //StopAllCoroutines();
-        //}
-
     }
 
     public void HandleCompletedBulidingDestruction()
@@ -109,14 +123,27 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
         //}
     }
 
+    public void GlubeAttacksPlayer(){
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.isStopped = true;
+        agent.velocity = agent.velocity * 0.1f;
+        animController.GlubeMad();
+    }
+
+    public void GlubeCalmsDown(){
+        animController.GlubeCalm();
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.isStopped = false;
+    }
+
     public void GlubeDefeated(){
         StopAllCoroutines();
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.isStopped = true;
         agent.velocity = agent.velocity * 0.1f;
 
-        GetComponentInChildren<Animator>().SetBool("IsAttackingBuilding", false);
-        GetComponentInChildren<Animator>().CrossFade("GLube Idle And Walk", 0.1f);
+        animController.anim.SetBool("IsAttackingBuilding", false);
+        animController.anim.CrossFade("GLube Idle And Walk", 0.1f);
     }
 
     private IEnumerator FindDelay(){

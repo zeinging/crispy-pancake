@@ -37,6 +37,13 @@ namespace Assets.Team_Members_Folders.CloakingPotion
             anim.SetBool("IsAttackingBuilding", true);
         }
 
+        public void GlubeMad(){
+            anim.SetBool("Angry", true);
+        }
+        public void GlubeCalm(){
+            anim.SetBool("Angry", false);
+        }
+
         public void GlubeWin()
         {
             anim.SetBool("IsAttackingBuilding", false);

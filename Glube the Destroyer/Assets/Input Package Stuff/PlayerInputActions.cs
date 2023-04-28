@@ -73,15 +73,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""d8e38b13-c713-475d-954c-531f77dc1532"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Boost"",
                     ""type"": ""Button"",
                     ""id"": ""0cf97e51-33a6-4624-aef0-5bf5c9588cea"",
@@ -97,6 +88,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dodge"",
+                    ""type"": ""Button"",
+                    ""id"": ""2f54ba01-f2cb-402d-b7c2-ed2a30e62249"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -116,17 +116,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""256752ef-933f-408f-b166-862586f78747"",
                     ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1caab458-1c02-4124-b240-ad84fb9ac524"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -433,41 +422,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fc2858ea-f81f-49a7-9817-1b066c0d06a6"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""dd08a858-69fa-4867-944d-4ef6b5f327c6"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""4596b3f9-094f-4ae7-b5b4-fc30f7da103d"",
                     ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""Boost"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""58eacc2c-9d9b-4990-bc9d-7cfd392597a9"",
-                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
@@ -500,11 +456,33 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8ca4d601-9d12-4e7c-a9ca-e78ec66579d4"",
-                    ""path"": ""<Keyboard>/ctrl"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Brake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b81fd729-da8d-44e5-a298-fcbacdb8f101"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dodge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2197889b-e63f-40f0-bfef-a1dff509c984"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Dodge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1095,9 +1073,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_BarellRoll = m_Player.FindAction("BarellRoll", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
-        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Boost = m_Player.FindAction("Boost", throwIfNotFound: true);
         m_Player_Brake = m_Player.FindAction("Brake", throwIfNotFound: true);
+        m_Player_Dodge = m_Player.FindAction("Dodge", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1177,9 +1155,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_BarellRoll;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Aim;
-    private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Boost;
     private readonly InputAction m_Player_Brake;
+    private readonly InputAction m_Player_Dodge;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1189,9 +1167,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @BarellRoll => m_Wrapper.m_Player_BarellRoll;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
-        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Boost => m_Wrapper.m_Player_Boost;
         public InputAction @Brake => m_Wrapper.m_Player_Brake;
+        public InputAction @Dodge => m_Wrapper.m_Player_Dodge;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1216,15 +1194,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Aim.started += instance.OnAim;
             @Aim.performed += instance.OnAim;
             @Aim.canceled += instance.OnAim;
-            @Pause.started += instance.OnPause;
-            @Pause.performed += instance.OnPause;
-            @Pause.canceled += instance.OnPause;
             @Boost.started += instance.OnBoost;
             @Boost.performed += instance.OnBoost;
             @Boost.canceled += instance.OnBoost;
             @Brake.started += instance.OnBrake;
             @Brake.performed += instance.OnBrake;
             @Brake.canceled += instance.OnBrake;
+            @Dodge.started += instance.OnDodge;
+            @Dodge.performed += instance.OnDodge;
+            @Dodge.canceled += instance.OnDodge;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1244,15 +1222,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Aim.started -= instance.OnAim;
             @Aim.performed -= instance.OnAim;
             @Aim.canceled -= instance.OnAim;
-            @Pause.started -= instance.OnPause;
-            @Pause.performed -= instance.OnPause;
-            @Pause.canceled -= instance.OnPause;
             @Boost.started -= instance.OnBoost;
             @Boost.performed -= instance.OnBoost;
             @Boost.canceled -= instance.OnBoost;
             @Brake.started -= instance.OnBrake;
             @Brake.performed -= instance.OnBrake;
             @Brake.canceled -= instance.OnBrake;
+            @Dodge.started -= instance.OnDodge;
+            @Dodge.performed -= instance.OnDodge;
+            @Dodge.canceled -= instance.OnDodge;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1421,9 +1399,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnBarellRoll(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
         void OnBrake(InputAction.CallbackContext context);
+        void OnDodge(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
