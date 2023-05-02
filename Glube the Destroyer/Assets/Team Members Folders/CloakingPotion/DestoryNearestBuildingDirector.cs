@@ -55,15 +55,9 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
     private void Update()
     {
         if(!GameplayControllerScript.instance.GlubeAngry){
-        
-            if(animController.anim.GetBool("Angry")){
-                GlubeCalmsDown();
-            }
 
             GlubeAttacksBuildings();
 
-        }else{
-            GlubeAttacksPlayer();
         }
 
     }
@@ -124,15 +118,32 @@ public class DestoryNearestBuildingDirector : MonoBehaviour
     }
 
     public void GlubeAttacksPlayer(){
+
+        StartCoroutine(GlubeAttackDuration(5f));
+    }
+
+    private IEnumerator GlubeAttackDuration(float t){
+
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.isStopped = true;
         agent.velocity = agent.velocity * 0.1f;
         animController.GlubeMad();
-    }
 
-    public void GlubeCalmsDown(){
+        
+
+        while(t > 0){
+        Vector3 PlayerDir = GameplayControllerScript.instance.PlayerPlane.transform.position - transform.position;
+        Quaternion target = Quaternion.LookRotation(PlayerDir, Vector3.up);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, target, 500 * Time.deltaTime);
+        target.eulerAngles = new Vector3(0, target.eulerAngles.y, 0);
+        transform.rotation = target;
+        t -= Time.deltaTime;
+        yield return null;
+        }
+
+        yield return new WaitForSeconds(3f);
+        GameplayControllerScript.instance.GlubeAngry = false;
         animController.GlubeCalm();
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.isStopped = false;
     }
 

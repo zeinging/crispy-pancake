@@ -52,6 +52,12 @@ public class GameplayControllerScript : MonoBehaviour
 
     public void GlubeTakeDamage(int damage){
         GlubeHealth -= damage;
+
+        // if(GlubeHealth < 225){
+        //     GlubeAngry = true;
+        //     Glube.GetComponent<DestoryNearestBuildingDirector>().GlubeAttacksPlayer();
+        // }
+
         if(GlubeHealth <= 0){
             PlayerWins();
         }
