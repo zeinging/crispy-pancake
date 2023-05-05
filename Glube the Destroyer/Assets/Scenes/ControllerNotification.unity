@@ -729,6 +729,7 @@ GameObject:
   - component: {fileID: 1088885115}
   - component: {fileID: 1088885114}
   - component: {fileID: 1088885113}
+  - component: {fileID: 1088885116}
   m_Layer: 5
   m_Name: Scene Moving Text
   m_TagString: Untagged
@@ -762,7 +763,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088885111}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d69a17281ceba840b74a966f06d71a7, type: 3}
   m_Name: 
@@ -868,6 +869,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088885111}
   m_CullTransparentMesh: 1
+--- !u!114 &1088885116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088885111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3f60d05b1eb6143aaf4d3267855149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
+  levelName: MainMenuWithSceneFader
 --- !u!1 &1362907002
 GameObject:
   m_ObjectHideFlags: 0

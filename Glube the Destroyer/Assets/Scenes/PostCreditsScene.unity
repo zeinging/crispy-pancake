@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 25663587}
-  - component: {fileID: 25663588}
+  - component: {fileID: 25663589}
   m_Layer: 5
   m_Name: Text Mover
   m_TagString: Untagged
@@ -299,7 +299,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1080}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0}
---- !u!114 &25663588
+--- !u!114 &25663589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -308,13 +308,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 25663586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d69a17281ceba840b74a966f06d71a7, type: 3}
+  m_Script: {fileID: 11500000, guid: ef3f60d05b1eb6143aaf4d3267855149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 70
-  skipTextDuration: 2
+  duration: 0
+  inputWait: 5
   levelName: MainMenuWithSceneFader
-  NotificationText: {fileID: 297049537}
 --- !u!1 &266355649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,7 +2817,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c0315a0a5b6bd3c45a54d52ed2061be6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c61ae43f38660254ba691e2de0c5dace, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3402,7 +3401,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1934239953}
-  - component: {fileID: 1934239954}
   m_Layer: 5
   m_Name: Scrolling Text Manager
   m_TagString: Untagged
@@ -3429,31 +3427,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1934239954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934239952}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0603e7547be784c861c9f020d14108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TextSpeed: 20
-  skipTextDuration: 1
-  imageDuration: 5
-  imageDelay: 2
-  ImageFadeSpeed: 0.5
-  levelName: 
-  NotificationText: {fileID: 0}
-  PastProgress: 0
-  pastEvents:
-  - {fileID: 1412903067}
-  - {fileID: 1879777118}
-  - {fileID: 2026706789}
-  - {fileID: 799285623}
 --- !u!1 &2026706787
 GameObject:
   m_ObjectHideFlags: 0

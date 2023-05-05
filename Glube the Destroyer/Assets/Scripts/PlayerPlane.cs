@@ -415,7 +415,7 @@ public class PlayerPlane : MonoBehaviour
             //float tempX = 25f * inputVector.x;
             //float tempY = 10f * inputVector.y;
 
-
+            //Debug.Log(inputVector);
 
             float tempX = LaserPistle.transform.localEulerAngles.y;
             float tempY = LaserPistle.transform.localEulerAngles.x;
