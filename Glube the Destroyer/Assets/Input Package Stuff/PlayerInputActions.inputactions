@@ -42,6 +42,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "MAim",
+                    "type": "Value",
+                    "id": "11e81f66-713c-4ecb-b593-48b4f4d5ded4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Aim",
                     "type": "Value",
                     "id": "b3c05513-eddf-4181-9b62-cbf85349d15b",
@@ -461,6 +470,17 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "618288e4-9be0-4ec0-b9ef-e3a280758cf1",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "MAim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

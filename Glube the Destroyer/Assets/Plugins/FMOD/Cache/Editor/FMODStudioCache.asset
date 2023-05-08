@@ -190,6 +190,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6997720275962622255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Credits Theme
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/Credits Theme
+  Guid:
+    Data1: -1900115959
+    Data2: 1147831493
+    Data3: -313550954
+    Data4: -612557619
+  Banks:
+  - {fileID: -5632999262547622278}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6943033474008513606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,10 +286,10 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Menu.bank
   Name: Menu
   StudioPath: bank:/Menu
-  lastModified: 638180682937952898
+  lastModified: 638188993433589177
   FileSizes:
   - Name: Desktop
-    Value: 3118592
+    Value: 3652128
   Exists: 1
 --- !u!114 &-5184228668422937974
 MonoBehaviour:
@@ -333,10 +360,10 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638180682937637883
+  lastModified: 638188993423920077
   FileSizes:
   - Name: Desktop
-    Value: 2002
+    Value: 2146
   Exists: 1
 --- !u!114 &-2511369932177996010
 MonoBehaviour:
@@ -460,12 +487,15 @@ MonoBehaviour:
   - {fileID: 3639073527657867855}
   - {fileID: 3229424400080940461}
   - {fileID: -8698068251198238782}
+  - {fileID: 2113406243367904887}
+  - {fileID: -6997720275962622255}
+  - {fileID: 1840726434253578390}
   EditorParameters: []
   MasterBanks:
   - {fileID: 6458127714841535602}
   StringsBanks:
   - {fileID: -3962470505092573222}
-  cacheTime: 638180682937952898
+  cacheTime: 638188993433589177
   cacheVersion: 131603
 --- !u!114 &5938209998214784
 MonoBehaviour:
@@ -512,6 +542,60 @@ MonoBehaviour:
     Data2: 1259393781
     Data3: -1125055558
     Data4: -1365305489
+  Banks:
+  - {fileID: 3143290356228335726}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1840726434253578390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUSIC/Updated Game Over
+  m_EditorClassIdentifier: 
+  Path: event:/MUSIC/Updated Game Over
+  Guid:
+    Data1: -621842366
+    Data2: 1212105322
+    Data3: -214306120
+    Data4: 390803157
+  Banks:
+  - {fileID: -5632999262547622278}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2113406243367904887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Enviornment/Building Hit Ground
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Enviornment/Building Hit Ground
+  Guid:
+    Data1: 349438706
+    Data2: 1255899651
+    Data3: 1988804770
+    Data4: 1632733279
   Banks:
   - {fileID: 3143290356228335726}
   IsStream: 0
@@ -617,10 +701,10 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Gameplay.bank
   Name: Gameplay
   StudioPath: bank:/Gameplay
-  lastModified: 638180678535245509
+  lastModified: 638188966235106029
   FileSizes:
   - Name: Desktop
-    Value: 2255264
+    Value: 2257088
   Exists: 1
 --- !u!114 &3229424400080940461
 MonoBehaviour:
@@ -718,7 +802,7 @@ MonoBehaviour:
   Path: Assets/FMOD/GlubeTheDestroyer_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638180682937618047
+  lastModified: 638188993423910104
   FileSizes:
   - Name: Desktop
     Value: 1236384

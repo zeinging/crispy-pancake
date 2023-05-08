@@ -9,7 +9,7 @@ public class PlayerPlane : MonoBehaviour
     private float speed, turnSpeed, laserSpeed,
      NoseSmallAimDis = 32.5f, NoseBigAimDis = 25f, IndependentSmallAim, IndependentBigAim;
 
-    public float BoostSpeed = 60, BoostDuration = 3, BoostMax, BrakeDuration = 2, DodgeSpeed = 15f;
+    public float BoostSpeed = 60, BoostDuration = 3, BoostMax, BrakeDuration = 2, DodgeSpeed = 15f, LaserDis = 500f;
 
     private float speedCach, brakeCach;
 
@@ -18,7 +18,7 @@ public class PlayerPlane : MonoBehaviour
     private PlayerInput playerInput;
     private PlayerInputActions playerInputActions;
 
-    private Vector2 inputVector, cachInputs = Vector2.zero;
+    private Vector2 inputVector, cachInputs = Vector2.zero, MousePos;
 
     public GameObject PlaneMesh;
 
@@ -34,7 +34,7 @@ public class PlayerPlane : MonoBehaviour
 
     private CossHairScript CrossHair; 
 
-    private bool PlayerStopped = false, CanBoost = true, isBoosting = false, CanBrake = true, isBraking = false, canDodge = true;
+    private bool PlayerStopped = false, CanBoost = true, isBoosting = false, CanBrake = true, isBraking = false, canDodge = true, usingMouse = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -404,63 +404,27 @@ public class PlayerPlane : MonoBehaviour
 
         }else{
 
-            Vector2 inputVector = playerInputActions.Player.Aim.ReadValue<Vector2>();
+            Vector2 GamePadInputVector = playerInputActions.Player.Aim.ReadValue<Vector2>();
+            Vector2 MouseInputVector = playerInputActions.Player.MAim.ReadValue<Vector2>();
 
-            var UDStep = turnSpeed * Time.deltaTime;
+          
+                Vector3 target = cam.ScreenToWorldPoint(new Vector3(MouseInputVector.x, MouseInputVector.y, LaserDis));
 
-            //Quaternion temp = Quaternion.Euler(45 * inputVector.x, 45 * inputVector.y, 0);
-            //float tempX = inputVector.x + LaserPistle.transform.localEulerAngles.y;
-            //float tempY = -inputVector.y + LaserPistle.transform.localEulerAngles.x;
-
-            //float tempX = 25f * inputVector.x;
-            //float tempY = 10f * inputVector.y;
-
-            //Debug.Log(inputVector);
-
-            float tempX = LaserPistle.transform.localEulerAngles.y;
-            float tempY = LaserPistle.transform.localEulerAngles.x;
-
-            //tempX = Mathf.MoveTowards(tempX, 45 * inputVector.x, UDStep);
-            //tempY = Mathf.MoveTowards(tempY, 45 * inputVector.y, UDStep);
-
-            //tempX = Mathf.MoveTowardsAngle(tempX, 20 + inputVector.x, 30);
-
-            //tempY = Mathf.MoveTowardsAngle(tempY, 20 + inputVector.y, 30);
-
-            //tempX += inputVector.x * turnSpeed;
-            tempY += -inputVector.y * turnSpeed;
-            
-            
-            //if(Mathf.DeltaAngle(tempX, -20) > 1){
-                //Debug.Log("hit left side" + tempX);
+                    //Debug.Log("using " + playerInput.currentControlScheme);
+                if(MousePos != MouseInputVector){
+                    MousePos = MouseInputVector;
+                    usingMouse = true;
+                }
                 
-            //}
-            //if(Mathf.DeltaAngle(tempX, 20) < 1){
-                //Debug.Log("hit right side" + tempX);
-            //}
-            if(inputVector.x > 0){
-                tempX = Mathf.Lerp(tempX, 40, turnSpeed);
-            }else{
-                tempX = Mathf.Lerp(tempX, -40, turnSpeed);
-            }
-            
-            //Quaternion temp = Quaternion.Euler(25f * -inputVector.y, 45f * inputVector.x, 0);
-            //Quaternion Xaxis = Quaternion.AngleAxis(tempY, LaserPistle.transform.right);//rotates pislte up and down
-            //Quaternion Yaxis = Quaternion.AngleAxis(tempX, LaserPistle.transform.up);//rotates pislte left and right
 
-            Quaternion temp = Quaternion.Euler(tempY, tempX, 0);
-            //Quaternion temp = Xaxis * Yaxis;
-            
+                Vector3 LaserDir = target - LaserPistle.transform.position;
 
-            //if(inputVector.magnitude > 0){
-            //LaserPistle.transform.localRotation = temp;
-            //Debug.Log(Quaternion.Angle(LaserPistle.transform.localRotation, temp));
-            //if(Quaternion.Angle(LaserPistle.transform.localRotation, Quaternion.Euler(25f, 45f, 0)) < 10f){
-            if(inputVector.magnitude != 0){
-                LaserPistle.transform.localRotation = Quaternion.Lerp(LaserPistle.transform.localRotation, temp, UDStep);
-            }
-            //}
-            //}
+                //if(usingMouse){
+                    LaserPistle.transform.rotation = Quaternion.LookRotation(LaserDir);
+                //}else{
+                    //LaserPistle.transform.rotation = Quaternion.LookRotation(LaserDir);
+                //}
+            
 
         }
 

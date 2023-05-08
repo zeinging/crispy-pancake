@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 3b52e523159ef1b4089a3dc9b784fd37, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1889,13 +1889,14 @@ MonoBehaviour:
   laserSpeed: 20
   NoseSmallAimDis: 32.5
   NoseBigAimDis: 25
-  IndependentSmallAim: 100
-  IndependentBigAim: 30
+  IndependentSmallAim: 400
+  IndependentBigAim: 80
   BoostSpeed: 60
   BoostDuration: 3.7
   BoostMax: 0
   BrakeDuration: 2
   DodgeSpeed: 15
+  LaserDis: 500
   PlaneMesh: {fileID: 506369783}
   LaserShot: {fileID: 5128690108637038337, guid: 715820a3a49887d4ebdd604def720003, type: 3}
   LaserPistle: {fileID: 1703359594}
@@ -2593,11 +2594,11 @@ RectTransform:
   m_Father: {fileID: 1464302251}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -387.5}
-  m_SizeDelta: {x: 1320, y: -825}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 300, y: -387.5}
+  m_SizeDelta: {x: -600, y: 255}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &281241624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4037,11 +4038,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1099074212
-      Data2: 1183708848
-      Data3: 303313793
-      Data4: -866091947
-    Path: event:/MUSIC/Game Over
+      Data1: -621842366
+      Data2: 1212105322
+      Data3: -214306120
+      Data4: 390803157
+    Path: event:/MUSIC/Updated Game Over
   Event: 
   PlayEvent: 11
   StopEvent: 2
@@ -9766,11 +9767,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1603885839
-      Data2: 1115397180
-      Data3: -1925681006
-      Data4: -1153069291
-    Path: event:/SFX/Enviornment/Building Explosion
+      Data1: 349438706
+      Data2: 1255899651
+      Data3: 1988804770
+      Data4: 1632733279
+    Path: event:/SFX/Enviornment/Building Hit Ground
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -9828,11 +9829,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1603885839
-      Data2: 1115397180
-      Data3: -1925681006
-      Data4: -1153069291
-    Path: event:/SFX/Enviornment/Building Explosion
+      Data1: 349438706
+      Data2: 1255899651
+      Data3: 1988804770
+      Data4: 1632733279
+    Path: event:/SFX/Enviornment/Building Hit Ground
   Event: 
   PlayEvent: 11
   StopEvent: 12
@@ -14815,8 +14816,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.55154204, g: 0.53333336, b: 1, a: 1}
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

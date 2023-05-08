@@ -1987,7 +1987,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1036058266
 Transform:
   m_ObjectHideFlags: 0
@@ -2037,11 +2037,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 971605748
-      Data2: 1268134335
-      Data3: 103958438
-      Data4: 729319303
-    Path: event:/MUSIC/Glube Defeat Loop
+      Data1: -1900115959
+      Data2: 1147831493
+      Data3: -313550954
+      Data4: -612557619
+    Path: event:/MUSIC/Credits Theme
   Event: 
   PlayEvent: 11
   StopEvent: 2

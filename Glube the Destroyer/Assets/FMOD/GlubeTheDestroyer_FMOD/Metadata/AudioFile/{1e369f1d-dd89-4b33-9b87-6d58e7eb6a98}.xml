@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1e369f1d-dd89-4b33-9b87-6d58e7eb6a98}">
+		<property name="assetPath">
+			<value>MUSIC/GTD_End_credits_theme.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>46.508117913832201</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{8c5aa0c3-dda3-4011-ad34-8b15602eb2f0}</destination>
+		</relationship>
+	</object>
+</objects>

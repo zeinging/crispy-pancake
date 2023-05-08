@@ -74,10 +74,10 @@ public class settingsScript : MonoBehaviour
 
             //Vector3 options3 = new Vector3(resolutuions[i].width, resolutuions[i].height, resolutuions[i].refreshRate);
 
-            if(resolutuions[i].refreshRate == 60){//should only add 60 Hrtz resolutions after unity update
+            //if(resolutuions[i].refreshRate == 60){//should only add 60 Hrtz resolutions after unity update
                 options.Add(option);//add the first one
-                Debug.Log(option);
-            }
+                //Debug.Log(option);
+            //}
 
             //if(i > 0 ){//if statement skips the first one
 

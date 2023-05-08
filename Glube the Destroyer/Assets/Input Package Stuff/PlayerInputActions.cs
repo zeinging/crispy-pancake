@@ -64,6 +64,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""MAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""11e81f66-713c-4ecb-b593-48b4f4d5ded4"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Aim"",
                     ""type"": ""Value"",
                     ""id"": ""b3c05513-eddf-4181-9b62-cbf85349d15b"",
@@ -483,6 +492,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Dodge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""618288e4-9be0-4ec0-b9ef-e3a280758cf1"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""MAim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1072,6 +1092,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_ChargedShot = m_Player.FindAction("ChargedShot", throwIfNotFound: true);
         m_Player_BarellRoll = m_Player.FindAction("BarellRoll", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_MAim = m_Player.FindAction("MAim", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Boost = m_Player.FindAction("Boost", throwIfNotFound: true);
         m_Player_Brake = m_Player.FindAction("Brake", throwIfNotFound: true);
@@ -1154,6 +1175,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ChargedShot;
     private readonly InputAction m_Player_BarellRoll;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_MAim;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Boost;
     private readonly InputAction m_Player_Brake;
@@ -1166,6 +1188,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @ChargedShot => m_Wrapper.m_Player_ChargedShot;
         public InputAction @BarellRoll => m_Wrapper.m_Player_BarellRoll;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @MAim => m_Wrapper.m_Player_MAim;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Boost => m_Wrapper.m_Player_Boost;
         public InputAction @Brake => m_Wrapper.m_Player_Brake;
@@ -1191,6 +1214,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @MAim.started += instance.OnMAim;
+            @MAim.performed += instance.OnMAim;
+            @MAim.canceled += instance.OnMAim;
             @Aim.started += instance.OnAim;
             @Aim.performed += instance.OnAim;
             @Aim.canceled += instance.OnAim;
@@ -1219,6 +1245,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @MAim.started -= instance.OnMAim;
+            @MAim.performed -= instance.OnMAim;
+            @MAim.canceled -= instance.OnMAim;
             @Aim.started -= instance.OnAim;
             @Aim.performed -= instance.OnAim;
             @Aim.canceled -= instance.OnAim;
@@ -1398,6 +1427,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnChargedShot(InputAction.CallbackContext context);
         void OnBarellRoll(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnMAim(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnBoost(InputAction.CallbackContext context);
         void OnBrake(InputAction.CallbackContext context);
